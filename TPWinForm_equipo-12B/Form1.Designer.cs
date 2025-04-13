@@ -40,25 +40,27 @@
             // 
             // btnListadoArticulos
             // 
-            this.btnListadoArticulos.Location = new System.Drawing.Point(176, 294);
+            this.btnListadoArticulos.Location = new System.Drawing.Point(173, 263);
             this.btnListadoArticulos.Name = "btnListadoArticulos";
             this.btnListadoArticulos.Size = new System.Drawing.Size(129, 44);
             this.btnListadoArticulos.TabIndex = 3;
             this.btnListadoArticulos.Text = "Listado de artículos";
             this.btnListadoArticulos.UseVisualStyleBackColor = true;
+            this.btnListadoArticulos.Click += new System.EventHandler(this.btnListadoArticulos_Click);
             // 
             // btnBusquedaArticulos
             // 
-            this.btnBusquedaArticulos.Location = new System.Drawing.Point(176, 244);
+            this.btnBusquedaArticulos.Location = new System.Drawing.Point(173, 213);
             this.btnBusquedaArticulos.Name = "btnBusquedaArticulos";
             this.btnBusquedaArticulos.Size = new System.Drawing.Size(129, 44);
             this.btnBusquedaArticulos.TabIndex = 2;
             this.btnBusquedaArticulos.Text = "Buscar artículos";
             this.btnBusquedaArticulos.UseVisualStyleBackColor = true;
+            this.btnBusquedaArticulos.Click += new System.EventHandler(this.btnBusquedaArticulos_Click);
             // 
             // btnAgregarArticulos
             // 
-            this.btnAgregarArticulos.Location = new System.Drawing.Point(176, 144);
+            this.btnAgregarArticulos.Location = new System.Drawing.Point(173, 113);
             this.btnAgregarArticulos.Name = "btnAgregarArticulos";
             this.btnAgregarArticulos.Size = new System.Drawing.Size(129, 44);
             this.btnAgregarArticulos.TabIndex = 0;
@@ -68,35 +70,38 @@
             // 
             // btnModificarArticulo
             // 
-            this.btnModificarArticulo.Location = new System.Drawing.Point(176, 194);
+            this.btnModificarArticulo.Location = new System.Drawing.Point(173, 163);
             this.btnModificarArticulo.Name = "btnModificarArticulo";
             this.btnModificarArticulo.Size = new System.Drawing.Size(129, 44);
             this.btnModificarArticulo.TabIndex = 1;
             this.btnModificarArticulo.Text = "Modificar artículo";
             this.btnModificarArticulo.UseVisualStyleBackColor = true;
+            this.btnModificarArticulo.Click += new System.EventHandler(this.btnModificarArticulo_Click);
             // 
             // btnEliminarArticulo
             // 
-            this.btnEliminarArticulo.Location = new System.Drawing.Point(176, 394);
+            this.btnEliminarArticulo.Location = new System.Drawing.Point(173, 363);
             this.btnEliminarArticulo.Name = "btnEliminarArticulo";
             this.btnEliminarArticulo.Size = new System.Drawing.Size(129, 44);
             this.btnEliminarArticulo.TabIndex = 5;
             this.btnEliminarArticulo.Text = "Eliminar un artículo";
             this.btnEliminarArticulo.UseVisualStyleBackColor = true;
+            this.btnEliminarArticulo.Click += new System.EventHandler(this.btnEliminarArticulo_Click);
             // 
             // btnDetalleArticulo
             // 
-            this.btnDetalleArticulo.Location = new System.Drawing.Point(176, 344);
+            this.btnDetalleArticulo.Location = new System.Drawing.Point(173, 313);
             this.btnDetalleArticulo.Name = "btnDetalleArticulo";
             this.btnDetalleArticulo.Size = new System.Drawing.Size(129, 44);
             this.btnDetalleArticulo.TabIndex = 4;
             this.btnDetalleArticulo.Text = "Ver detalle de un artículo";
             this.btnDetalleArticulo.UseVisualStyleBackColor = true;
+            this.btnDetalleArticulo.Click += new System.EventHandler(this.btnDetalleArticulo_Click);
             // 
             // lblOpcion
             // 
             this.lblOpcion.AutoSize = true;
-            this.lblOpcion.Location = new System.Drawing.Point(191, 116);
+            this.lblOpcion.Location = new System.Drawing.Point(188, 85);
             this.lblOpcion.Name = "lblOpcion";
             this.lblOpcion.Size = new System.Drawing.Size(98, 13);
             this.lblOpcion.TabIndex = 6;
@@ -106,7 +111,7 @@
             // 
             this.lblTitulo.AutoSize = true;
             this.lblTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitulo.Location = new System.Drawing.Point(121, 35);
+            this.lblTitulo.Location = new System.Drawing.Point(118, 43);
             this.lblTitulo.Name = "lblTitulo";
             this.lblTitulo.Size = new System.Drawing.Size(242, 24);
             this.lblTitulo.TabIndex = 7;
@@ -126,12 +131,14 @@
             this.Controls.Add(this.btnBusquedaArticulos);
             this.Controls.Add(this.btnListadoArticulos);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(494, 489);
             this.MinimumSize = new System.Drawing.Size(494, 489);
             this.Name = "ventanaPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Gestión de Artículos";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ventanaPrincipal_Close);
+            this.Load += new System.EventHandler(this.ventanaPrincipal_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
