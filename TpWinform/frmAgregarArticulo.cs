@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace TPWinForm_equipo_12B
+namespace TpWinform
 {
-    public partial class FormEliminar : Form
+    public partial class frmAgregarArticulo : Form
     {
-        public FormEliminar()
+        public frmAgregarArticulo()
         {
             InitializeComponent();
         }

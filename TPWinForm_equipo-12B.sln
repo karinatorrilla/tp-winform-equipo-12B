@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.13.35931.197 d17.13
+VisualStudioVersion = 17.13.35919.96 d17.13
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TPWinForm_equipo-12B", "TPWinForm_equipo-12B\TPWinForm_equipo-12B.csproj", "{3FA87277-636D-45D5-AF97-DBC865E83511}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TpWinform", "TpWinform\TpWinform.csproj", "{2F66D258-3F2B-4650-BA3D-4BAD94F1268F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{3FA87277-636D-45D5-AF97-DBC865E83511}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3FA87277-636D-45D5-AF97-DBC865E83511}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3FA87277-636D-45D5-AF97-DBC865E83511}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3FA87277-636D-45D5-AF97-DBC865E83511}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F66D258-3F2B-4650-BA3D-4BAD94F1268F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F66D258-3F2B-4650-BA3D-4BAD94F1268F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F66D258-3F2B-4650-BA3D-4BAD94F1268F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F66D258-3F2B-4650-BA3D-4BAD94F1268F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {3409A28A-3BA2-4750-8B6B-448AFB10B5D6}
+		SolutionGuid = {1170CD3C-598F-4ADC-AD48-792D40D088E2}
 	EndGlobalSection
 EndGlobal

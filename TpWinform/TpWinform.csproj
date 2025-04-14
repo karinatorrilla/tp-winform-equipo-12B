@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{3FA87277-636D-45D5-AF97-DBC865E83511}</ProjectGuid>
+    <ProjectGuid>{2F66D258-3F2B-4650-BA3D-4BAD94F1268F}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>TPWinForm_equipo_12B</RootNamespace>
-    <AssemblyName>TPWinForm_equipo-12B</AssemblyName>
+    <RootNamespace>TpWinform</RootNamespace>
+    <AssemblyName>TpWinform</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -35,7 +35,6 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -55,65 +54,21 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormAgregar.cs">
+    <Compile Include="frmAgregarArticulo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormAgregar.Designer.cs">
-      <DependentUpon>FormAgregar.cs</DependentUpon>
+    <Compile Include="frmAgregarArticulo.Designer.cs">
+      <DependentUpon>frmAgregarArticulo.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormBuscar.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormBuscar.Designer.cs">
-      <DependentUpon>FormBuscar.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormDetalle.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormDetalle.Designer.cs">
-      <DependentUpon>FormDetalle.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormEliminar.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormEliminar.Designer.cs">
-      <DependentUpon>FormEliminar.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormListado.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormListado.Designer.cs">
-      <DependentUpon>FormListado.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormModificar.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormModificar.Designer.cs">
-      <DependentUpon>FormModificar.cs</DependentUpon>
-    </Compile>
+    <Compile Include="Imagen.cs" />
     <Compile Include="Marca.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormAgregar.resx">
-      <DependentUpon>FormAgregar.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormBuscar.resx">
-      <DependentUpon>FormBuscar.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormDetalle.resx">
-      <DependentUpon>FormDetalle.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormEliminar.resx">
-      <DependentUpon>FormEliminar.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormListado.resx">
-      <DependentUpon>FormListado.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormModificar.resx">
-      <DependentUpon>FormModificar.cs</DependentUpon>
+    <EmbeddedResource Include="frmAgregarArticulo.resx">
+      <DependentUpon>frmAgregarArticulo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

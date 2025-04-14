@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace TPWinForm_equipo_12B
+namespace TpWinform
 {
     internal static class Program
     {
@@ -16,7 +16,7 @@ namespace TPWinForm_equipo_12B
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ventanaPrincipal());
+            Application.Run(new Form1());
         }
     }
 }

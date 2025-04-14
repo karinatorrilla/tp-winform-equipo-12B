@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TPWinForm_equipo_12B
+namespace TpWinform
 {
     internal class Categoria
     {
-        public int _idCategoria {  get; set; }
+        public int _idCategoria { get; set; }
         public string _nombreCategoria { get; set; }
     }
 }
