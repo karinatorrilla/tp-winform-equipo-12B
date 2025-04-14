@@ -24,7 +24,9 @@ namespace TpWinform
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            ConexionDB conexion = new ConexionDB();
+            dgvArticulos.DataSource = conexion.Listar();
+           
         }
 
         private void label1_Click_1(object sender, EventArgs e)
@@ -46,6 +48,16 @@ namespace TpWinform
         {
             frmAgregarArticulo ventana = new frmAgregarArticulo();
             ventana.ShowDialog();
+        }
+
+        private void txtBuscar_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lwArticulos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -8,7 +8,12 @@ namespace TpWinform
 {
     internal class Categoria
     {
-        public int _idCategoria { get; set; }
-        public string _nombreCategoria { get; set; }
+        public int IDCategoria { get; set; }
+        public string NombreCategoria { get; set; }
+
+        public override string ToString()
+        {
+            return NombreCategoria;
+        }
     }
 }

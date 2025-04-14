@@ -8,7 +8,13 @@ namespace TpWinform
 {
     internal class Marca
     {
-        public int _codMarca { get; set; }
-        public string _nombreMarca { get; set; }
+        public int CodMarca { get; set; }
+        public string NombreMarca { get; set; }
+
+        public override string ToString()
+        {
+            return NombreMarca;
+        }
+
     }
 }

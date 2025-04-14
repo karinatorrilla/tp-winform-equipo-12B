@@ -9,13 +9,20 @@ namespace TpWinform
 {
     internal class Articulo
     {
-        public int _codArticulo { get; set; }
-        public string _nombre { get; set; }
-        public string _descripcion { get; set; }
-        public Marca marca { get; set; }
-        public Categoria categoria { get; set; }
+
+        public string CodArticulo { get; set; }
+        public string NombreArticulo { get; set; }
+        public string Descripcion { get; set; }
+        public Marca Marca { get; set; }
+        public Categoria Categoria { get; set; }
 
         //public List<string> Imagenes { get; set; } = new List<string>();
-        public float _precio { get; set; }
+        public float PrecioArticulo { get; set; }
+
+
+
     }
+
+
+  
 }

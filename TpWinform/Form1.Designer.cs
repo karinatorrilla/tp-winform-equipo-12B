@@ -30,26 +30,21 @@
         {
             this.lblTitulo = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.lblMenuMarcas = new System.Windows.Forms.Label();
             this.lblMenuArticulos = new System.Windows.Forms.Label();
             this.lblMenuCategorias = new System.Windows.Forms.Label();
-            this.lblMenuMarcas = new System.Windows.Forms.Label();
-            this.lblBuscar = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.btnAgregarArticulo = new System.Windows.Forms.Button();
             this.txtBuscar = new System.Windows.Forms.TextBox();
-            this.clmCodigo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.lwArticulos = new System.Windows.Forms.ListView();
-            this.clmNombre = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.clmMarca = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.clmCategoria = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.clmPrecio = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.clmAcciones = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.lblBuscar = new System.Windows.Forms.Label();
             this.lblFiltarPor = new System.Windows.Forms.Label();
             this.cboTipoCategoria = new System.Windows.Forms.ComboBox();
             this.cboSubTipoCategoria = new System.Windows.Forms.ComboBox();
             this.btnLimpiarFiltro = new System.Windows.Forms.Button();
-            this.btnAgregarArticulo = new System.Windows.Forms.Button();
+            this.dgvArticulos = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvArticulos)).BeginInit();
             this.SuspendLayout();
             // 
             // lblTitulo
@@ -74,17 +69,15 @@
             this.panel1.Size = new System.Drawing.Size(104, 628);
             this.panel1.TabIndex = 1;
             // 
-            // panel2
+            // lblMenuMarcas
             // 
-            this.panel2.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.panel2.Controls.Add(this.btnAgregarArticulo);
-            this.panel2.Controls.Add(this.txtBuscar);
-            this.panel2.Controls.Add(this.lblBuscar);
-            this.panel2.Controls.Add(this.lblTitulo);
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(878, 82);
-            this.panel2.TabIndex = 2;
+            this.lblMenuMarcas.AutoSize = true;
+            this.lblMenuMarcas.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMenuMarcas.Location = new System.Drawing.Point(3, 183);
+            this.lblMenuMarcas.Name = "lblMenuMarcas";
+            this.lblMenuMarcas.Size = new System.Drawing.Size(58, 16);
+            this.lblMenuMarcas.TabIndex = 5;
+            this.lblMenuMarcas.Text = "Marcas";
             // 
             // lblMenuArticulos
             // 
@@ -108,15 +101,38 @@
             this.lblMenuCategorias.Text = "Categorías";
             this.lblMenuCategorias.Click += new System.EventHandler(this.label1_Click_2);
             // 
-            // lblMenuMarcas
+            // panel2
             // 
-            this.lblMenuMarcas.AutoSize = true;
-            this.lblMenuMarcas.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMenuMarcas.Location = new System.Drawing.Point(3, 183);
-            this.lblMenuMarcas.Name = "lblMenuMarcas";
-            this.lblMenuMarcas.Size = new System.Drawing.Size(58, 16);
-            this.lblMenuMarcas.TabIndex = 5;
-            this.lblMenuMarcas.Text = "Marcas";
+            this.panel2.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.panel2.Controls.Add(this.btnAgregarArticulo);
+            this.panel2.Controls.Add(this.txtBuscar);
+            this.panel2.Controls.Add(this.lblBuscar);
+            this.panel2.Controls.Add(this.lblTitulo);
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(878, 82);
+            this.panel2.TabIndex = 2;
+            // 
+            // btnAgregarArticulo
+            // 
+            this.btnAgregarArticulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.btnAgregarArticulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregarArticulo.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnAgregarArticulo.Location = new System.Drawing.Point(754, 51);
+            this.btnAgregarArticulo.Name = "btnAgregarArticulo";
+            this.btnAgregarArticulo.Size = new System.Drawing.Size(112, 23);
+            this.btnAgregarArticulo.TabIndex = 5;
+            this.btnAgregarArticulo.Text = "Agregar Artículo";
+            this.btnAgregarArticulo.UseVisualStyleBackColor = false;
+            this.btnAgregarArticulo.Click += new System.EventHandler(this.btnAgregarArticulo_Click);
+            // 
+            // txtBuscar
+            // 
+            this.txtBuscar.Location = new System.Drawing.Point(162, 54);
+            this.txtBuscar.Name = "txtBuscar";
+            this.txtBuscar.Size = new System.Drawing.Size(329, 20);
+            this.txtBuscar.TabIndex = 4;
+            this.txtBuscar.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);
             // 
             // lblBuscar
             // 
@@ -127,66 +143,6 @@
             this.lblBuscar.Size = new System.Drawing.Size(43, 13);
             this.lblBuscar.TabIndex = 3;
             this.lblBuscar.Text = "Buscar:";
-            // 
-            // txtBuscar
-            // 
-            this.txtBuscar.Location = new System.Drawing.Point(162, 54);
-            this.txtBuscar.Name = "txtBuscar";
-            this.txtBuscar.Size = new System.Drawing.Size(329, 20);
-            this.txtBuscar.TabIndex = 4;
-            // 
-            // clmCodigo
-            // 
-            this.clmCodigo.Text = "Código";
-            this.clmCodigo.Width = 100;
-            // 
-            // lwArticulos
-            // 
-            this.lwArticulos.BackColor = System.Drawing.SystemColors.MenuBar;
-            this.lwArticulos.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.clmCodigo,
-            this.clmNombre,
-            this.clmMarca,
-            this.clmCategoria,
-            this.clmPrecio,
-            this.clmAcciones});
-            this.lwArticulos.HideSelection = false;
-            this.lwArticulos.Location = new System.Drawing.Point(103, 80);
-            this.lwArticulos.Name = "lwArticulos";
-            this.lwArticulos.Size = new System.Drawing.Size(775, 500);
-            this.lwArticulos.TabIndex = 3;
-            this.lwArticulos.UseCompatibleStateImageBehavior = false;
-            this.lwArticulos.View = System.Windows.Forms.View.Details;
-            // 
-            // clmNombre
-            // 
-            this.clmNombre.Text = "Nombre";
-            this.clmNombre.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.clmNombre.Width = 150;
-            // 
-            // clmMarca
-            // 
-            this.clmMarca.Text = "Marca";
-            this.clmMarca.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.clmMarca.Width = 120;
-            // 
-            // clmCategoria
-            // 
-            this.clmCategoria.Text = "Categoría";
-            this.clmCategoria.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.clmCategoria.Width = 120;
-            // 
-            // clmPrecio
-            // 
-            this.clmPrecio.Text = "Precio";
-            this.clmPrecio.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.clmPrecio.Width = 110;
-            // 
-            // clmAcciones
-            // 
-            this.clmAcciones.Text = "Acciones";
-            this.clmAcciones.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.clmAcciones.Width = 170;
             // 
             // lblFiltarPor
             // 
@@ -223,18 +179,13 @@
             this.btnLimpiarFiltro.Text = "Limpiar Filtros";
             this.btnLimpiarFiltro.UseVisualStyleBackColor = true;
             // 
-            // btnAgregarArticulo
+            // dgvArticulos
             // 
-            this.btnAgregarArticulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.btnAgregarArticulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregarArticulo.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnAgregarArticulo.Location = new System.Drawing.Point(754, 51);
-            this.btnAgregarArticulo.Name = "btnAgregarArticulo";
-            this.btnAgregarArticulo.Size = new System.Drawing.Size(112, 23);
-            this.btnAgregarArticulo.TabIndex = 5;
-            this.btnAgregarArticulo.Text = "Agregar Artículo";
-            this.btnAgregarArticulo.UseVisualStyleBackColor = false;
-            this.btnAgregarArticulo.Click += new System.EventHandler(this.btnAgregarArticulo_Click);
+            this.dgvArticulos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvArticulos.Location = new System.Drawing.Point(101, 80);
+            this.dgvArticulos.Name = "dgvArticulos";
+            this.dgvArticulos.Size = new System.Drawing.Size(765, 495);
+            this.dgvArticulos.TabIndex = 8;
             // 
             // Form1
             // 
@@ -242,11 +193,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.ClientSize = new System.Drawing.Size(878, 627);
+            this.Controls.Add(this.dgvArticulos);
             this.Controls.Add(this.btnLimpiarFiltro);
             this.Controls.Add(this.cboSubTipoCategoria);
             this.Controls.Add(this.cboTipoCategoria);
             this.Controls.Add(this.lblFiltarPor);
-            this.Controls.Add(this.lwArticulos);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
@@ -263,6 +214,7 @@
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvArticulos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -278,18 +230,12 @@
         private System.Windows.Forms.Label lblMenuMarcas;
         private System.Windows.Forms.TextBox txtBuscar;
         private System.Windows.Forms.Label lblBuscar;
-        private System.Windows.Forms.ColumnHeader clmCodigo;
-        private System.Windows.Forms.ListView lwArticulos;
-        private System.Windows.Forms.ColumnHeader clmNombre;
-        private System.Windows.Forms.ColumnHeader clmMarca;
-        private System.Windows.Forms.ColumnHeader clmCategoria;
-        private System.Windows.Forms.ColumnHeader clmPrecio;
-        private System.Windows.Forms.ColumnHeader clmAcciones;
         private System.Windows.Forms.Label lblFiltarPor;
         private System.Windows.Forms.ComboBox cboTipoCategoria;
         private System.Windows.Forms.ComboBox cboSubTipoCategoria;
         private System.Windows.Forms.Button btnLimpiarFiltro;
         private System.Windows.Forms.Button btnAgregarArticulo;
+        private System.Windows.Forms.DataGridView dgvArticulos;
     }
 }
 
