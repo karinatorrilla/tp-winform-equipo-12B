@@ -4,16 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TpWinform
+namespace dominio
 {
-    internal class Categoria
+    public class Categoria
     {
-        public int IDCategoria { get; set; }
-        public string NombreCategoria { get; set; }
+        public int ID { get; set; }
+        public string Nombre { get; set; }
 
         public override string ToString()
         {
-            return NombreCategoria;
+            return Nombre;
         }
     }
 }

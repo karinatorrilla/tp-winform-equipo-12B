@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using dominio;
 
 namespace TpWinform
 {
@@ -17,11 +18,7 @@ namespace TpWinform
             InitializeComponent();
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
+       
         private void frmAgregarArticulo_Load(object sender, EventArgs e)
         {
             

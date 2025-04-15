@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TpWinform
+namespace dominio
 {
-    internal class Imagen
+    public class Imagen
     {
         public int IdImagen { get; set; }
         public string ImagenUrl { get; set; }

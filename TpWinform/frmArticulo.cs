@@ -7,12 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using negocio;
 
 namespace TpWinform
 {
-    public partial class Form1 : Form
+    public partial class frmArticulo : Form
     {
-        public Form1()
+        public frmArticulo()
         {
             InitializeComponent();
         }
@@ -24,7 +25,7 @@ namespace TpWinform
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            ConexionDB conexion = new ConexionDB();
+            ListadoArticuloNegocio conexion = new ListadoArticuloNegocio();
             dgvArticulos.DataSource = conexion.Listar();
            
         }
@@ -56,6 +57,11 @@ namespace TpWinform
         }
 
         private void lwArticulos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }

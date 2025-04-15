@@ -4,16 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TpWinform
+namespace dominio
 {
-    internal class Marca
+    public class Marca
     {
-        public int CodMarca { get; set; }
-        public string NombreMarca { get; set; }
+        public int Codigo { get; set; }
+        public string Nombre { get; set; }
 
         public override string ToString()
         {
-            return NombreMarca;
+            return Nombre;
         }
 
     }
