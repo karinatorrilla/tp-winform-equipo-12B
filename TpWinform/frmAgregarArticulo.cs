@@ -23,5 +23,30 @@ namespace TpWinform
         {
             
         }
+
+        private void lblFrmImagenArticulo_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblFrmCategoriaArticulo_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtFrmPrecioArticulo_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnFrmGuardarArticulo_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnFrmCancelarArticulo_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }
