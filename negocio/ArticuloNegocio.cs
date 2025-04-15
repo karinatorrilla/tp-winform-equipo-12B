@@ -18,7 +18,22 @@ namespace negocio
 
         public void agregar(Articulo nuevo)
         {
-            Console.WriteLine("Agregar articulo");
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+                datos.setearConsulta("Insert into ARTICULOS (Codigo, Nombre, Precio, Descripcion)values('" + nuevo.Codigo + "', '" + nuevo.Nombre + "'," + nuevo.Precio + ", '" + nuevo.Descripcion + "')");
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
 
         }
     }

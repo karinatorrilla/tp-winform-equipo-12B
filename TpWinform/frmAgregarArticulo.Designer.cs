@@ -37,7 +37,7 @@
             this.lblFrmImagenArticulo = new System.Windows.Forms.Label();
             this.lblFrmDescripcionArticulo = new System.Windows.Forms.Label();
             this.lblFrmPrecioArticulo = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtFrmNombreArticulo = new System.Windows.Forms.TextBox();
             this.cboFrmMarcaArticulo = new System.Windows.Forms.ComboBox();
             this.cboFrmCategoriaArticulo = new System.Windows.Forms.ComboBox();
             this.txtFrmPrecioArticulo = new System.Windows.Forms.TextBox();
@@ -61,7 +61,7 @@
             // 
             this.lblFrmNombreArticulo.AutoSize = true;
             this.lblFrmNombreArticulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFrmNombreArticulo.Location = new System.Drawing.Point(132, 104);
+            this.lblFrmNombreArticulo.Location = new System.Drawing.Point(145, 104);
             this.lblFrmNombreArticulo.Name = "lblFrmNombreArticulo";
             this.lblFrmNombreArticulo.Size = new System.Drawing.Size(54, 13);
             this.lblFrmNombreArticulo.TabIndex = 1;
@@ -69,7 +69,7 @@
             // 
             // txtFrmCodigoArticulo
             // 
-            this.txtFrmCodigoArticulo.Location = new System.Drawing.Point(225, 59);
+            this.txtFrmCodigoArticulo.Location = new System.Drawing.Point(205, 63);
             this.txtFrmCodigoArticulo.Name = "txtFrmCodigoArticulo";
             this.txtFrmCodigoArticulo.Size = new System.Drawing.Size(156, 20);
             this.txtFrmCodigoArticulo.TabIndex = 2;
@@ -78,7 +78,7 @@
             // 
             this.lblFrmCodigoArticulo.AutoSize = true;
             this.lblFrmCodigoArticulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFrmCodigoArticulo.Location = new System.Drawing.Point(132, 66);
+            this.lblFrmCodigoArticulo.Location = new System.Drawing.Point(149, 66);
             this.lblFrmCodigoArticulo.Name = "lblFrmCodigoArticulo";
             this.lblFrmCodigoArticulo.Size = new System.Drawing.Size(50, 13);
             this.lblFrmCodigoArticulo.TabIndex = 3;
@@ -88,7 +88,7 @@
             // 
             this.lblFrmMarcaArticulo.AutoSize = true;
             this.lblFrmMarcaArticulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFrmMarcaArticulo.Location = new System.Drawing.Point(132, 144);
+            this.lblFrmMarcaArticulo.Location = new System.Drawing.Point(153, 144);
             this.lblFrmMarcaArticulo.Name = "lblFrmMarcaArticulo";
             this.lblFrmMarcaArticulo.Size = new System.Drawing.Size(46, 13);
             this.lblFrmMarcaArticulo.TabIndex = 4;
@@ -98,7 +98,7 @@
             // 
             this.lblFrmCategoriaArticulo.AutoSize = true;
             this.lblFrmCategoriaArticulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFrmCategoriaArticulo.Location = new System.Drawing.Point(130, 188);
+            this.lblFrmCategoriaArticulo.Location = new System.Drawing.Point(132, 188);
             this.lblFrmCategoriaArticulo.Name = "lblFrmCategoriaArticulo";
             this.lblFrmCategoriaArticulo.Size = new System.Drawing.Size(67, 13);
             this.lblFrmCategoriaArticulo.TabIndex = 5;
@@ -109,7 +109,7 @@
             // 
             this.lblFrmImagenArticulo.AutoSize = true;
             this.lblFrmImagenArticulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFrmImagenArticulo.Location = new System.Drawing.Point(130, 400);
+            this.lblFrmImagenArticulo.Location = new System.Drawing.Point(114, 396);
             this.lblFrmImagenArticulo.Name = "lblFrmImagenArticulo";
             this.lblFrmImagenArticulo.Size = new System.Drawing.Size(85, 13);
             this.lblFrmImagenArticulo.TabIndex = 6;
@@ -120,7 +120,7 @@
             // 
             this.lblFrmDescripcionArticulo.AutoSize = true;
             this.lblFrmDescripcionArticulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFrmDescripcionArticulo.Location = new System.Drawing.Point(130, 278);
+            this.lblFrmDescripcionArticulo.Location = new System.Drawing.Point(121, 273);
             this.lblFrmDescripcionArticulo.Name = "lblFrmDescripcionArticulo";
             this.lblFrmDescripcionArticulo.Size = new System.Drawing.Size(78, 13);
             this.lblFrmDescripcionArticulo.TabIndex = 7;
@@ -130,38 +130,43 @@
             // 
             this.lblFrmPrecioArticulo.AutoSize = true;
             this.lblFrmPrecioArticulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFrmPrecioArticulo.Location = new System.Drawing.Point(132, 234);
+            this.lblFrmPrecioArticulo.Location = new System.Drawing.Point(152, 227);
             this.lblFrmPrecioArticulo.Name = "lblFrmPrecioArticulo";
             this.lblFrmPrecioArticulo.Size = new System.Drawing.Size(47, 13);
             this.lblFrmPrecioArticulo.TabIndex = 8;
             this.lblFrmPrecioArticulo.Text = "Precio:";
+            this.lblFrmPrecioArticulo.Click += new System.EventHandler(this.lblFrmPrecioArticulo_Click);
             // 
-            // textBox1
+            // txtFrmNombreArticulo
             // 
-            this.textBox1.Location = new System.Drawing.Point(225, 97);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(156, 20);
-            this.textBox1.TabIndex = 9;
+            this.txtFrmNombreArticulo.Location = new System.Drawing.Point(205, 97);
+            this.txtFrmNombreArticulo.Name = "txtFrmNombreArticulo";
+            this.txtFrmNombreArticulo.Size = new System.Drawing.Size(156, 20);
+            this.txtFrmNombreArticulo.TabIndex = 9;
             // 
             // cboFrmMarcaArticulo
             // 
+            this.cboFrmMarcaArticulo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboFrmMarcaArticulo.FormattingEnabled = true;
-            this.cboFrmMarcaArticulo.Location = new System.Drawing.Point(225, 141);
+            this.cboFrmMarcaArticulo.Location = new System.Drawing.Point(205, 141);
             this.cboFrmMarcaArticulo.Name = "cboFrmMarcaArticulo";
             this.cboFrmMarcaArticulo.Size = new System.Drawing.Size(156, 21);
             this.cboFrmMarcaArticulo.TabIndex = 10;
+            this.cboFrmMarcaArticulo.SelectedIndexChanged += new System.EventHandler(this.cboFrmMarcaArticulo_SelectedIndexChanged);
             // 
             // cboFrmCategoriaArticulo
             // 
+            this.cboFrmCategoriaArticulo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboFrmCategoriaArticulo.FormattingEnabled = true;
-            this.cboFrmCategoriaArticulo.Location = new System.Drawing.Point(225, 180);
+            this.cboFrmCategoriaArticulo.Location = new System.Drawing.Point(205, 185);
             this.cboFrmCategoriaArticulo.Name = "cboFrmCategoriaArticulo";
             this.cboFrmCategoriaArticulo.Size = new System.Drawing.Size(156, 21);
             this.cboFrmCategoriaArticulo.TabIndex = 11;
+            this.cboFrmCategoriaArticulo.SelectedIndexChanged += new System.EventHandler(this.cboFrmCategoriaArticulo_SelectedIndexChanged);
             // 
             // txtFrmPrecioArticulo
             // 
-            this.txtFrmPrecioArticulo.Location = new System.Drawing.Point(225, 227);
+            this.txtFrmPrecioArticulo.Location = new System.Drawing.Point(205, 224);
             this.txtFrmPrecioArticulo.Name = "txtFrmPrecioArticulo";
             this.txtFrmPrecioArticulo.Size = new System.Drawing.Size(156, 20);
             this.txtFrmPrecioArticulo.TabIndex = 12;
@@ -169,17 +174,17 @@
             // 
             // txtFrmDescripcionArticulo
             // 
-            this.txtFrmDescripcionArticulo.Location = new System.Drawing.Point(133, 303);
+            this.txtFrmDescripcionArticulo.Location = new System.Drawing.Point(124, 303);
             this.txtFrmDescripcionArticulo.MaximumSize = new System.Drawing.Size(246, 72);
             this.txtFrmDescripcionArticulo.MinimumSize = new System.Drawing.Size(224, 72);
             this.txtFrmDescripcionArticulo.Multiline = true;
             this.txtFrmDescripcionArticulo.Name = "txtFrmDescripcionArticulo";
-            this.txtFrmDescripcionArticulo.Size = new System.Drawing.Size(246, 72);
+            this.txtFrmDescripcionArticulo.Size = new System.Drawing.Size(237, 72);
             this.txtFrmDescripcionArticulo.TabIndex = 13;
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(225, 393);
+            this.textBox2.Location = new System.Drawing.Point(205, 393);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(156, 20);
             this.textBox2.TabIndex = 14;
@@ -224,7 +229,7 @@
             this.Controls.Add(this.txtFrmPrecioArticulo);
             this.Controls.Add(this.cboFrmCategoriaArticulo);
             this.Controls.Add(this.cboFrmMarcaArticulo);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtFrmNombreArticulo);
             this.Controls.Add(this.lblFrmPrecioArticulo);
             this.Controls.Add(this.lblFrmDescripcionArticulo);
             this.Controls.Add(this.lblFrmImagenArticulo);
@@ -239,7 +244,7 @@
             this.MinimumSize = new System.Drawing.Size(530, 523);
             this.Name = "frmAgregarArticulo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "frmAgregarArticulo";
+            this.Text = "Agregar";
             this.Load += new System.EventHandler(this.frmAgregarArticulo_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -257,7 +262,7 @@
         private System.Windows.Forms.Label lblFrmImagenArticulo;
         private System.Windows.Forms.Label lblFrmDescripcionArticulo;
         private System.Windows.Forms.Label lblFrmPrecioArticulo;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtFrmNombreArticulo;
         private System.Windows.Forms.ComboBox cboFrmMarcaArticulo;
         private System.Windows.Forms.ComboBox cboFrmCategoriaArticulo;
         private System.Windows.Forms.TextBox txtFrmPrecioArticulo;
