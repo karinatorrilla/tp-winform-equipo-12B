@@ -8,11 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using negocio;
+using dominio;
 
 namespace TpWinform
 {
     public partial class frmArticulo : Form
     {
+        private List<Articulo> listaArticulo;
         public frmArticulo()
         {
             InitializeComponent();
@@ -25,9 +27,24 @@ namespace TpWinform
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            ListadoArticuloNegocio conexion = new ListadoArticuloNegocio();
-            dgvArticulos.DataSource = conexion.Listar();
-           
+            cargar();
+        }
+
+        // Carga el listado de lista Articulos
+        private void cargar()
+        {
+            ListadoArticuloNegocio negocio = new ListadoArticuloNegocio();
+            try
+            {
+                listaArticulo = negocio.Listar();
+                dgvArticulos.DataSource = listaArticulo;
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString());
+            }
+
         }
 
         private void label1_Click_1(object sender, EventArgs e)
@@ -47,8 +64,9 @@ namespace TpWinform
 
         private void btnAgregarArticulo_Click(object sender, EventArgs e)
         {
-            frmAgregarArticulo ventana = new frmAgregarArticulo();
-            ventana.ShowDialog();
+            frmAgregarArticulo alta = new frmAgregarArticulo();
+            alta.ShowDialog();
+            cargar();
         }
 
         private void txtBuscar_TextChanged(object sender, EventArgs e)
