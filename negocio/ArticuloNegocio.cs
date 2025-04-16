@@ -16,6 +16,7 @@ namespace negocio
             return listadoArticuloNegocio.Listar();
         }
 
+        //Agregar articulo
         public void agregar(Articulo nuevo)
         {
             AccesoDatos datos = new AccesoDatos();
@@ -36,8 +37,29 @@ namespace negocio
             }
 
         }
+        
+        //Modificar articulo
+        public void modificar(Articulo mod)
+        {
+            AccesoDatos datos = new AccesoDatos();
 
+            try
+            {
+                datos.setearConsulta("Update ARTICULOS set Codigo = '" + mod.Codigo + "' , Nombre = '" + mod.Nombre + "', Precio = '" + mod.Precio + "' , Descripcion = '" + mod.Descripcion + "' , IdMarca = 1, IdCategoria = 1 Where Id = '" + mod.Id + "'");
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
 
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+
+        }
+        
         //Filtro rapido del buscador
         public List<Articulo> filtrar(string buscar)
         {

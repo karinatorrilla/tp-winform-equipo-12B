@@ -38,6 +38,7 @@ namespace TpWinform
             {
                 listaArticulo = negocio.Listar();
                 dgvArticulos.DataSource = listaArticulo;
+                dgvArticulos.Columns["Id"].Visible = false;
             }
             catch (Exception ex)
             {
@@ -132,6 +133,16 @@ namespace TpWinform
             //dgvArticulos.DataSource = null; // limpia el dataSource
             //dgvArticulos.DataSource = listaFiltrada;
 
+        }
+
+        //Botón de modificar artículo...
+        private void btnModificarArticulo_Click(object sender, EventArgs e)
+        {
+            Articulo seleccionado = new Articulo();
+            seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+            frmAgregarArticulo modificar = new frmAgregarArticulo(seleccionado);
+            modificar.ShowDialog();
+            cargar();
         }
     }
 }
