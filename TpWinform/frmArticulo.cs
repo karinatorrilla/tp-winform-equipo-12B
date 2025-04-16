@@ -71,6 +71,26 @@ namespace TpWinform
 
         private void txtBuscar_TextChanged(object sender, EventArgs e)
         {
+            ArticuloNegocio negocio = new ArticuloNegocio();
+            try
+            {
+                string buscar = txtBuscar.Text;
+                if (buscar.Length >= 3)
+                {
+                    dgvArticulos.DataSource = negocio.filtrar(buscar);
+                }
+                else
+                {
+                    dgvArticulos.DataSource = null; // limpia el dataSource
+                    cargar();
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString());
+            }
 
         }
 
@@ -86,21 +106,32 @@ namespace TpWinform
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            List<Articulo> listaFiltrada;
-            string buscar = txtBuscar.Text;
-            if(buscar != "")
-            {
-                listaFiltrada = listaArticulo.FindAll(busca => busca.Nombre.ToUpper().Contains(buscar.ToUpper()));
-            }
-            else
-            {
-                listaFiltrada = listaArticulo;
-            }
+
+
+           
+        }
+
+        private void txtBuscar_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //List<Articulo> listaFiltrada;
+
+
+            //string buscar = txtBuscar.Text;
+
+            //if (buscar.Length >= 3)
+            //{
+            //    listaFiltrada = listaArticulo.FindAll(a => a.Nombre.ToUpper().Contains(buscar.ToUpper()));
+            //}
+            //else
+            //{
+            //    listaFiltrada = listaArticulo;
+            //}
 
 
 
-            dgvArticulos.DataSource = null; // limpia el dataSource
-            dgvArticulos.DataSource = listaFiltrada;
+            //dgvArticulos.DataSource = null; // limpia el dataSource
+            //dgvArticulos.DataSource = listaFiltrada;
+
         }
     }
 }

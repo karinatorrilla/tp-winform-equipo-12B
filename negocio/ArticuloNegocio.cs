@@ -36,5 +36,48 @@ namespace negocio
             }
 
         }
+
+
+        //Filtro rapido del buscador
+        public List<Articulo> filtrar(string buscar)
+        {
+            List<Articulo> lista = new List<Articulo>();
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                string consulta = "select A.Codigo,A.Nombre,A.Descripcion,M.Descripcion as 'Marca',C.Descripcion as 'Categoria',A.Precio from ARTICULOS as A ,MARCAS M ,CATEGORIAS C where A.IdMarca=M.Id and A.IdCategoria=C.Id and ( A.Codigo like '%"+ buscar + "%' or A.Nombre like '%"+ buscar + "%' or  A.Descripcion like '%"+ buscar + "%' or M.Descripcion like '%"+ buscar + "%' or C.Descripcion like '%"+ buscar + "%' )";
+
+                datos.setearConsulta(consulta);
+
+                datos.ejecutarLectura();
+
+                while (datos.Lector.Read())
+                {
+                    Articulo aux = new Articulo();
+                    aux.Codigo = (string)datos.Lector["Codigo"];
+                    aux.Nombre = (string)datos.Lector["Nombre"];
+                    aux.Descripcion = (string)datos.Lector["Descripcion"];
+
+                    aux.Marca = new Marca();
+                    aux.Marca.Nombre = (string)datos.Lector["Marca"];
+
+                    aux.Categoria = new Categoria();
+                    aux.Categoria.Nombre = (string)datos.Lector["Categoria"];
+
+                    aux.Precio = (float)(decimal)datos.Lector["Precio"];
+
+
+                    lista.Add(aux);
+                }
+
+                return lista;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            ;
+        }
     }
 }
