@@ -83,5 +83,24 @@ namespace TpWinform
         {
 
         }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            List<Articulo> listaFiltrada;
+            string buscar = txtBuscar.Text;
+            if(buscar != "")
+            {
+                listaFiltrada = listaArticulo.FindAll(busca => busca.Nombre.ToUpper().Contains(buscar.ToUpper()));
+            }
+            else
+            {
+                listaFiltrada = listaArticulo;
+            }
+
+
+
+            dgvArticulos.DataSource = null; // limpia el dataSource
+            dgvArticulos.DataSource = listaFiltrada;
+        }
     }
 }
