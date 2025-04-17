@@ -55,9 +55,13 @@ namespace TpWinform
 
         private void dgvArticulos_SelectionChanged(object sender, EventArgs e)
         {
-            ///Cuando selecciono otra fila, cambia la imagen del picture box
-            Articulo seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
-            cargarImagenArticulo(seleccionado.Imagen.ImagenUrl);
+            if (dgvArticulos.CurrentRow != null)
+            {
+                ///Cuando selecciono otra fila, cambia la imagen del picture box
+                Articulo seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+                cargarImagenArticulo(seleccionado.Imagen.ImagenUrl);
+            }
+                
 
         }
 
