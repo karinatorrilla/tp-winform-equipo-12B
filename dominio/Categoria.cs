@@ -8,7 +8,7 @@ namespace dominio
 {
     public class Categoria
     {
-        public int ID { get; set; }
+        public int Codigo { get; set; }
         public string Nombre { get; set; }
 
         public override string ToString()

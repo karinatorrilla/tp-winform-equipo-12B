@@ -103,7 +103,7 @@
             this.lblFrmCategoriaArticulo.Size = new System.Drawing.Size(67, 13);
             this.lblFrmCategoriaArticulo.TabIndex = 5;
             this.lblFrmCategoriaArticulo.Text = "Categoría:";
-            this.lblFrmCategoriaArticulo.Click += new System.EventHandler(this.lblFrmCategoriaArticulo_Click);
+       
             // 
             // lblFrmImagenArticulo
             // 
@@ -114,7 +114,7 @@
             this.lblFrmImagenArticulo.Size = new System.Drawing.Size(85, 13);
             this.lblFrmImagenArticulo.TabIndex = 6;
             this.lblFrmImagenArticulo.Text = "Url Imagenes:";
-            this.lblFrmImagenArticulo.Click += new System.EventHandler(this.lblFrmImagenArticulo_Click);
+          
             // 
             // lblFrmDescripcionArticulo
             // 
@@ -135,7 +135,7 @@
             this.lblFrmPrecioArticulo.Size = new System.Drawing.Size(47, 13);
             this.lblFrmPrecioArticulo.TabIndex = 8;
             this.lblFrmPrecioArticulo.Text = "Precio:";
-            this.lblFrmPrecioArticulo.Click += new System.EventHandler(this.lblFrmPrecioArticulo_Click);
+          
             // 
             // txtFrmNombreArticulo
             // 
@@ -152,7 +152,7 @@
             this.cboFrmMarcaArticulo.Name = "cboFrmMarcaArticulo";
             this.cboFrmMarcaArticulo.Size = new System.Drawing.Size(156, 21);
             this.cboFrmMarcaArticulo.TabIndex = 10;
-            this.cboFrmMarcaArticulo.SelectedIndexChanged += new System.EventHandler(this.cboFrmMarcaArticulo_SelectedIndexChanged);
+          
             // 
             // cboFrmCategoriaArticulo
             // 
@@ -162,7 +162,7 @@
             this.cboFrmCategoriaArticulo.Name = "cboFrmCategoriaArticulo";
             this.cboFrmCategoriaArticulo.Size = new System.Drawing.Size(156, 21);
             this.cboFrmCategoriaArticulo.TabIndex = 11;
-            this.cboFrmCategoriaArticulo.SelectedIndexChanged += new System.EventHandler(this.cboFrmCategoriaArticulo_SelectedIndexChanged);
+          
             // 
             // txtFrmPrecioArticulo
             // 
@@ -170,7 +170,7 @@
             this.txtFrmPrecioArticulo.Name = "txtFrmPrecioArticulo";
             this.txtFrmPrecioArticulo.Size = new System.Drawing.Size(156, 20);
             this.txtFrmPrecioArticulo.TabIndex = 12;
-            this.txtFrmPrecioArticulo.TextChanged += new System.EventHandler(this.txtFrmPrecioArticulo_TextChanged);
+
             // 
             // txtFrmDescripcionArticulo
             // 

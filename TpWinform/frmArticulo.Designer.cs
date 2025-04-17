@@ -28,13 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblMenuMarcas = new System.Windows.Forms.Label();
             this.lblMenuArticulos = new System.Windows.Forms.Label();
             this.lblMenuCategorias = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnModificarArticulo = new System.Windows.Forms.Button();
             this.btnAgregarArticulo = new System.Windows.Forms.Button();
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.lblBuscar = new System.Windows.Forms.Label();
@@ -43,7 +44,6 @@
             this.cboSubTipoCategoria = new System.Windows.Forms.ComboBox();
             this.btnLimpiarFiltro = new System.Windows.Forms.Button();
             this.dgvArticulos = new System.Windows.Forms.DataGridView();
-            this.btnModificarArticulo = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulos)).BeginInit();
@@ -58,7 +58,6 @@
             this.lblTitulo.Size = new System.Drawing.Size(195, 25);
             this.lblTitulo.TabIndex = 0;
             this.lblTitulo.Text = "Sección Artículos";
-            this.lblTitulo.Click += new System.EventHandler(this.label1_Click);
             // 
             // panel1
             // 
@@ -90,7 +89,6 @@
             this.lblMenuArticulos.Size = new System.Drawing.Size(67, 16);
             this.lblMenuArticulos.TabIndex = 3;
             this.lblMenuArticulos.Text = "Artículos";
-            this.lblMenuArticulos.Click += new System.EventHandler(this.label1_Click_1);
             // 
             // lblMenuCategorias
             // 
@@ -101,7 +99,6 @@
             this.lblMenuCategorias.Size = new System.Drawing.Size(83, 16);
             this.lblMenuCategorias.TabIndex = 4;
             this.lblMenuCategorias.Text = "Categorías";
-            this.lblMenuCategorias.Click += new System.EventHandler(this.label1_Click_2);
             // 
             // panel2
             // 
@@ -115,6 +112,18 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(878, 82);
             this.panel2.TabIndex = 2;
+            // 
+            // btnModificarArticulo
+            // 
+            this.btnModificarArticulo.BackColor = System.Drawing.Color.Goldenrod;
+            this.btnModificarArticulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Bold);
+            this.btnModificarArticulo.Location = new System.Drawing.Point(749, 35);
+            this.btnModificarArticulo.Name = "btnModificarArticulo";
+            this.btnModificarArticulo.Size = new System.Drawing.Size(120, 35);
+            this.btnModificarArticulo.TabIndex = 6;
+            this.btnModificarArticulo.Text = "Modificar Artìculo";
+            this.btnModificarArticulo.UseVisualStyleBackColor = false;
+            this.btnModificarArticulo.Click += new System.EventHandler(this.btnModificarArticulo_Click);
             // 
             // btnAgregarArticulo
             // 
@@ -192,14 +201,14 @@
             // dgvArticulos
             // 
             this.dgvArticulos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvArticulos.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.CornflowerBlue;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvArticulos.DefaultCellStyle = dataGridViewCellStyle1;
             this.dgvArticulos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvArticulos.Location = new System.Drawing.Point(101, 80);
             this.dgvArticulos.MaximumSize = new System.Drawing.Size(777, 495);
@@ -209,18 +218,7 @@
             this.dgvArticulos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvArticulos.Size = new System.Drawing.Size(777, 495);
             this.dgvArticulos.TabIndex = 8;
-            // 
-            // btnModificarArticulo
-            // 
-            this.btnModificarArticulo.BackColor = System.Drawing.Color.Goldenrod;
-            this.btnModificarArticulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Bold);
-            this.btnModificarArticulo.Location = new System.Drawing.Point(749, 35);
-            this.btnModificarArticulo.Name = "btnModificarArticulo";
-            this.btnModificarArticulo.Size = new System.Drawing.Size(120, 35);
-            this.btnModificarArticulo.TabIndex = 6;
-            this.btnModificarArticulo.Text = "Modificar Artìculo";
-            this.btnModificarArticulo.UseVisualStyleBackColor = false;
-            this.btnModificarArticulo.Click += new System.EventHandler(this.btnModificarArticulo_Click);
+            this.dgvArticulos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvArticulos_CellContentClick);
             // 
             // frmArticulo
             // 

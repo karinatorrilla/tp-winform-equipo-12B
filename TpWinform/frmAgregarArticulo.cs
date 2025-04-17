@@ -27,21 +27,24 @@ namespace TpWinform
             this.articulo = articulo;
             Text = "Modificar";
             lblCrearArticulo.Text = "Modificar Artículo";
+
         }
 
         private void frmAgregarArticulo_Load(object sender, EventArgs e)
         {
+            MarcaNegocio marca = new MarcaNegocio();
+            CategoriaNegocio categoria = new CategoriaNegocio();
+
             try
             {
-
+                cboFrmMarcaArticulo.DataSource = marca.ListarMarca();
+                cboFrmCategoriaArticulo.DataSource = categoria.ListarCategoria();
                 //precarga de datos para modificar articulo!!!
-                if(articulo != null)
+                if (articulo != null)
                 {
                     txtFrmCodigoArticulo.Text = articulo.Codigo;
                     txtFrmNombreArticulo.Text = articulo.Nombre;
                     txtFrmPrecioArticulo.Text = articulo.Precio.ToString();
-                    //txtFrmMarca
-                    //txtFrmCategoria
                     txtFrmDescripcionArticulo.Text = articulo.Descripcion;
                     //txtFrmImagen
                 }
@@ -52,47 +55,34 @@ namespace TpWinform
             }
         }
 
-        private void lblFrmImagenArticulo_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblFrmCategoriaArticulo_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtFrmPrecioArticulo_TextChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void btnFrmGuardarArticulo_Click(object sender, EventArgs e)
         {
- 
+
             ArticuloNegocio negocio = new ArticuloNegocio();
 
             try
             {
-                if(articulo == null)
+                if (articulo == null)
                     articulo = new Articulo();
 
                 articulo.Codigo = txtFrmCodigoArticulo.Text;
                 articulo.Nombre = txtFrmNombreArticulo.Text;
                 articulo.Precio = float.Parse(txtFrmPrecioArticulo.Text);
                 articulo.Descripcion = txtFrmDescripcionArticulo.Text;
-
+                articulo.Marca=(Marca)cboFrmMarcaArticulo.SelectedItem;
+                articulo.Categoria=(Categoria)cboFrmCategoriaArticulo.SelectedItem;
                 //Si el id de artículo es distinto de 0 lo modifica, si no, entiende que no hay artículo
                 //cargado y lo agrega...
-                if(articulo.Id != 0)
+                if (articulo.Id != 0)
                 {
-                negocio.modificar(articulo);
-                MessageBox.Show("Artículo modificado exitosamente!");
+                    negocio.Modificar(articulo);
+                    MessageBox.Show("Artículo modificado exitosamente!");
                 }
                 else
                 {
-                negocio.agregar(articulo);
-                MessageBox.Show("Artículo agregado exitosamente!");
+                    negocio.agregar(articulo);
+                    MessageBox.Show("Artículo agregado exitosamente!");
                 }
                 Close();
 
@@ -110,19 +100,6 @@ namespace TpWinform
             Close();
         }
 
-        private void lblFrmPrecioArticulo_Click(object sender, EventArgs e)
-        {
 
-        }
-
-        private void cboFrmCategoriaArticulo_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cboFrmMarcaArticulo_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }

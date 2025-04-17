@@ -20,11 +20,7 @@ namespace TpWinform
             InitializeComponent();
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
+       
         private void Form1_Load(object sender, EventArgs e)
         {
             cargar();
@@ -48,15 +44,7 @@ namespace TpWinform
 
         }
 
-        private void label1_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click_2(object sender, EventArgs e)
-        {
-
-        }
+       
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -76,9 +64,9 @@ namespace TpWinform
             try
             {
                 string buscar = txtBuscar.Text;
-                if (buscar.Length >= 3)
+                if (buscar.Length >= 1) //// cambio de 3 a 1 para que al poner una tecla ya busque la referencia 
                 {
-                    dgvArticulos.DataSource = negocio.filtrar(buscar);
+                    dgvArticulos.DataSource = negocio.Filtrar(buscar);
                 }
                 else
                 {
@@ -95,22 +83,6 @@ namespace TpWinform
 
         }
 
-        private void lwArticulos_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void btnBuscar_Click(object sender, EventArgs e)
-        {
-
-
-           
-        }
 
         private void txtBuscar_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -128,8 +100,6 @@ namespace TpWinform
             //    listaFiltrada = listaArticulo;
             //}
 
-
-
             //dgvArticulos.DataSource = null; // limpia el dataSource
             //dgvArticulos.DataSource = listaFiltrada;
 
@@ -139,10 +109,25 @@ namespace TpWinform
         private void btnModificarArticulo_Click(object sender, EventArgs e)
         {
             Articulo seleccionado = new Articulo();
-            seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+            try
+            {
+                  seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
             frmAgregarArticulo modificar = new frmAgregarArticulo(seleccionado);
             modificar.ShowDialog();
             cargar();
+
+
+            }
+            catch (Exception)
+            {
+             MessageBox.Show("Primero seleccione el articulo a modificar de la lista");
+            }
+
+        }
+
+        private void dgvArticulos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

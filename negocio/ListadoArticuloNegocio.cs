@@ -49,12 +49,92 @@ namespace negocio
 
                 throw ex;
             }
-            finally 
+            finally
             {
                 datos.cerrarConexion();
             }
         }
 
+
+
+
+
+        public List<Marca> ListarMarcas()
+        {
+            List<Marca> lista = new List<Marca>();
+
+            AccesoDatos datos = new AccesoDatos();
+
+
+
+            try
+            {
+                datos.setearConsulta("Select Id,Descripcion from MARCAS");
+                datos.ejecutarLectura();
+
+                while (datos.Lector.Read())
+                {
+                    Marca marca = new Marca();
+
+                    marca.Codigo = (int)datos.Lector["Id"];
+                    marca.Nombre = (string)datos.Lector["Descripcion"];
+
+
+
+
+                    lista.Add(marca);
+
+                }
+                return lista;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+        public List<Categoria> ListarCategorias()
+        {
+            List<Categoria> lista = new List<Categoria>();
+
+            AccesoDatos datos = new AccesoDatos();
+
+
+
+            try
+            {
+                datos.setearConsulta("Select Id,Descripcion from CATEGORIAS");
+                datos.ejecutarLectura();
+
+                while (datos.Lector.Read())
+                {
+                    Categoria categoria = new Categoria();
+
+                    categoria.Codigo = (int)datos.Lector["Id"];
+                    categoria.Nombre = (string)datos.Lector["Descripcion"];
+
+
+
+
+                    lista.Add(categoria);
+
+                }
+                return lista;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
 
     }
 }

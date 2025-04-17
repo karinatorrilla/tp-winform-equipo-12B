@@ -23,7 +23,9 @@ namespace negocio
 
             try
             {
-                datos.setearConsulta("Insert into ARTICULOS (Codigo, Nombre, Precio, Descripcion, IdMarca, IdCategoria)values('" + nuevo.Codigo + "', '" + nuevo.Nombre + "'," + nuevo.Precio + ", '" + nuevo.Descripcion + "',1,1)");
+                datos.setearConsulta("Insert into ARTICULOS (Codigo, Nombre, Precio, Descripcion, idMarca, idCategoria)values('" + nuevo.Codigo + "', '" + nuevo.Nombre + "'," + nuevo.Precio + ", '" + nuevo.Descripcion + "',@IdMarca,@IdCategoria)");
+                datos.setearParametro("@idMarca", nuevo.Marca.Codigo);
+                datos.setearParametro("@idCategoria",nuevo.Categoria.Codigo);
                 datos.ejecutarAccion();
             }
             catch (Exception ex)
@@ -37,9 +39,9 @@ namespace negocio
             }
 
         }
-        
+
         //Modificar articulo
-        public void modificar(Articulo mod)
+        public void Modificar(Articulo mod)
         {
             AccesoDatos datos = new AccesoDatos();
 
@@ -59,15 +61,15 @@ namespace negocio
             }
 
         }
-        
+
         //Filtro rapido del buscador
-        public List<Articulo> filtrar(string buscar)
+        public List<Articulo> Filtrar(string buscar)
         {
             List<Articulo> lista = new List<Articulo>();
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                string consulta = "select A.Codigo,A.Nombre,A.Descripcion,M.Descripcion as 'Marca',C.Descripcion as 'Categoria',A.Precio from ARTICULOS as A ,MARCAS M ,CATEGORIAS C where A.IdMarca=M.Id and A.IdCategoria=C.Id and ( A.Codigo like '%"+ buscar + "%' or A.Nombre like '%"+ buscar + "%' or  A.Descripcion like '%"+ buscar + "%' or M.Descripcion like '%"+ buscar + "%' or C.Descripcion like '%"+ buscar + "%' )";
+                string consulta = "select A.Codigo,A.Nombre,A.Descripcion,M.Descripcion as 'Marca',C.Descripcion as 'Categoria',A.Precio from ARTICULOS as A ,MARCAS M ,CATEGORIAS C where A.IdMarca=M.Id and A.IdCategoria=C.Id and ( A.Codigo like '%" + buscar + "%' or A.Nombre like '%" + buscar + "%' or  A.Descripcion like '%" + buscar + "%' or M.Descripcion like '%" + buscar + "%' or C.Descripcion like '%" + buscar + "%' )";
 
                 datos.setearConsulta(consulta);
 
