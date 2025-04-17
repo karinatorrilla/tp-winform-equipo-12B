@@ -24,8 +24,8 @@ namespace negocio
             try
             {
                 datos.setearConsulta("Insert into ARTICULOS (Codigo, Nombre, Precio, Descripcion, idMarca, idCategoria)values('" + nuevo.Codigo + "', '" + nuevo.Nombre + "'," + nuevo.Precio + ", '" + nuevo.Descripcion + "',@IdMarca,@IdCategoria)");
-                datos.setearParametro("@idMarca", nuevo.Marca.Codigo);
-                datos.setearParametro("@idCategoria",nuevo.Categoria.Codigo);
+                datos.setearParametro("@idMarca", nuevo.Marca.Id);
+                datos.setearParametro("@idCategoria",nuevo.Categoria.Id);
                 datos.ejecutarAccion();
             }
             catch (Exception ex)
@@ -83,10 +83,10 @@ namespace negocio
                     aux.Descripcion = (string)datos.Lector["Descripcion"];
 
                     aux.Marca = new Marca();
-                    aux.Marca.Nombre = (string)datos.Lector["Marca"];
+                    aux.Marca.Descripcion = (string)datos.Lector["Marca"];
 
                     aux.Categoria = new Categoria();
-                    aux.Categoria.Nombre = (string)datos.Lector["Categoria"];
+                    aux.Categoria.Descripcion = (string)datos.Lector["Categoria"];
 
                     aux.Precio = (float)(decimal)datos.Lector["Precio"];
                  

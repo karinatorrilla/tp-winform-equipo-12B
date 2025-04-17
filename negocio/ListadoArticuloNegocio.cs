@@ -17,7 +17,10 @@ namespace negocio
 
             try
             {
+
                 datos.setearConsulta("select A.Id,A.Codigo,A.Nombre,A.Descripcion,M.Descripcion as 'Marca',C.Descripcion as 'Categoria',A.Precio,I.ImagenUrl from ARTICULOS as A ,MARCAS M ,CATEGORIAS C,IMAGENES I where A.IdMarca=M.Id and A.IdCategoria=C.Id and A.Id = I.IdArticulo");
+
+                
                 datos.ejecutarLectura();
 
                 while (datos.Lector.Read())
@@ -29,12 +32,15 @@ namespace negocio
                     aux.Descripcion = (string)datos.Lector["Descripcion"];
 
                     aux.Marca = new Marca();
-                    aux.Marca.Nombre = (string)datos.Lector["Marca"];
+                   
+                    aux.Marca.Descripcion = (string)datos.Lector["Marca"];
 
                     aux.Categoria = new Categoria();
-                    aux.Categoria.Nombre = (string)datos.Lector["Categoria"];
+                  
+                    aux.Categoria.Descripcion = (string)datos.Lector["Categoria"];
 
                     aux.Precio = (float)(decimal)datos.Lector["Precio"];
+
                     aux.Imagen = new Imagen();
                     aux.Imagen.ImagenUrl = (string)datos.Lector["ImagenUrl"];
 
@@ -77,8 +83,8 @@ namespace negocio
                 {
                     Marca marca = new Marca();
 
-                    marca.Codigo = (int)datos.Lector["Id"];
-                    marca.Nombre = (string)datos.Lector["Descripcion"];
+                    marca.Id = (int)datos.Lector["Id"];
+                    marca.Descripcion = (string)datos.Lector["Descripcion"];
 
                     lista.Add(marca);
 
@@ -110,8 +116,8 @@ namespace negocio
                 {
                     Categoria categoria = new Categoria();
 
-                    categoria.Codigo = (int)datos.Lector["Id"];
-                    categoria.Nombre = (string)datos.Lector["Descripcion"];
+                    categoria.Id = (int)datos.Lector["Id"];
+                    categoria.Descripcion = (string)datos.Lector["Descripcion"];
 
                     lista.Add(categoria);
 
