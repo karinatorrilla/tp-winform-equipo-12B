@@ -20,7 +20,6 @@ namespace TpWinform
             InitializeComponent();
         }
 
-
         private void Form1_Load(object sender, EventArgs e)
         {
             cargar();
@@ -31,11 +30,10 @@ namespace TpWinform
             MessageBox.Show("¡Gracias por usar el programa!");
         }
 
-
-
         // Carga el listado de lista Articulos
         private void cargar()
         {
+
             ListadoArticuloNegocio negocio = new ListadoArticuloNegocio();
             try
             {
@@ -47,7 +45,6 @@ namespace TpWinform
             }
             catch (Exception ex)
             {
-
                 MessageBox.Show(ex.ToString());
             }
 
@@ -61,23 +58,18 @@ namespace TpWinform
                 Articulo seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
                 cargarImagenArticulo(seleccionado.Imagen.ImagenUrl);
             }
-                
-
+            
         }
 
         private void cargarImagenArticulo(string imagen)
         {
             try
             {
-
                 pbImagen.Load(imagen);
             }
             catch (Exception)
             {
-
                 pbImagen.Load("https://t4.ftcdn.net/jpg/07/91/22/59/360_F_791225927_caRPPH99D6D1iFonkCRmCGzkJPf36QDw.jpg");
-
-
             }
         }
 
@@ -91,6 +83,7 @@ namespace TpWinform
 
         private void txtBuscar_TextChanged(object sender, EventArgs e)
         {
+
             ArticuloNegocio negocio = new ArticuloNegocio();
             try
             {
@@ -113,7 +106,6 @@ namespace TpWinform
             }
 
         }
-
 
         private void txtBuscar_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -153,21 +145,43 @@ namespace TpWinform
                 }
                 else
                 {
-                    MessageBox.Show("Debe seleccionar un artículo de la lista!");
+                    MessageBox.Show("¡Debe seleccionar un artículo de la lista!");
                 }
 
-
-
-
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                MessageBox.Show("Primero seleccione el articulo a modificar de la lista");
+                MessageBox.Show(ex.ToString());
             }
 
         }
-
-
-
+    
+        //Botón de ELIMINAR artículo... (Eliminación física)
+        private void btnEliminarArticulo_Click(object sender, EventArgs e)
+        {
+            ArticuloNegocio negocio = new ArticuloNegocio();
+            Articulo seleccionado = new Articulo();            
+            try
+            {
+                if (dgvArticulos.CurrentRow != null)
+                {
+                    DialogResult respuesta = MessageBox.Show("¿Estás seguro de que querés eliminar el artículo?", "Eliminar", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    if (respuesta == DialogResult.Yes)
+                    {
+                        seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+                        negocio.Eliminar(seleccionado.Id);
+                        cargar();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("¡Debe seleccionar un artículo de la lista!");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }                      
+        }
     }
 }

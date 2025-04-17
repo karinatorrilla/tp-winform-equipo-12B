@@ -42,7 +42,7 @@
             this.cboFrmCategoriaArticulo = new System.Windows.Forms.ComboBox();
             this.txtFrmPrecioArticulo = new System.Windows.Forms.TextBox();
             this.txtFrmDescripcionArticulo = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtFrmUrlImagen = new System.Windows.Forms.TextBox();
             this.btnFrmGuardarArticulo = new System.Windows.Forms.Button();
             this.btnFrmCancelarArticulo = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -176,12 +176,12 @@
             this.txtFrmDescripcionArticulo.Size = new System.Drawing.Size(237, 72);
             this.txtFrmDescripcionArticulo.TabIndex = 5;
             // 
-            // textBox2
+            // txtFrmUrlImagen
             // 
-            this.textBox2.Location = new System.Drawing.Point(205, 393);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(156, 20);
-            this.textBox2.TabIndex = 6;
+            this.txtFrmUrlImagen.Location = new System.Drawing.Point(205, 393);
+            this.txtFrmUrlImagen.Name = "txtFrmUrlImagen";
+            this.txtFrmUrlImagen.Size = new System.Drawing.Size(156, 20);
+            this.txtFrmUrlImagen.TabIndex = 6;
             // 
             // btnFrmGuardarArticulo
             // 
@@ -218,7 +218,7 @@
             this.ClientSize = new System.Drawing.Size(514, 533);
             this.Controls.Add(this.btnFrmCancelarArticulo);
             this.Controls.Add(this.btnFrmGuardarArticulo);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.txtFrmUrlImagen);
             this.Controls.Add(this.txtFrmDescripcionArticulo);
             this.Controls.Add(this.txtFrmPrecioArticulo);
             this.Controls.Add(this.cboFrmCategoriaArticulo);
@@ -261,7 +261,7 @@
         private System.Windows.Forms.ComboBox cboFrmCategoriaArticulo;
         private System.Windows.Forms.TextBox txtFrmPrecioArticulo;
         private System.Windows.Forms.TextBox txtFrmDescripcionArticulo;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtFrmUrlImagen;
         private System.Windows.Forms.Button btnFrmGuardarArticulo;
         private System.Windows.Forms.Button btnFrmCancelarArticulo;
     }

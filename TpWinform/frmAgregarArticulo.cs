@@ -27,6 +27,7 @@ namespace TpWinform
             this.articulo = articulo;
             Text = "Modificar";
             lblCrearArticulo.Text = "Modificar Artículo";
+            btnFrmGuardarArticulo.Text = "Modificar";
 
         }
 
@@ -52,10 +53,9 @@ namespace TpWinform
                     txtFrmNombreArticulo.Text = articulo.Nombre;
                     cboFrmMarcaArticulo.SelectedValue = articulo.Marca.Id;
                     cboFrmCategoriaArticulo.SelectedValue = articulo.Categoria.Id;
-
                     txtFrmPrecioArticulo.Text = articulo.Precio.ToString();
                     txtFrmDescripcionArticulo.Text = articulo.Descripcion;
-                    //txtFrmImagen
+                    txtFrmUrlImagen.Text = articulo.Imagen.ToString();
                 }
             }
             catch (Exception ex)

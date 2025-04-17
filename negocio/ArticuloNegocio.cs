@@ -62,6 +62,25 @@ namespace negocio
 
         }
 
+        //Eliminar artículo (eliminación física)
+        public void Eliminar (int id)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.setearConsulta("Delete From ARTICULOS Where Id = '" + id + "'");
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+
         //Filtro rapido del buscador
         public List<Articulo> Filtrar(string buscar)
         {
