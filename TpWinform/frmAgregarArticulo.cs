@@ -38,12 +38,21 @@ namespace TpWinform
             try
             {
                 cboFrmMarcaArticulo.DataSource = marca.ListarMarca();
+                cboFrmMarcaArticulo.ValueMember = "Id";
+                cboFrmMarcaArticulo.DisplayMember = "Descripcion";
+                
                 cboFrmCategoriaArticulo.DataSource = categoria.ListarCategoria();
+                cboFrmCategoriaArticulo.ValueMember = "Id";
+                cboFrmCategoriaArticulo.DisplayMember = "Descripcion";
+
                 //precarga de datos para modificar articulo!!!
                 if (articulo != null)
                 {
                     txtFrmCodigoArticulo.Text = articulo.Codigo;
                     txtFrmNombreArticulo.Text = articulo.Nombre;
+                    cboFrmMarcaArticulo.SelectedValue = articulo.Marca.Id;
+                    cboFrmCategoriaArticulo.SelectedValue = articulo.Categoria.Id;
+
                     txtFrmPrecioArticulo.Text = articulo.Precio.ToString();
                     txtFrmDescripcionArticulo.Text = articulo.Descripcion;
                     //txtFrmImagen

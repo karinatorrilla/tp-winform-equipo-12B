@@ -64,7 +64,7 @@ namespace TpWinform
             try
             {
                 string buscar = txtBuscar.Text;
-                if (buscar.Length >= 1) //// cambio de 3 a 1 para que al poner una tecla ya busque la referencia 
+                if (buscar.Length >= 3) // se cambia de nuevo a 3, ya no es optimo para la  DB  estar a cada rato haciendo una consulta por una sola letra
                 {
                     dgvArticulos.DataSource = negocio.Filtrar(buscar);
                 }
@@ -109,12 +109,21 @@ namespace TpWinform
         private void btnModificarArticulo_Click(object sender, EventArgs e)
         {
             Articulo seleccionado = new Articulo();
+            //Console.WriteLine("HOLA.. "+ dgvArticulos.CurrentRow);
             try
             {
-                  seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
-            frmAgregarArticulo modificar = new frmAgregarArticulo(seleccionado);
-            modificar.ShowDialog();
-            cargar();
+                if(dgvArticulos.CurrentRow != null)
+                {
+                    seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+                    frmAgregarArticulo modificar = new frmAgregarArticulo(seleccionado);
+                    modificar.ShowDialog();
+                    cargar();
+                }
+                else
+                {
+                    MessageBox.Show("Debe seleccionar un artículo de la lista!");
+                }
+                
 
 
             }

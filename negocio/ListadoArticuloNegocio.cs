@@ -17,7 +17,7 @@ namespace negocio
 
             try
             {
-                datos.setearConsulta("select A.Id,A.Codigo,A.Nombre,A.Descripcion,M.Descripcion as 'Marca',C.Descripcion as 'Categoria',A.Precio from ARTICULOS as A ,MARCAS M ,CATEGORIAS C where A.IdMarca=M.Id and A.IdCategoria=C.Id");
+                datos.setearConsulta("select A.Id,A.Codigo,A.Nombre,A.Descripcion,M.Descripcion as 'Marca',C.Descripcion as 'Categoria',A.Precio, A.IdMarca, A.IdCategoria from ARTICULOS as A ,MARCAS M ,CATEGORIAS C where A.IdMarca=M.Id and A.IdCategoria=C.Id");
                 datos.ejecutarLectura();
 
                 while (datos.Lector.Read())
@@ -29,10 +29,12 @@ namespace negocio
                     aux.Descripcion = (string)datos.Lector["Descripcion"];
 
                     aux.Marca = new Marca();
-                    aux.Marca.Nombre = (string)datos.Lector["Marca"];
+                    aux.Marca.Id = (int)datos.Lector["IdMarca"];
+                    aux.Marca.Descripcion = (string)datos.Lector["Marca"];
 
                     aux.Categoria = new Categoria();
-                    aux.Categoria.Nombre = (string)datos.Lector["Categoria"];
+                    aux.Categoria.Id = (int)datos.Lector["IdCategoria"];
+                    aux.Categoria.Descripcion = (string)datos.Lector["Categoria"];
 
                     aux.Precio = (float)(decimal)datos.Lector["Precio"];
 
@@ -76,8 +78,8 @@ namespace negocio
                 {
                     Marca marca = new Marca();
 
-                    marca.Codigo = (int)datos.Lector["Id"];
-                    marca.Nombre = (string)datos.Lector["Descripcion"];
+                    marca.Id = (int)datos.Lector["Id"];
+                    marca.Descripcion = (string)datos.Lector["Descripcion"];
 
 
 
@@ -114,8 +116,8 @@ namespace negocio
                 {
                     Categoria categoria = new Categoria();
 
-                    categoria.Codigo = (int)datos.Lector["Id"];
-                    categoria.Nombre = (string)datos.Lector["Descripcion"];
+                    categoria.Id = (int)datos.Lector["Id"];
+                    categoria.Descripcion = (string)datos.Lector["Descripcion"];
 
 
 
