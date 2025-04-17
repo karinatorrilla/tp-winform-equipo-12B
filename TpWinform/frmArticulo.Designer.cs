@@ -44,9 +44,11 @@
             this.cboSubTipoCategoria = new System.Windows.Forms.ComboBox();
             this.btnLimpiarFiltro = new System.Windows.Forms.Button();
             this.dgvArticulos = new System.Windows.Forms.DataGridView();
+            this.pbImagen = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbImagen)).BeginInit();
             this.SuspendLayout();
             // 
             // lblTitulo
@@ -77,7 +79,7 @@
             this.lblMenuMarcas.Location = new System.Drawing.Point(3, 183);
             this.lblMenuMarcas.Name = "lblMenuMarcas";
             this.lblMenuMarcas.Size = new System.Drawing.Size(58, 16);
-            this.lblMenuMarcas.TabIndex = 5;
+            this.lblMenuMarcas.TabIndex = 1;
             this.lblMenuMarcas.Text = "Marcas";
             // 
             // lblMenuArticulos
@@ -87,7 +89,7 @@
             this.lblMenuArticulos.Location = new System.Drawing.Point(3, 100);
             this.lblMenuArticulos.Name = "lblMenuArticulos";
             this.lblMenuArticulos.Size = new System.Drawing.Size(67, 16);
-            this.lblMenuArticulos.TabIndex = 3;
+            this.lblMenuArticulos.TabIndex = 0;
             this.lblMenuArticulos.Text = "Artículos";
             // 
             // lblMenuCategorias
@@ -97,7 +99,7 @@
             this.lblMenuCategorias.Location = new System.Drawing.Point(3, 142);
             this.lblMenuCategorias.Name = "lblMenuCategorias";
             this.lblMenuCategorias.Size = new System.Drawing.Size(83, 16);
-            this.lblMenuCategorias.TabIndex = 4;
+            this.lblMenuCategorias.TabIndex = 1;
             this.lblMenuCategorias.Text = "Categorías";
             // 
             // panel2
@@ -112,6 +114,7 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(878, 82);
             this.panel2.TabIndex = 2;
+      
             // 
             // btnModificarArticulo
             // 
@@ -120,7 +123,7 @@
             this.btnModificarArticulo.Location = new System.Drawing.Point(749, 35);
             this.btnModificarArticulo.Name = "btnModificarArticulo";
             this.btnModificarArticulo.Size = new System.Drawing.Size(120, 35);
-            this.btnModificarArticulo.TabIndex = 6;
+            this.btnModificarArticulo.TabIndex = 2;
             this.btnModificarArticulo.Text = "Modificar Artìculo";
             this.btnModificarArticulo.UseVisualStyleBackColor = false;
             this.btnModificarArticulo.Click += new System.EventHandler(this.btnModificarArticulo_Click);
@@ -135,7 +138,7 @@
             this.btnAgregarArticulo.Location = new System.Drawing.Point(623, 35);
             this.btnAgregarArticulo.Name = "btnAgregarArticulo";
             this.btnAgregarArticulo.Size = new System.Drawing.Size(120, 35);
-            this.btnAgregarArticulo.TabIndex = 5;
+            this.btnAgregarArticulo.TabIndex = 1;
             this.btnAgregarArticulo.Text = "Agregar Artículo";
             this.btnAgregarArticulo.UseVisualStyleBackColor = false;
             this.btnAgregarArticulo.Click += new System.EventHandler(this.btnAgregarArticulo_Click);
@@ -145,7 +148,7 @@
             this.txtBuscar.Location = new System.Drawing.Point(162, 54);
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(329, 20);
-            this.txtBuscar.TabIndex = 4;
+            this.txtBuscar.TabIndex = 0;
             this.txtBuscar.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);
             this.txtBuscar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBuscar_KeyPress);
             // 
@@ -166,7 +169,7 @@
             this.lblFiltarPor.Location = new System.Drawing.Point(110, 593);
             this.lblFiltarPor.Name = "lblFiltarPor";
             this.lblFiltarPor.Size = new System.Drawing.Size(53, 13);
-            this.lblFiltarPor.TabIndex = 4;
+            this.lblFiltarPor.TabIndex = 6;
             this.lblFiltarPor.Text = "Filtrar por:";
             // 
             // cboTipoCategoria
@@ -175,7 +178,7 @@
             this.cboTipoCategoria.Location = new System.Drawing.Point(184, 590);
             this.cboTipoCategoria.Name = "cboTipoCategoria";
             this.cboTipoCategoria.Size = new System.Drawing.Size(121, 21);
-            this.cboTipoCategoria.TabIndex = 5;
+            this.cboTipoCategoria.TabIndex = 0;
             // 
             // cboSubTipoCategoria
             // 
@@ -183,7 +186,7 @@
             this.cboSubTipoCategoria.Location = new System.Drawing.Point(323, 590);
             this.cboSubTipoCategoria.Name = "cboSubTipoCategoria";
             this.cboSubTipoCategoria.Size = new System.Drawing.Size(168, 21);
-            this.cboSubTipoCategoria.TabIndex = 6;
+            this.cboSubTipoCategoria.TabIndex = 1;
             // 
             // btnLimpiarFiltro
             // 
@@ -194,7 +197,7 @@
             this.btnLimpiarFiltro.Location = new System.Drawing.Point(522, 590);
             this.btnLimpiarFiltro.Name = "btnLimpiarFiltro";
             this.btnLimpiarFiltro.Size = new System.Drawing.Size(98, 23);
-            this.btnLimpiarFiltro.TabIndex = 7;
+            this.btnLimpiarFiltro.TabIndex = 2;
             this.btnLimpiarFiltro.Text = "Limpiar Filtros";
             this.btnLimpiarFiltro.UseVisualStyleBackColor = false;
             // 
@@ -215,10 +218,21 @@
             this.dgvArticulos.MinimumSize = new System.Drawing.Size(777, 495);
             this.dgvArticulos.MultiSelect = false;
             this.dgvArticulos.Name = "dgvArticulos";
+            this.dgvArticulos.ReadOnly = true;
             this.dgvArticulos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvArticulos.Size = new System.Drawing.Size(777, 495);
-            this.dgvArticulos.TabIndex = 8;
-            this.dgvArticulos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvArticulos_CellContentClick);
+            this.dgvArticulos.TabIndex = 3;
+
+            this.dgvArticulos.SelectionChanged += new System.EventHandler(this.dgvArticulos_SelectionChanged);
+            // 
+            // pbImagen
+            // 
+            this.pbImagen.Location = new System.Drawing.Point(473, 328);
+            this.pbImagen.Name = "pbImagen";
+            this.pbImagen.Size = new System.Drawing.Size(235, 224);
+            this.pbImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbImagen.TabIndex = 7;
+            this.pbImagen.TabStop = false;
             // 
             // frmArticulo
             // 
@@ -226,6 +240,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.ClientSize = new System.Drawing.Size(878, 627);
+            this.Controls.Add(this.pbImagen);
             this.Controls.Add(this.dgvArticulos);
             this.Controls.Add(this.btnLimpiarFiltro);
             this.Controls.Add(this.cboSubTipoCategoria);
@@ -248,6 +263,7 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbImagen)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -270,6 +286,7 @@
         private System.Windows.Forms.Button btnAgregarArticulo;
         private System.Windows.Forms.DataGridView dgvArticulos;
         private System.Windows.Forms.Button btnModificarArticulo;
+        private System.Windows.Forms.PictureBox pbImagen;
     }
 }
 

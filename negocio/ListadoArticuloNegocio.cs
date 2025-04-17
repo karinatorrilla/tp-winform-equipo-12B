@@ -17,7 +17,7 @@ namespace negocio
 
             try
             {
-                datos.setearConsulta("select A.Id,A.Codigo,A.Nombre,A.Descripcion,M.Descripcion as 'Marca',C.Descripcion as 'Categoria',A.Precio from ARTICULOS as A ,MARCAS M ,CATEGORIAS C where A.IdMarca=M.Id and A.IdCategoria=C.Id");
+                datos.setearConsulta("select A.Id,A.Codigo,A.Nombre,A.Descripcion,M.Descripcion as 'Marca',C.Descripcion as 'Categoria',A.Precio,I.ImagenUrl from ARTICULOS as A ,MARCAS M ,CATEGORIAS C,IMAGENES I where A.IdMarca=M.Id and A.IdCategoria=C.Id and A.Id = I.IdArticulo");
                 datos.ejecutarLectura();
 
                 while (datos.Lector.Read())
@@ -35,7 +35,8 @@ namespace negocio
                     aux.Categoria.Nombre = (string)datos.Lector["Categoria"];
 
                     aux.Precio = (float)(decimal)datos.Lector["Precio"];
-
+                    aux.Imagen = new Imagen();
+                    aux.Imagen.ImagenUrl = (string)datos.Lector["ImagenUrl"];
 
                     lista.Add(aux);
                 }
@@ -79,9 +80,6 @@ namespace negocio
                     marca.Codigo = (int)datos.Lector["Id"];
                     marca.Nombre = (string)datos.Lector["Descripcion"];
 
-
-
-
                     lista.Add(marca);
 
                 }
@@ -103,8 +101,6 @@ namespace negocio
 
             AccesoDatos datos = new AccesoDatos();
 
-
-
             try
             {
                 datos.setearConsulta("Select Id,Descripcion from CATEGORIAS");
@@ -116,9 +112,6 @@ namespace negocio
 
                     categoria.Codigo = (int)datos.Lector["Id"];
                     categoria.Nombre = (string)datos.Lector["Descripcion"];
-
-
-
 
                     lista.Add(categoria);
 

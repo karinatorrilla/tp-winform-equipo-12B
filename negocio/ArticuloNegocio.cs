@@ -89,7 +89,7 @@ namespace negocio
                     aux.Categoria.Nombre = (string)datos.Lector["Categoria"];
 
                     aux.Precio = (float)(decimal)datos.Lector["Precio"];
-
+                 
 
                     lista.Add(aux);
                 }

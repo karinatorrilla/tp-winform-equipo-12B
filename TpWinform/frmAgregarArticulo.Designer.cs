@@ -72,7 +72,7 @@
             this.txtFrmCodigoArticulo.Location = new System.Drawing.Point(205, 63);
             this.txtFrmCodigoArticulo.Name = "txtFrmCodigoArticulo";
             this.txtFrmCodigoArticulo.Size = new System.Drawing.Size(156, 20);
-            this.txtFrmCodigoArticulo.TabIndex = 2;
+            this.txtFrmCodigoArticulo.TabIndex = 0;
             // 
             // lblFrmCodigoArticulo
             // 
@@ -103,7 +103,6 @@
             this.lblFrmCategoriaArticulo.Size = new System.Drawing.Size(67, 13);
             this.lblFrmCategoriaArticulo.TabIndex = 5;
             this.lblFrmCategoriaArticulo.Text = "Categoría:";
-       
             // 
             // lblFrmImagenArticulo
             // 
@@ -114,7 +113,6 @@
             this.lblFrmImagenArticulo.Size = new System.Drawing.Size(85, 13);
             this.lblFrmImagenArticulo.TabIndex = 6;
             this.lblFrmImagenArticulo.Text = "Url Imagenes:";
-          
             // 
             // lblFrmDescripcionArticulo
             // 
@@ -135,14 +133,13 @@
             this.lblFrmPrecioArticulo.Size = new System.Drawing.Size(47, 13);
             this.lblFrmPrecioArticulo.TabIndex = 8;
             this.lblFrmPrecioArticulo.Text = "Precio:";
-          
             // 
             // txtFrmNombreArticulo
             // 
             this.txtFrmNombreArticulo.Location = new System.Drawing.Point(205, 97);
             this.txtFrmNombreArticulo.Name = "txtFrmNombreArticulo";
             this.txtFrmNombreArticulo.Size = new System.Drawing.Size(156, 20);
-            this.txtFrmNombreArticulo.TabIndex = 9;
+            this.txtFrmNombreArticulo.TabIndex = 1;
             // 
             // cboFrmMarcaArticulo
             // 
@@ -151,8 +148,7 @@
             this.cboFrmMarcaArticulo.Location = new System.Drawing.Point(205, 141);
             this.cboFrmMarcaArticulo.Name = "cboFrmMarcaArticulo";
             this.cboFrmMarcaArticulo.Size = new System.Drawing.Size(156, 21);
-            this.cboFrmMarcaArticulo.TabIndex = 10;
-          
+            this.cboFrmMarcaArticulo.TabIndex = 2;
             // 
             // cboFrmCategoriaArticulo
             // 
@@ -161,16 +157,14 @@
             this.cboFrmCategoriaArticulo.Location = new System.Drawing.Point(205, 185);
             this.cboFrmCategoriaArticulo.Name = "cboFrmCategoriaArticulo";
             this.cboFrmCategoriaArticulo.Size = new System.Drawing.Size(156, 21);
-            this.cboFrmCategoriaArticulo.TabIndex = 11;
-          
+            this.cboFrmCategoriaArticulo.TabIndex = 3;
             // 
             // txtFrmPrecioArticulo
             // 
             this.txtFrmPrecioArticulo.Location = new System.Drawing.Point(205, 224);
             this.txtFrmPrecioArticulo.Name = "txtFrmPrecioArticulo";
             this.txtFrmPrecioArticulo.Size = new System.Drawing.Size(156, 20);
-            this.txtFrmPrecioArticulo.TabIndex = 12;
-
+            this.txtFrmPrecioArticulo.TabIndex = 4;
             // 
             // txtFrmDescripcionArticulo
             // 
@@ -180,14 +174,14 @@
             this.txtFrmDescripcionArticulo.Multiline = true;
             this.txtFrmDescripcionArticulo.Name = "txtFrmDescripcionArticulo";
             this.txtFrmDescripcionArticulo.Size = new System.Drawing.Size(237, 72);
-            this.txtFrmDescripcionArticulo.TabIndex = 13;
+            this.txtFrmDescripcionArticulo.TabIndex = 5;
             // 
             // textBox2
             // 
             this.textBox2.Location = new System.Drawing.Point(205, 393);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(156, 20);
-            this.textBox2.TabIndex = 14;
+            this.textBox2.TabIndex = 6;
             // 
             // btnFrmGuardarArticulo
             // 
@@ -198,7 +192,7 @@
             this.btnFrmGuardarArticulo.Location = new System.Drawing.Point(94, 474);
             this.btnFrmGuardarArticulo.Name = "btnFrmGuardarArticulo";
             this.btnFrmGuardarArticulo.Size = new System.Drawing.Size(133, 32);
-            this.btnFrmGuardarArticulo.TabIndex = 15;
+            this.btnFrmGuardarArticulo.TabIndex = 7;
             this.btnFrmGuardarArticulo.Text = "Agregar";
             this.btnFrmGuardarArticulo.UseVisualStyleBackColor = false;
             this.btnFrmGuardarArticulo.Click += new System.EventHandler(this.btnFrmGuardarArticulo_Click);
@@ -212,7 +206,7 @@
             this.btnFrmCancelarArticulo.Location = new System.Drawing.Point(269, 474);
             this.btnFrmCancelarArticulo.Name = "btnFrmCancelarArticulo";
             this.btnFrmCancelarArticulo.Size = new System.Drawing.Size(133, 32);
-            this.btnFrmCancelarArticulo.TabIndex = 16;
+            this.btnFrmCancelarArticulo.TabIndex = 8;
             this.btnFrmCancelarArticulo.Text = "Cancelar";
             this.btnFrmCancelarArticulo.UseVisualStyleBackColor = false;
             this.btnFrmCancelarArticulo.Click += new System.EventHandler(this.btnFrmCancelarArticulo_Click);

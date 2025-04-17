@@ -20,11 +20,18 @@ namespace TpWinform
             InitializeComponent();
         }
 
-       
+
         private void Form1_Load(object sender, EventArgs e)
         {
             cargar();
         }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            MessageBox.Show("¡Gracias por usar el programa!");
+        }
+
+
 
         // Carga el listado de lista Articulos
         private void cargar()
@@ -35,6 +42,8 @@ namespace TpWinform
                 listaArticulo = negocio.Listar();
                 dgvArticulos.DataSource = listaArticulo;
                 dgvArticulos.Columns["Id"].Visible = false;
+                dgvArticulos.Columns["Imagen"].Visible = false;
+                pbImagen.Load(listaArticulo[0].Imagen.ImagenUrl);
             }
             catch (Exception ex)
             {
@@ -44,12 +53,30 @@ namespace TpWinform
 
         }
 
-       
-
-        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        private void dgvArticulos_SelectionChanged(object sender, EventArgs e)
         {
-            MessageBox.Show("¡Gracias por usar el programa!");
+            ///Cuando selecciono otra fila, cambia la imagen del picture box
+            Articulo seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+            cargarImagenArticulo(seleccionado.Imagen.ImagenUrl);
+            
         }
+
+        private void cargarImagenArticulo(string imagen)
+        {
+            try
+            {
+
+                pbImagen.Load(imagen);
+            }
+            catch (Exception)
+            {
+
+                pbImagen.Load("https://t4.ftcdn.net/jpg/07/91/22/59/360_F_791225927_caRPPH99D6D1iFonkCRmCGzkJPf36QDw.jpg");
+
+
+            }
+        }
+
 
         private void btnAgregarArticulo_Click(object sender, EventArgs e)
         {
@@ -111,23 +138,21 @@ namespace TpWinform
             Articulo seleccionado = new Articulo();
             try
             {
-                  seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
-            frmAgregarArticulo modificar = new frmAgregarArticulo(seleccionado);
-            modificar.ShowDialog();
-            cargar();
+                seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+                frmAgregarArticulo modificar = new frmAgregarArticulo(seleccionado);
+                modificar.ShowDialog();
+                cargar();
 
 
             }
             catch (Exception)
             {
-             MessageBox.Show("Primero seleccione el articulo a modificar de la lista");
+                MessageBox.Show("Primero seleccione el articulo a modificar de la lista");
             }
 
         }
 
-        private void dgvArticulos_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
 
-        }
+
     }
 }
