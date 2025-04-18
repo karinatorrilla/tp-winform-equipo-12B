@@ -43,7 +43,7 @@ namespace TpWinform
         {
             MarcaNegocio marca = new MarcaNegocio();
             CategoriaNegocio categoria = new CategoriaNegocio();
-
+      
             try
             {
                 cboFrmMarcaArticulo.DataSource = marca.ListarMarca();
@@ -63,6 +63,8 @@ namespace TpWinform
                     cboFrmCategoriaArticulo.SelectedValue = articulo.Categoria.Id;
                     txtFrmPrecioArticulo.Text = articulo.Precio.ToString();
                     txtFrmDescripcionArticulo.Text = articulo.Descripcion;
+                                                        
+
                     txtFrmUrlImagen.Text = articulo.Imagen.ToString();
                     cargarImagenFormArticulo(articulo.Imagen.ImagenUrl); //carga imagen
                 }
