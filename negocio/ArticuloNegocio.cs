@@ -93,7 +93,7 @@ namespace negocio
 
             try
             {
-                datos.setearConsulta("Update ARTICULOS set Codigo = '" + mod.Codigo + "' , Nombre = '" + mod.Nombre + "', Precio = '" + mod.Precio + "' , Descripcion = '" + mod.Descripcion + "' , IdMarca = 1, IdCategoria = 1 Where Id = '" + mod.Id + "'");
+                datos.setearConsulta("Update ARTICULOS set Codigo = '" + mod.Codigo + "' , Nombre = '" + mod.Nombre + "', Precio = '" + mod.Precio + "' , Descripcion = '" + mod.Descripcion + "' , IdMarca = '" + mod.Marca.Id + "', IdCategoria = '" + mod.Categoria.Id + "' Where Id = '" + mod.Id + "'");
                 datos.ejecutarAccion();
             }
             catch (Exception ex)
