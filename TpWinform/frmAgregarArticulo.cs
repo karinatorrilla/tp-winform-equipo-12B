@@ -74,6 +74,7 @@ namespace TpWinform
             {
                 if (articulo == null)
                     articulo = new Articulo();
+                articulo.Imagen = new Imagen();
 
                 articulo.Codigo = txtFrmCodigoArticulo.Text;
                 articulo.Nombre = txtFrmNombreArticulo.Text;
@@ -81,6 +82,7 @@ namespace TpWinform
                 articulo.Descripcion = txtFrmDescripcionArticulo.Text;
                 articulo.Marca=(Marca)cboFrmMarcaArticulo.SelectedItem;
                 articulo.Categoria=(Categoria)cboFrmCategoriaArticulo.SelectedItem;
+                articulo.Imagen.ImagenUrl = txtFrmUrlImagen.Text;
                 //Si el id de artículo es distinto de 0 lo modifica, si no, entiende que no hay artículo
                 //cargado y lo agrega...
                 if (articulo.Id != 0)

@@ -8,7 +8,7 @@ namespace dominio
 {
     public class Imagen
     {
-        public int IdImagen { get; set; }
+        public int IdImagenArticulo { get; set; }
 
         public string ImagenUrl { get; set; }
 

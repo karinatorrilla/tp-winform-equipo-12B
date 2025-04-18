@@ -23,9 +23,11 @@ namespace negocio
 
             try
             {
-                datos.setearConsulta("Insert into ARTICULOS (Codigo, Nombre, Precio, Descripcion, idMarca, idCategoria)values('" + nuevo.Codigo + "', '" + nuevo.Nombre + "'," + nuevo.Precio + ", '" + nuevo.Descripcion + "',@IdMarca,@IdCategoria)");
-                datos.setearParametro("@idMarca", nuevo.Marca.Id);
-                datos.setearParametro("@idCategoria",nuevo.Categoria.Id);
+                
+                datos.setearConsulta("DECLARE @NuevoID INT INSERT INTO ARTICULOS(Codigo, Nombre, Precio, Descripcion, IdMarca, IdCategoria)values('" + nuevo.Codigo + "', '" + nuevo.Nombre + "', " + nuevo.Precio + ", '" + nuevo.Descripcion + "', @IdMarca, @IdCategoria) SET @NuevoID = SCOPE_IDENTITY() INSERT INTO IMAGENES (IdArticulo, ImagenUrl)VALUES (@NuevoID, @ImagenUrl)");
+                datos.setearParametro("@IdMarca", nuevo.Marca.Id);
+                datos.setearParametro("@IdCategoria",nuevo.Categoria.Id);
+                datos.setearParametro("@ImagenUrl", nuevo.Imagen.ImagenUrl);
                 datos.ejecutarAccion();
             }
             catch (Exception ex)
