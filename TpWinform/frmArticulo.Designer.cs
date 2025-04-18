@@ -45,6 +45,7 @@
             this.cboSubTipoCategoria = new System.Windows.Forms.ComboBox();
             this.btnLimpiarFiltro = new System.Windows.Forms.Button();
             this.dgvArticulos = new System.Windows.Forms.DataGridView();
+            this.btnDetalleArticulo = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulos)).BeginInit();
@@ -104,6 +105,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.panel2.Controls.Add(this.btnDetalleArticulo);
             this.panel2.Controls.Add(this.btnEliminarArticulo);
             this.panel2.Controls.Add(this.btnModificarArticulo);
             this.panel2.Controls.Add(this.btnAgregarArticulo);
@@ -118,10 +120,12 @@
             // btnEliminarArticulo
             // 
             this.btnEliminarArticulo.BackColor = System.Drawing.Color.Red;
+            this.btnEliminarArticulo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEliminarArticulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Bold);
-            this.btnEliminarArticulo.Location = new System.Drawing.Point(735, 39);
+            this.btnEliminarArticulo.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnEliminarArticulo.Location = new System.Drawing.Point(780, 39);
             this.btnEliminarArticulo.Name = "btnEliminarArticulo";
-            this.btnEliminarArticulo.Size = new System.Drawing.Size(120, 35);
+            this.btnEliminarArticulo.Size = new System.Drawing.Size(86, 35);
             this.btnEliminarArticulo.TabIndex = 4;
             this.btnEliminarArticulo.Text = "Eliminar Artículo";
             this.btnEliminarArticulo.UseVisualStyleBackColor = false;
@@ -130,10 +134,12 @@
             // btnModificarArticulo
             // 
             this.btnModificarArticulo.BackColor = System.Drawing.Color.Goldenrod;
+            this.btnModificarArticulo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnModificarArticulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Bold);
-            this.btnModificarArticulo.Location = new System.Drawing.Point(609, 39);
+            this.btnModificarArticulo.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnModificarArticulo.Location = new System.Drawing.Point(684, 39);
             this.btnModificarArticulo.Name = "btnModificarArticulo";
-            this.btnModificarArticulo.Size = new System.Drawing.Size(120, 35);
+            this.btnModificarArticulo.Size = new System.Drawing.Size(90, 35);
             this.btnModificarArticulo.TabIndex = 2;
             this.btnModificarArticulo.Text = "Modificar Artículo";
             this.btnModificarArticulo.UseVisualStyleBackColor = false;
@@ -146,9 +152,9 @@
             this.btnAgregarArticulo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAgregarArticulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAgregarArticulo.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnAgregarArticulo.Location = new System.Drawing.Point(483, 39);
+            this.btnAgregarArticulo.Location = new System.Drawing.Point(489, 39);
             this.btnAgregarArticulo.Name = "btnAgregarArticulo";
-            this.btnAgregarArticulo.Size = new System.Drawing.Size(120, 35);
+            this.btnAgregarArticulo.Size = new System.Drawing.Size(93, 35);
             this.btnAgregarArticulo.TabIndex = 1;
             this.btnAgregarArticulo.Text = "Agregar Artículo";
             this.btnAgregarArticulo.UseVisualStyleBackColor = false;
@@ -235,6 +241,20 @@
             this.dgvArticulos.TabIndex = 3;
             this.dgvArticulos.SelectionChanged += new System.EventHandler(this.dgvArticulos_SelectionChanged);
             // 
+            // btnDetalleArticulo
+            // 
+            this.btnDetalleArticulo.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.btnDetalleArticulo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDetalleArticulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Bold);
+            this.btnDetalleArticulo.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnDetalleArticulo.Location = new System.Drawing.Point(588, 39);
+            this.btnDetalleArticulo.Name = "btnDetalleArticulo";
+            this.btnDetalleArticulo.Size = new System.Drawing.Size(90, 35);
+            this.btnDetalleArticulo.TabIndex = 5;
+            this.btnDetalleArticulo.Text = "Detalle Artículo";
+            this.btnDetalleArticulo.UseVisualStyleBackColor = false;
+            this.btnDetalleArticulo.Click += new System.EventHandler(this.btnDetalleArticulo_Click);
+            // 
             // frmArticulo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -286,6 +306,7 @@
         private System.Windows.Forms.DataGridView dgvArticulos;
         private System.Windows.Forms.Button btnModificarArticulo;
         private System.Windows.Forms.Button btnEliminarArticulo;
+        private System.Windows.Forms.Button btnDetalleArticulo;
     }
 }
 

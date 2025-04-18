@@ -125,7 +125,7 @@ namespace TpWinform
                 if (dgvArticulos.CurrentRow != null)
                 {
                     seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
-                    frmAgregarArticulo modificar = new frmAgregarArticulo(seleccionado);
+                    frmAgregarArticulo modificar = new frmAgregarArticulo(seleccionado, true);
                     modificar.ShowDialog();
                     cargar();
                 }
@@ -169,6 +169,31 @@ namespace TpWinform
             {
                 MessageBox.Show(ex.ToString());
             }                      
+        }
+
+        private void btnDetalleArticulo_Click(object sender, EventArgs e)
+        {
+            Articulo seleccionado;
+            try
+            {
+
+                if (dgvArticulos.CurrentRow != null)
+                {
+                    seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+                    frmAgregarArticulo detalle = new frmAgregarArticulo(seleccionado, false);
+                    detalle.ShowDialog();
+                    cargar();
+                }
+                else
+                {
+                    MessageBox.Show("¡Debe seleccionar un artículo de la lista!");
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
     }
 }

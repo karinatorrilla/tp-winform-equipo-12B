@@ -47,6 +47,8 @@
             this.btnFrmCancelarArticulo = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pContenedorImagenes = new System.Windows.Forms.Panel();
+            this.lblExplicativo2 = new System.Windows.Forms.Label();
+            this.lblExplicativo1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pContenedorImagenes.SuspendLayout();
             this.SuspendLayout();
@@ -65,7 +67,7 @@
             // 
             this.lblFrmNombreArticulo.AutoSize = true;
             this.lblFrmNombreArticulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFrmNombreArticulo.Location = new System.Drawing.Point(145, 104);
+            this.lblFrmNombreArticulo.Location = new System.Drawing.Point(145, 83);
             this.lblFrmNombreArticulo.Name = "lblFrmNombreArticulo";
             this.lblFrmNombreArticulo.Size = new System.Drawing.Size(54, 13);
             this.lblFrmNombreArticulo.TabIndex = 1;
@@ -73,7 +75,7 @@
             // 
             // txtFrmCodigoArticulo
             // 
-            this.txtFrmCodigoArticulo.Location = new System.Drawing.Point(205, 63);
+            this.txtFrmCodigoArticulo.Location = new System.Drawing.Point(205, 42);
             this.txtFrmCodigoArticulo.Name = "txtFrmCodigoArticulo";
             this.txtFrmCodigoArticulo.Size = new System.Drawing.Size(156, 20);
             this.txtFrmCodigoArticulo.TabIndex = 0;
@@ -82,7 +84,7 @@
             // 
             this.lblFrmCodigoArticulo.AutoSize = true;
             this.lblFrmCodigoArticulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFrmCodigoArticulo.Location = new System.Drawing.Point(149, 66);
+            this.lblFrmCodigoArticulo.Location = new System.Drawing.Point(149, 45);
             this.lblFrmCodigoArticulo.Name = "lblFrmCodigoArticulo";
             this.lblFrmCodigoArticulo.Size = new System.Drawing.Size(50, 13);
             this.lblFrmCodigoArticulo.TabIndex = 3;
@@ -92,7 +94,7 @@
             // 
             this.lblFrmMarcaArticulo.AutoSize = true;
             this.lblFrmMarcaArticulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFrmMarcaArticulo.Location = new System.Drawing.Point(153, 144);
+            this.lblFrmMarcaArticulo.Location = new System.Drawing.Point(153, 123);
             this.lblFrmMarcaArticulo.Name = "lblFrmMarcaArticulo";
             this.lblFrmMarcaArticulo.Size = new System.Drawing.Size(46, 13);
             this.lblFrmMarcaArticulo.TabIndex = 4;
@@ -102,7 +104,7 @@
             // 
             this.lblFrmCategoriaArticulo.AutoSize = true;
             this.lblFrmCategoriaArticulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFrmCategoriaArticulo.Location = new System.Drawing.Point(132, 188);
+            this.lblFrmCategoriaArticulo.Location = new System.Drawing.Point(132, 167);
             this.lblFrmCategoriaArticulo.Name = "lblFrmCategoriaArticulo";
             this.lblFrmCategoriaArticulo.Size = new System.Drawing.Size(67, 13);
             this.lblFrmCategoriaArticulo.TabIndex = 5;
@@ -112,7 +114,7 @@
             // 
             this.lblFrmImagenArticulo.AutoSize = true;
             this.lblFrmImagenArticulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFrmImagenArticulo.Location = new System.Drawing.Point(114, 396);
+            this.lblFrmImagenArticulo.Location = new System.Drawing.Point(114, 433);
             this.lblFrmImagenArticulo.Name = "lblFrmImagenArticulo";
             this.lblFrmImagenArticulo.Size = new System.Drawing.Size(85, 13);
             this.lblFrmImagenArticulo.TabIndex = 6;
@@ -122,7 +124,7 @@
             // 
             this.lblFrmDescripcionArticulo.AutoSize = true;
             this.lblFrmDescripcionArticulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFrmDescripcionArticulo.Location = new System.Drawing.Point(121, 273);
+            this.lblFrmDescripcionArticulo.Location = new System.Drawing.Point(121, 252);
             this.lblFrmDescripcionArticulo.Name = "lblFrmDescripcionArticulo";
             this.lblFrmDescripcionArticulo.Size = new System.Drawing.Size(78, 13);
             this.lblFrmDescripcionArticulo.TabIndex = 7;
@@ -132,7 +134,7 @@
             // 
             this.lblFrmPrecioArticulo.AutoSize = true;
             this.lblFrmPrecioArticulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFrmPrecioArticulo.Location = new System.Drawing.Point(152, 227);
+            this.lblFrmPrecioArticulo.Location = new System.Drawing.Point(152, 206);
             this.lblFrmPrecioArticulo.Name = "lblFrmPrecioArticulo";
             this.lblFrmPrecioArticulo.Size = new System.Drawing.Size(47, 13);
             this.lblFrmPrecioArticulo.TabIndex = 8;
@@ -140,7 +142,7 @@
             // 
             // txtFrmNombreArticulo
             // 
-            this.txtFrmNombreArticulo.Location = new System.Drawing.Point(205, 97);
+            this.txtFrmNombreArticulo.Location = new System.Drawing.Point(205, 76);
             this.txtFrmNombreArticulo.Name = "txtFrmNombreArticulo";
             this.txtFrmNombreArticulo.Size = new System.Drawing.Size(156, 20);
             this.txtFrmNombreArticulo.TabIndex = 1;
@@ -149,7 +151,7 @@
             // 
             this.cboFrmMarcaArticulo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboFrmMarcaArticulo.FormattingEnabled = true;
-            this.cboFrmMarcaArticulo.Location = new System.Drawing.Point(205, 141);
+            this.cboFrmMarcaArticulo.Location = new System.Drawing.Point(205, 120);
             this.cboFrmMarcaArticulo.Name = "cboFrmMarcaArticulo";
             this.cboFrmMarcaArticulo.Size = new System.Drawing.Size(156, 21);
             this.cboFrmMarcaArticulo.TabIndex = 2;
@@ -158,21 +160,21 @@
             // 
             this.cboFrmCategoriaArticulo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboFrmCategoriaArticulo.FormattingEnabled = true;
-            this.cboFrmCategoriaArticulo.Location = new System.Drawing.Point(205, 185);
+            this.cboFrmCategoriaArticulo.Location = new System.Drawing.Point(205, 164);
             this.cboFrmCategoriaArticulo.Name = "cboFrmCategoriaArticulo";
             this.cboFrmCategoriaArticulo.Size = new System.Drawing.Size(156, 21);
             this.cboFrmCategoriaArticulo.TabIndex = 3;
             // 
             // txtFrmPrecioArticulo
             // 
-            this.txtFrmPrecioArticulo.Location = new System.Drawing.Point(205, 224);
+            this.txtFrmPrecioArticulo.Location = new System.Drawing.Point(205, 203);
             this.txtFrmPrecioArticulo.Name = "txtFrmPrecioArticulo";
             this.txtFrmPrecioArticulo.Size = new System.Drawing.Size(156, 20);
             this.txtFrmPrecioArticulo.TabIndex = 4;
             // 
             // txtFrmDescripcionArticulo
             // 
-            this.txtFrmDescripcionArticulo.Location = new System.Drawing.Point(124, 303);
+            this.txtFrmDescripcionArticulo.Location = new System.Drawing.Point(124, 282);
             this.txtFrmDescripcionArticulo.MaximumSize = new System.Drawing.Size(246, 72);
             this.txtFrmDescripcionArticulo.MinimumSize = new System.Drawing.Size(224, 72);
             this.txtFrmDescripcionArticulo.Multiline = true;
@@ -182,7 +184,7 @@
             // 
             // txtFrmUrlImagen
             // 
-            this.txtFrmUrlImagen.Location = new System.Drawing.Point(205, 393);
+            this.txtFrmUrlImagen.Location = new System.Drawing.Point(205, 426);
             this.txtFrmUrlImagen.Name = "txtFrmUrlImagen";
             this.txtFrmUrlImagen.Size = new System.Drawing.Size(156, 20);
             this.txtFrmUrlImagen.TabIndex = 6;
@@ -235,11 +237,33 @@
             this.pContenedorImagenes.Size = new System.Drawing.Size(403, 153);
             this.pContenedorImagenes.TabIndex = 9;
             // 
+            // lblExplicativo2
+            // 
+            this.lblExplicativo2.AutoSize = true;
+            this.lblExplicativo2.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblExplicativo2.Location = new System.Drawing.Point(115, 395);
+            this.lblExplicativo2.Name = "lblExplicativo2";
+            this.lblExplicativo2.Size = new System.Drawing.Size(234, 12);
+            this.lblExplicativo2.TabIndex = 10;
+            this.lblExplicativo2.Text = "Ejemplo: UrlImagen1,UrlImagen2,UrlImagen3";
+            // 
+            // lblExplicativo1
+            // 
+            this.lblExplicativo1.AutoSize = true;
+            this.lblExplicativo1.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblExplicativo1.Location = new System.Drawing.Point(78, 377);
+            this.lblExplicativo1.Name = "lblExplicativo1";
+            this.lblExplicativo1.Size = new System.Drawing.Size(328, 12);
+            this.lblExplicativo1.TabIndex = 11;
+            this.lblExplicativo1.Text = "Para cargar mas de una imagen debe separar las url por coma \",\"";
+            // 
             // frmAgregarArticulo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(514, 697);
+            this.Controls.Add(this.lblExplicativo1);
+            this.Controls.Add(this.lblExplicativo2);
             this.Controls.Add(this.pContenedorImagenes);
             this.Controls.Add(this.btnFrmCancelarArticulo);
             this.Controls.Add(this.btnFrmGuardarArticulo);
@@ -293,5 +317,7 @@
         private System.Windows.Forms.Button btnFrmCancelarArticulo;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel pContenedorImagenes;
+        private System.Windows.Forms.Label lblExplicativo2;
+        private System.Windows.Forms.Label lblExplicativo1;
     }
 }

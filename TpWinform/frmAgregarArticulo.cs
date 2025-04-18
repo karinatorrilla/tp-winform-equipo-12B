@@ -8,19 +8,34 @@ namespace TpWinform
     public partial class frmAgregarArticulo : Form
     {
         private Articulo articulo = null;
+        private bool esModificable = false;
         public frmAgregarArticulo()
         {
             InitializeComponent();
         }
 
         //Constructor para modificar artículo!!!
-        public frmAgregarArticulo(Articulo articulo)
+        public frmAgregarArticulo(Articulo articulo, bool modificar)
         {
             InitializeComponent();
             this.articulo = articulo;
-            Text = "Modificar";
-            lblCrearArticulo.Text = "Modificar Artículo";
-            btnFrmGuardarArticulo.Text = "Modificar";
+            this.esModificable = modificar;
+
+            if (esModificable)
+            {
+                Text = "Modificar";
+                lblCrearArticulo.Text = "Modificar Artículo";
+                btnFrmGuardarArticulo.Text = "Modificar";
+            }
+            else
+            {
+                Text = "Detalle";
+                lblCrearArticulo.Text = "Detalle del Artículo";
+                btnFrmGuardarArticulo.Visible = false;
+                btnFrmCancelarArticulo.Text = "Volver";
+                BloquearCampos();
+            }
+            
 
         }
 
@@ -57,6 +72,7 @@ namespace TpWinform
                 MessageBox.Show(ex.ToString());
             }
         }
+
         private void cargarImagenFormArticulo(string imagen)
         {
             try
@@ -69,6 +85,16 @@ namespace TpWinform
             }
         }
 
+        private void BloquearCampos()
+        {
+            txtFrmCodigoArticulo.Enabled = false;
+            txtFrmNombreArticulo.Enabled = false;
+            cboFrmMarcaArticulo.Enabled = false;
+            cboFrmCategoriaArticulo.Enabled = false;
+            txtFrmPrecioArticulo.Enabled = false;
+            txtFrmDescripcionArticulo.Enabled = false;
+            txtFrmUrlImagen.Enabled = false;
+        }
         private void btnFrmGuardarArticulo_Click(object sender, EventArgs e)
         {
 
@@ -122,5 +148,6 @@ namespace TpWinform
         {
             Close();
         }
+
     }
 }
