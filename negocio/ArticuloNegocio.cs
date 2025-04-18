@@ -23,11 +23,10 @@ namespace negocio
 
             try
             {
-                
-                datos.setearConsulta("DECLARE @NuevoID INT INSERT INTO ARTICULOS(Codigo, Nombre, Precio, Descripcion, IdMarca, IdCategoria)values('" + nuevo.Codigo + "', '" + nuevo.Nombre + "', " + nuevo.Precio + ", '" + nuevo.Descripcion + "', @IdMarca, @IdCategoria) SET @NuevoID = SCOPE_IDENTITY() INSERT INTO IMAGENES (IdArticulo, ImagenUrl)VALUES (@NuevoID, @ImagenUrl)");
-                datos.setearParametro("@IdMarca", nuevo.Marca.Id);
-                datos.setearParametro("@IdCategoria",nuevo.Categoria.Id);
-                datos.setearParametro("@ImagenUrl", nuevo.Imagen.ImagenUrl);
+
+                datos.setearConsulta("Insert into ARTICULOS (Codigo, Nombre, Precio, Descripcion, idMarca, idCategoria)values('" + nuevo.Codigo + "', '" + nuevo.Nombre + "'," + nuevo.Precio + ", '" + nuevo.Descripcion + "',@IdMarca,@IdCategoria)");
+                datos.setearParametro("@idMarca", nuevo.Marca.Id);
+                datos.setearParametro("@idCategoria", nuevo.Categoria.Id);      
                 datos.ejecutarAccion();
             }
             catch (Exception ex)
@@ -41,6 +40,51 @@ namespace negocio
             }
 
         }
+
+        //Obtener el ID del último artículo creado
+        public int obtenerUltimoArticuloCreado()
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.setearConsulta("select MAX(Id) from ARTICULOS");
+                datos.ejecutarLectura();
+                if (datos.Lector.Read())
+                {
+                    return datos.Lector.GetInt32(0);
+                }
+                return -1;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+
+        public void crearImagenes(string urlImagen, int idArticulo)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.setearConsulta("Insert into IMAGENES (IdArticulo, ImagenUrl) values (@IdArticulo, @ImagenUrl)");
+                datos.setearParametro("@IdArticulo", idArticulo);
+                datos.setearParametro("@ImagenUrl", urlImagen);
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+
 
         //Modificar articulo
         public void Modificar(Articulo mod)
@@ -64,12 +108,33 @@ namespace negocio
 
         }
 
+        public void EliminarImagenesArticulo(int id)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                //Elimino primero la imagen asociada a ese regstro de articulo
+                datos.setearConsulta("Delete From IMAGENES Where IdArticulo = '" + id + "'");
+                datos.ejecutarAccion();
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+
         //Eliminar artículo (eliminación física)
         public void Eliminar (int id)
         {
             AccesoDatos datos = new AccesoDatos();
             try
             {
+                //Elimino el articulo con el id asociado
                 datos.setearConsulta("Delete From ARTICULOS Where Id = '" + id + "'");
                 datos.ejecutarAccion();
             }
@@ -122,7 +187,10 @@ namespace negocio
 
                 throw ex;
             }
-            ;
+            finally
+            {
+                datos.cerrarConexion();
+            }
         }
     }
 }

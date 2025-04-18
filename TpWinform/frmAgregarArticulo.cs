@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using dominio;
 using negocio;
@@ -93,6 +86,13 @@ namespace TpWinform
                 else
                 {
                     negocio.agregar(articulo);
+                    //consulta a la db el ultimo ID del articulo creado
+                    int ultimoId = negocio.obtenerUltimoArticuloCreado();
+                    //Console.WriteLine("ULTIMO ID ARTICULO CREADO" + ultimoId);
+                    if(ultimoId > 0)
+                    {
+                        negocio.crearImagenes(txtFrmUrlImagen.Text, ultimoId);
+                    }
                     MessageBox.Show("Artículo agregado exitosamente!");
                 }
                 Close();
@@ -110,7 +110,5 @@ namespace TpWinform
         {
             Close();
         }
-
-
     }
 }

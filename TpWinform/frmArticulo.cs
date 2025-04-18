@@ -160,7 +160,7 @@ namespace TpWinform
         private void btnEliminarArticulo_Click(object sender, EventArgs e)
         {
             ArticuloNegocio negocio = new ArticuloNegocio();
-            Articulo seleccionado = new Articulo();            
+            Articulo seleccionado;            
             try
             {
                 if (dgvArticulos.CurrentRow != null)
@@ -169,6 +169,7 @@ namespace TpWinform
                     if (respuesta == DialogResult.Yes)
                     {
                         seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+                        negocio.EliminarImagenesArticulo(seleccionado.Id);
                         negocio.Eliminar(seleccionado.Id);
                         cargar();
                     }
