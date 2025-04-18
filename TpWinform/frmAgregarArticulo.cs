@@ -119,6 +119,7 @@ namespace TpWinform
                 if (articulo.Id != 0)
                 {
                     negocio.Modificar(articulo);
+                    negocio.ActualizarImagen(articulo); //actualiza la imagen del articulo
                     MessageBox.Show("Artículo modificado exitosamente!");
                 }
                 else

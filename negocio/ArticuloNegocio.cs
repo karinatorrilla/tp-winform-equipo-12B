@@ -108,6 +108,27 @@ namespace negocio
 
         }
 
+        public void ActualizarImagen(Articulo mod)
+        {
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+                datos.setearConsulta("Update IMAGENES set ImagenUrl = '" + mod.Imagen + "'  Where IdArticulo = '" + mod.Id + "'");
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+
+        }
+
         public void EliminarImagenesArticulo(int id)
         {
             AccesoDatos datos = new AccesoDatos();
