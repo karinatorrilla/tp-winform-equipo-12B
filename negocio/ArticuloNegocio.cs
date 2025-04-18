@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -185,6 +186,10 @@ namespace negocio
 
                 while (datos.Lector.Read())
                 {
+
+
+                    lista.Add(ArticuloFiltrado(datos));
+                    /*
                     Articulo aux = new Articulo();
 
                     aux.Codigo = (string)datos.Lector["Codigo"];
@@ -204,7 +209,7 @@ namespace negocio
                     aux.Imagen.ImagenUrl = (string)datos.Lector["ImagenUrl"];
                     ///agregar a una lista de imagen si hay mas de una?
                     ///
-                    lista.Add(aux);
+                    lista.Add(aux);*/
                 }
 
                 return lista;
@@ -219,5 +224,74 @@ namespace negocio
                 datos.cerrarConexion();
             }
         }
+
+        public List<Articulo> Filtrar(string tabla, string criterio)
+        {
+            List<Articulo> lista = new List<Articulo>();
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                string consulta = "select A.Codigo,A.Nombre,A.Descripcion,M.Descripcion as 'Marca',C.Descripcion as 'Categoria',A.Precio,I.ImagenUrl as 'ImagenUrl' from ARTICULOS as A ,MARCAS M ,CATEGORIAS C, IMAGENES I where A.Id=I.IdArticulo and A.IdMarca=M.Id and A.IdCategoria=C.Id and ";
+
+                switch (tabla)
+                {
+                    case "Marca":
+                        consulta += "M.Descripcion ='" + criterio + "'";
+                        break;
+                    case "Categoria":
+                        consulta += "C.Descripcion ='" + criterio + "'";
+                        break;
+
+                }
+
+
+                datos.setearConsulta(consulta);
+
+                datos.ejecutarLectura();
+
+                while (datos.Lector.Read())
+                {
+                    lista.Add(ArticuloFiltrado(datos));
+                }
+                return lista;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+
+        }
+
+
+
+        private Articulo ArticuloFiltrado(AccesoDatos datos)
+        {
+            Articulo aux = new Articulo();
+
+            aux.Codigo = (string)datos.Lector["Codigo"];
+            aux.Nombre = (string)datos.Lector["Nombre"];
+            aux.Descripcion = (string)datos.Lector["Descripcion"];
+
+            aux.Marca = new Marca();
+            aux.Marca.Descripcion = (string)datos.Lector["Marca"];
+
+            aux.Categoria = new Categoria();
+            aux.Categoria.Descripcion = (string)datos.Lector["Categoria"];
+
+            aux.Precio = (float)(decimal)datos.Lector["Precio"];
+
+            ///Se agrega instancia de imagen para traer de base de datos al utilizar el buscador
+            aux.Imagen = new Imagen();
+            aux.Imagen.ImagenUrl = (string)datos.Lector["ImagenUrl"];
+            ///agregar a una lista de imagen si hay mas de una?
+            ///
+            return aux;
+        }
+
     }
 }

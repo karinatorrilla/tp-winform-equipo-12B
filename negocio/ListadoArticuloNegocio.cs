@@ -19,9 +19,7 @@ namespace negocio
             {
 
                 datos.setearConsulta("select A.Id,A.Codigo,A.Nombre,A.Descripcion,M.Descripcion as 'Marca',C.Descripcion as 'Categoria',A.Precio,I.ImagenUrl, A.IdMarca, A.IdCategoria  from ARTICULOS as A ,MARCAS M ,CATEGORIAS C,IMAGENES I where A.IdMarca=M.Id and A.IdCategoria=C.Id and A.Id = I.IdArticulo");
-
-                
-                datos.ejecutarLectura();
+                                datos.ejecutarLectura();
 
                 while (datos.Lector.Read())
                 {
@@ -71,10 +69,7 @@ namespace negocio
         public List<Marca> ListarMarcas()
         {
             List<Marca> lista = new List<Marca>();
-
             AccesoDatos datos = new AccesoDatos();
-
-
 
             try
             {
@@ -84,12 +79,9 @@ namespace negocio
                 while (datos.Lector.Read())
                 {
                     Marca marca = new Marca();
-
                     marca.Id = (int)datos.Lector["Id"];
                     marca.Descripcion = (string)datos.Lector["Descripcion"];
-
                     lista.Add(marca);
-
                 }
                 return lista;
             }
@@ -106,7 +98,6 @@ namespace negocio
         public List<Categoria> ListarCategorias()
         {
             List<Categoria> lista = new List<Categoria>();
-
             AccesoDatos datos = new AccesoDatos();
 
             try
@@ -117,7 +108,6 @@ namespace negocio
                 while (datos.Lector.Read())
                 {
                     Categoria categoria = new Categoria();
-
                     categoria.Id = (int)datos.Lector["Id"];
                     categoria.Descripcion = (string)datos.Lector["Descripcion"];
 

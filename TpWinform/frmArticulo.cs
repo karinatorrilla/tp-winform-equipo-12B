@@ -15,6 +15,11 @@ namespace TpWinform
     public partial class frmArticulo : Form
     {
         private List<Articulo> listaArticulo;
+        private List<Marca> listaMarca;
+        private List<Categoria> listaCategorias;
+
+
+
         public frmArticulo()
         {
             InitializeComponent();
@@ -23,6 +28,9 @@ namespace TpWinform
         private void Form1_Load(object sender, EventArgs e)
         {
             cargar();
+            cboFiltroPrincipal.Items.Add("Marca");
+            cboFiltroPrincipal.Items.Add("Categoria");
+
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
@@ -34,9 +42,9 @@ namespace TpWinform
         private void cargar()
         {
 
-            ListadoArticuloNegocio negocio = new ListadoArticuloNegocio();
             try
             {
+                ListadoArticuloNegocio negocio = new ListadoArticuloNegocio();
                 listaArticulo = negocio.Listar();
                 dgvArticulos.DataSource = listaArticulo;
                 dgvArticulos.Columns["Id"].Visible = false;
@@ -49,6 +57,10 @@ namespace TpWinform
 
         }
 
+
+
+
+
         private void dgvArticulos_SelectionChanged(object sender, EventArgs e)
         {
             if (dgvArticulos.CurrentRow != null)
@@ -56,7 +68,7 @@ namespace TpWinform
                 ///Selecciona articulo en las filas 
                 Articulo seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
             }
-            
+
         }
 
 
@@ -139,14 +151,14 @@ namespace TpWinform
             {
                 MessageBox.Show(ex.ToString());
             }
-
+            txtBuscar.Text = "";
         }
-    
+
         //Botón de ELIMINAR artículo... (Eliminación física)
         private void btnEliminarArticulo_Click(object sender, EventArgs e)
         {
             ArticuloNegocio negocio = new ArticuloNegocio();
-            Articulo seleccionado;            
+            Articulo seleccionado;
             try
             {
                 if (dgvArticulos.CurrentRow != null)
@@ -168,7 +180,7 @@ namespace TpWinform
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
-            }                      
+            }
         }
 
         private void btnDetalleArticulo_Click(object sender, EventArgs e)
@@ -194,6 +206,85 @@ namespace TpWinform
             {
                 MessageBox.Show(ex.ToString());
             }
+
+            txtBuscar.Text = "";
+        }
+
+        private void cboFiltroPrincipal_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            lblErrorFiltro.Visible = false;
+            ListadoArticuloNegocio negocio = new ListadoArticuloNegocio();
+
+            string opcion = "";
+
+            if (cboFiltroPrincipal.SelectedItem != null)
+            {
+                opcion = cboFiltroPrincipal.SelectedItem.ToString();
+            }
+
+
+
+            if (opcion != "")
+            {
+                if (opcion == "Marca")
+                {
+                    listaMarca = negocio.ListarMarcas();
+                    cboListaFiltrada.DataSource = listaMarca;
+                }
+                else
+                {
+                    listaCategorias = negocio.ListarCategorias();
+                    cboListaFiltrada.DataSource = listaCategorias;
+                }
+            }
+
+        }
+
+        private void btnBuscarFiltro_Click(object sender, EventArgs e)
+        {
+            ArticuloNegocio negocio = new ArticuloNegocio();
+            string tabla, criterio;
+
+            try
+            {
+                if (cboFiltroPrincipal.SelectedItem != null || cboListaFiltrada.SelectedItem != null)
+                {
+                    tabla = cboFiltroPrincipal.SelectedItem.ToString();
+                    criterio = cboListaFiltrada.SelectedItem.ToString();
+                    dgvArticulos.DataSource = negocio.Filtrar(tabla, criterio);
+                }
+                else
+                {
+                   // MessageBox.Show("Por favor, seleccioná una opción en ambos filtros.", "Error de filtro", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    lblErrorFiltro.Visible = true;
+                    return;
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+
+        }
+
+        private void btnLimpiarFiltro_Click(object sender, EventArgs e)
+        {
+
+
+
+            cboFiltroPrincipal.SelectedIndex = -1;/// seleccionamos un item fuera de la lista para que no muestre nada
+            cboListaFiltrada.DataSource = null;/// borra la lista de marca/categoria
+
+
+            dgvArticulos.DataSource = null; // limpia el dataSource
+            cargar();
+
+
         }
     }
 }
+
