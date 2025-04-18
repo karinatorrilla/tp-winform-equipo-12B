@@ -41,7 +41,6 @@ namespace TpWinform
                 dgvArticulos.DataSource = listaArticulo;
                 dgvArticulos.Columns["Id"].Visible = false;
                 dgvArticulos.Columns["Imagen"].Visible = false;
-                pbImagen.Load(listaArticulo[0].Imagen.ImagenUrl);
             }
             catch (Exception ex)
             {
@@ -54,23 +53,10 @@ namespace TpWinform
         {
             if (dgvArticulos.CurrentRow != null)
             {
-                ///Cuando selecciono otra fila, cambia la imagen del picture box
+                ///Selecciona articulo en las filas 
                 Articulo seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
-                cargarImagenArticulo(seleccionado.Imagen.ImagenUrl);
             }
             
-        }
-
-        private void cargarImagenArticulo(string imagen)
-        {
-            try
-            {
-                pbImagen.Load(imagen);
-            }
-            catch (Exception)
-            {
-                pbImagen.Load("https://t4.ftcdn.net/jpg/07/91/22/59/360_F_791225927_caRPPH99D6D1iFonkCRmCGzkJPf36QDw.jpg");
-            }
         }
 
 

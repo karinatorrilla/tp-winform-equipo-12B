@@ -49,6 +49,7 @@ namespace TpWinform
                     txtFrmPrecioArticulo.Text = articulo.Precio.ToString();
                     txtFrmDescripcionArticulo.Text = articulo.Descripcion;
                     txtFrmUrlImagen.Text = articulo.Imagen.ToString();
+                    cargarImagenFormArticulo(articulo.Imagen.ImagenUrl); //carga imagen
                 }
             }
             catch (Exception ex)
@@ -56,7 +57,17 @@ namespace TpWinform
                 MessageBox.Show(ex.ToString());
             }
         }
-
+        private void cargarImagenFormArticulo(string imagen)
+        {
+            try
+            {
+                pictureBox1.Load(imagen);
+            }
+            catch (Exception)
+            {
+                pictureBox1.Load("https://t4.ftcdn.net/jpg/07/91/22/59/360_F_791225927_caRPPH99D6D1iFonkCRmCGzkJPf36QDw.jpg");
+            }
+        }
 
         private void btnFrmGuardarArticulo_Click(object sender, EventArgs e)
         {
@@ -76,6 +87,7 @@ namespace TpWinform
                 articulo.Marca=(Marca)cboFrmMarcaArticulo.SelectedItem;
                 articulo.Categoria=(Categoria)cboFrmCategoriaArticulo.SelectedItem;
                 articulo.Imagen.ImagenUrl = txtFrmUrlImagen.Text;
+                
                 //Si el id de artículo es distinto de 0 lo modifica, si no, entiende que no hay artículo
                 //cargado y lo agrega...
                 if (articulo.Id != 0)

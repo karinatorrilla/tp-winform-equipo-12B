@@ -45,6 +45,10 @@
             this.txtFrmUrlImagen = new System.Windows.Forms.TextBox();
             this.btnFrmGuardarArticulo = new System.Windows.Forms.Button();
             this.btnFrmCancelarArticulo = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pContenedorImagenes = new System.Windows.Forms.Panel();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.pContenedorImagenes.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblCrearArticulo
@@ -189,7 +193,7 @@
             this.btnFrmGuardarArticulo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFrmGuardarArticulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFrmGuardarArticulo.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnFrmGuardarArticulo.Location = new System.Drawing.Point(94, 474);
+            this.btnFrmGuardarArticulo.Location = new System.Drawing.Point(91, 625);
             this.btnFrmGuardarArticulo.Name = "btnFrmGuardarArticulo";
             this.btnFrmGuardarArticulo.Size = new System.Drawing.Size(133, 32);
             this.btnFrmGuardarArticulo.TabIndex = 7;
@@ -203,7 +207,7 @@
             this.btnFrmCancelarArticulo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFrmCancelarArticulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFrmCancelarArticulo.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnFrmCancelarArticulo.Location = new System.Drawing.Point(269, 474);
+            this.btnFrmCancelarArticulo.Location = new System.Drawing.Point(261, 625);
             this.btnFrmCancelarArticulo.Name = "btnFrmCancelarArticulo";
             this.btnFrmCancelarArticulo.Size = new System.Drawing.Size(133, 32);
             this.btnFrmCancelarArticulo.TabIndex = 8;
@@ -211,11 +215,32 @@
             this.btnFrmCancelarArticulo.UseVisualStyleBackColor = false;
             this.btnFrmCancelarArticulo.Click += new System.EventHandler(this.btnFrmCancelarArticulo_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(117, 13);
+            this.pictureBox1.MaximumSize = new System.Drawing.Size(153, 125);
+            this.pictureBox1.MinimumSize = new System.Drawing.Size(153, 125);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(153, 125);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
+            // pContenedorImagenes
+            // 
+            this.pContenedorImagenes.AutoScroll = true;
+            this.pContenedorImagenes.Controls.Add(this.pictureBox1);
+            this.pContenedorImagenes.Location = new System.Drawing.Point(39, 449);
+            this.pContenedorImagenes.Name = "pContenedorImagenes";
+            this.pContenedorImagenes.Size = new System.Drawing.Size(403, 153);
+            this.pContenedorImagenes.TabIndex = 9;
+            // 
             // frmAgregarArticulo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(514, 533);
+            this.ClientSize = new System.Drawing.Size(514, 697);
+            this.Controls.Add(this.pContenedorImagenes);
             this.Controls.Add(this.btnFrmCancelarArticulo);
             this.Controls.Add(this.btnFrmGuardarArticulo);
             this.Controls.Add(this.txtFrmUrlImagen);
@@ -240,6 +265,8 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Agregar";
             this.Load += new System.EventHandler(this.frmAgregarArticulo_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.pContenedorImagenes.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -264,5 +291,7 @@
         private System.Windows.Forms.TextBox txtFrmUrlImagen;
         private System.Windows.Forms.Button btnFrmGuardarArticulo;
         private System.Windows.Forms.Button btnFrmCancelarArticulo;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Panel pContenedorImagenes;
     }
 }
