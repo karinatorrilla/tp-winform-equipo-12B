@@ -74,25 +74,36 @@ namespace TpWinform
             foreach (string url in urlsArray)
             {
                 string validaEstaciosUrl = url.Trim();
-                if (validaEstaciosUrl.ToUpper().Contains("HTTP") || validaEstaciosUrl.ToUpper().Contains("HTTPS"))
+                if (!string.IsNullOrEmpty(validaEstaciosUrl))
                 {
-                    // tiene que tener menor igual a 1000 caracteres
-                    if (validaEstaciosUrl.Length <= 1000)
+                    if ((validaEstaciosUrl.ToUpper().StartsWith("HTTP") || validaEstaciosUrl.ToUpper().StartsWith("HTTPS")) &&
+                        (validaEstaciosUrl.ToUpper().Contains("PNG") || validaEstaciosUrl.ToUpper().Contains("JPEG") ||
+                         validaEstaciosUrl.ToUpper().Contains("JPG") || validaEstaciosUrl.ToUpper().Contains("GIF")))
                     {
-                        listaImagenes.Add(new Imagen { ImagenUrl = validaEstaciosUrl });
+                        // tiene que tener menor igual a 1000 caracteres
+                        if (validaEstaciosUrl.Length <= 1000)
+                        {
+                            listaImagenes.Add(new Imagen { ImagenUrl = validaEstaciosUrl });
+                        }
+                        else
+                        {
+                            hayUrlInvalida = true;
+                            break; // Con que encuentre una sola url invalida sale del foreacj
+                        }
                     }
                     else
                     {
                         hayUrlInvalida = true;
                         break; // Con que encuentre una sola url invalida sale del foreacj
                     }
+
                 }
-                else
+                else if (urlsArray.Length > 1) // Si hay mas de un elemento como la ","
                 {
                     hayUrlInvalida = true;
-                    break; // Con que encuentre una sola url invalida sale del foreacj
+                    break;
                 }
-  
+
             }
 
             //Si existe urls invalidas muestra al usuario 

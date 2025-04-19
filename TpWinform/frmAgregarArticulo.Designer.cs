@@ -54,6 +54,7 @@
             this.lblErrorPrecio = new System.Windows.Forms.Label();
             this.lblErrorCampoUrlImage = new System.Windows.Forms.Label();
             this.flpContenedorImagenes = new System.Windows.Forms.FlowLayoutPanel();
+            this.lblEjemploFormato = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbxImagen)).BeginInit();
             this.flpContenedorImagenes.SuspendLayout();
             this.SuspendLayout();
@@ -255,29 +256,6 @@
             this.lblExplicativo1.TabIndex = 11;
             this.lblExplicativo1.Text = "Para cargar mas de una imagen debe separar las url por coma \",\"";
             // 
-            // lblErrorCampoUrlImage
-            // 
-            this.lblErrorCampoUrlImage.AutoSize = true;
-            this.lblErrorCampoUrlImage.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblErrorCampoUrlImage.ForeColor = System.Drawing.Color.DarkRed;
-            this.lblErrorCampoUrlImage.Location = new System.Drawing.Point(203, 449);
-            this.lblErrorCampoUrlImage.Name = "lblErrorCampoUrlImage";
-            this.lblErrorCampoUrlImage.Size = new System.Drawing.Size(169, 12);
-            this.lblErrorCampoUrlImage.TabIndex = 12;
-            this.lblErrorCampoUrlImage.Text = "Tiene que ingresar URLS válidas";
-            this.lblErrorCampoUrlImage.Visible = false;
-            // 
-            // flpContenedorImagenes
-            // 
-            this.flpContenedorImagenes.AutoScroll = true;
-            this.flpContenedorImagenes.Controls.Add(this.pbxImagen);
-            this.flpContenedorImagenes.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flpContenedorImagenes.Location = new System.Drawing.Point(16, 483);
-            this.flpContenedorImagenes.Name = "flpContenedorImagenes";
-            this.flpContenedorImagenes.Size = new System.Drawing.Size(478, 162);
-            this.flpContenedorImagenes.TabIndex = 13;
-            this.flpContenedorImagenes.WrapContents = false;
-            //
             // lblErrorCodigo
             // 
             this.lblErrorCodigo.AutoSize = true;
@@ -325,13 +303,47 @@
             this.lblErrorPrecio.Size = new System.Drawing.Size(14, 18);
             this.lblErrorPrecio.TabIndex = 15;
             this.lblErrorPrecio.Text = "*";
-            this.lblErrorPrecio.Visible = false; 
+            this.lblErrorPrecio.Visible = false;
+            // 
+            // lblErrorCampoUrlImage
+            // 
+            this.lblErrorCampoUrlImage.AutoSize = true;
+            this.lblErrorCampoUrlImage.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblErrorCampoUrlImage.ForeColor = System.Drawing.Color.DarkRed;
+            this.lblErrorCampoUrlImage.Location = new System.Drawing.Point(203, 449);
+            this.lblErrorCampoUrlImage.Name = "lblErrorCampoUrlImage";
+            this.lblErrorCampoUrlImage.Size = new System.Drawing.Size(169, 12);
+            this.lblErrorCampoUrlImage.TabIndex = 12;
+            this.lblErrorCampoUrlImage.Text = "Tiene que ingresar URLS válidas";
+            this.lblErrorCampoUrlImage.Visible = false;
+            // 
+            // flpContenedorImagenes
+            // 
+            this.flpContenedorImagenes.AutoScroll = true;
+            this.flpContenedorImagenes.Controls.Add(this.pbxImagen);
+            this.flpContenedorImagenes.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
+            this.flpContenedorImagenes.Location = new System.Drawing.Point(16, 483);
+            this.flpContenedorImagenes.Name = "flpContenedorImagenes";
+            this.flpContenedorImagenes.Size = new System.Drawing.Size(478, 162);
+            this.flpContenedorImagenes.TabIndex = 13;
+            this.flpContenedorImagenes.WrapContents = false;
+            // 
+            // lblEjemploFormato
+            // 
+            this.lblEjemploFormato.AutoSize = true;
+            this.lblEjemploFormato.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEjemploFormato.Location = new System.Drawing.Point(115, 411);
+            this.lblEjemploFormato.Name = "lblEjemploFormato";
+            this.lblEjemploFormato.Size = new System.Drawing.Size(263, 12);
+            this.lblEjemploFormato.TabIndex = 16;
+            this.lblEjemploFormato.Text = "Admite estos formatos: \".jpg\", \".jpeg\", \".png\", \".gif\"";
             // 
             // frmAgregarArticulo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(514, 697);
+            this.Controls.Add(this.lblEjemploFormato);
             this.Controls.Add(this.lblErrorPrecio);
             this.Controls.Add(this.lblErrorDescripcion);
             this.Controls.Add(this.lblErrorNombre);
@@ -399,5 +411,6 @@
         private System.Windows.Forms.Label lblErrorNombre;
         private System.Windows.Forms.Label lblErrorDescripcion;
         private System.Windows.Forms.Label lblErrorPrecio;
+        private System.Windows.Forms.Label lblEjemploFormato;
     }
 }
