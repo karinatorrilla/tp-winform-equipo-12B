@@ -87,6 +87,37 @@ namespace negocio
         }
 
 
+        //Traer las imagenes del articulo seleccionado
+        public List<Imagen> ObtenerImagenesPorIdArticulo(int idArticulo)
+        {
+            List<Imagen> listaImagenes = new List<Imagen>();
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.setearConsulta("select Id, ImagenUrl from IMAGENES where IdArticulo = @IdArticulo");
+                datos.setearParametro("@IdArticulo", idArticulo);
+                datos.ejecutarLectura();
+
+                while (datos.Lector.Read())
+                {
+                    Imagen imagen = new Imagen();
+                    imagen.Id = (int)datos.Lector["Id"];
+                    imagen.ImagenUrl = (string)datos.Lector["ImagenUrl"];
+                    listaImagenes.Add(imagen);
+                }
+
+                return listaImagenes;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+ 
         //Modificar articulo
         public void Modificar(Articulo mod)
         {
@@ -109,26 +140,7 @@ namespace negocio
 
         }
 
-        public void ActualizarImagen(Articulo mod)
-        {
-            AccesoDatos datos = new AccesoDatos();
 
-            try
-            {
-                datos.setearConsulta("Update IMAGENES set ImagenUrl = '" + mod.Imagen + "'  Where IdArticulo = '" + mod.Id + "'");
-                datos.ejecutarAccion();
-            }
-            catch (Exception ex)
-            {
-
-                throw ex;
-            }
-            finally
-            {
-                datos.cerrarConexion();
-            }
-
-        }
 
         public void EliminarImagenesArticulo(int id)
         {
@@ -136,7 +148,7 @@ namespace negocio
             try
             {
                 //Elimino primero la imagen asociada a ese regstro de articulo
-                datos.setearConsulta("Delete From IMAGENES Where IdArticulo = '" + id + "'");
+                datos.setearConsulta("delete from IMAGENES where IdArticulo = '" + id + "'");
                 datos.ejecutarAccion();
 
             }
@@ -286,10 +298,11 @@ namespace negocio
             aux.Precio = (float)(decimal)datos.Lector["Precio"];
 
             ///Se agrega instancia de imagen para traer de base de datos al utilizar el buscador
-            aux.Imagen = new Imagen();
-            aux.Imagen.ImagenUrl = (string)datos.Lector["ImagenUrl"];
+            //aux.Imagen = new Imagen();
+            //aux.Imagen.ImagenUrl = (string)datos.Lector["ImagenUrl"];
+
             ///agregar a una lista de imagen si hay mas de una?
-            ///
+            aux.Imagenes.Add((string)datos.Lector["ImagenUrl"]);
             return aux;
         }
 

@@ -18,8 +18,8 @@ namespace negocio
             try
             {
 
-                datos.setearConsulta("select A.Id,A.Codigo,A.Nombre,A.Descripcion,M.Descripcion as 'Marca',C.Descripcion as 'Categoria',A.Precio,I.ImagenUrl, A.IdMarca, A.IdCategoria  from ARTICULOS as A ,MARCAS M ,CATEGORIAS C,IMAGENES I where A.IdMarca=M.Id and A.IdCategoria=C.Id and A.Id = I.IdArticulo");
-                                datos.ejecutarLectura();
+                datos.setearConsulta("select A.Id,A.Codigo,A.Nombre,A.Descripcion,M.Descripcion as 'Marca',C.Descripcion as 'Categoria',A.Precio, A.IdMarca, A.IdCategoria  from ARTICULOS as A ,MARCAS as M ,CATEGORIAS as C where A.IdMarca=M.Id and A.IdCategoria=C.Id ");
+                datos.ejecutarLectura();
 
                 while (datos.Lector.Read())
                 {
@@ -41,8 +41,9 @@ namespace negocio
 
                     aux.Precio = (float)(decimal)datos.Lector["Precio"];
 
-                    aux.Imagen = new Imagen();
-                    aux.Imagen.ImagenUrl = (string)datos.Lector["ImagenUrl"];
+                    //aux.Imagen = new Imagen();
+                    //aux.Imagen.ImagenUrl = (string)datos.Lector["ImagenUrl"];
+                    //aux.Imagenes.Add((string)datos.Lector["ImagenUrl"]);
 
                     lista.Add(aux);
                 }

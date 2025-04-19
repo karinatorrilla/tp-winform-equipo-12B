@@ -45,16 +45,13 @@
             this.txtFrmUrlImagen = new System.Windows.Forms.TextBox();
             this.btnFrmGuardarArticulo = new System.Windows.Forms.Button();
             this.btnFrmCancelarArticulo = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pContenedorImagenes = new System.Windows.Forms.Panel();
+            this.pbxImagen = new System.Windows.Forms.PictureBox();
             this.lblExplicativo2 = new System.Windows.Forms.Label();
             this.lblExplicativo1 = new System.Windows.Forms.Label();
-            this.lblErrorCodigo = new System.Windows.Forms.Label();
-            this.lblErrorNombre = new System.Windows.Forms.Label();
-            this.lblErrorDescripcion = new System.Windows.Forms.Label();
-            this.lblErrorPrecio = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.pContenedorImagenes.SuspendLayout();
+            this.lblErrorCampoUrlImage = new System.Windows.Forms.Label();
+            this.flpContenedorImagenes = new System.Windows.Forms.FlowLayoutPanel();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxImagen)).BeginInit();
+            this.flpContenedorImagenes.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblCrearArticulo
@@ -146,7 +143,7 @@
             // 
             // txtFrmNombreArticulo
             // 
-            this.txtFrmNombreArticulo.Location = new System.Drawing.Point(205, 80);
+            this.txtFrmNombreArticulo.Location = new System.Drawing.Point(205, 76);
             this.txtFrmNombreArticulo.Name = "txtFrmNombreArticulo";
             this.txtFrmNombreArticulo.Size = new System.Drawing.Size(156, 20);
             this.txtFrmNombreArticulo.TabIndex = 1;
@@ -175,7 +172,6 @@
             this.txtFrmPrecioArticulo.Name = "txtFrmPrecioArticulo";
             this.txtFrmPrecioArticulo.Size = new System.Drawing.Size(156, 20);
             this.txtFrmPrecioArticulo.TabIndex = 4;
-            this.txtFrmPrecioArticulo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtFrmPrecioArticulo_KeyPress);
             // 
             // txtFrmDescripcionArticulo
             // 
@@ -189,6 +185,7 @@
             // 
             // txtFrmUrlImagen
             // 
+            this.txtFrmUrlImagen.BackColor = System.Drawing.SystemColors.Window;
             this.txtFrmUrlImagen.Location = new System.Drawing.Point(205, 426);
             this.txtFrmUrlImagen.Name = "txtFrmUrlImagen";
             this.txtFrmUrlImagen.Size = new System.Drawing.Size(156, 20);
@@ -200,7 +197,7 @@
             this.btnFrmGuardarArticulo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFrmGuardarArticulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFrmGuardarArticulo.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnFrmGuardarArticulo.Location = new System.Drawing.Point(91, 625);
+            this.btnFrmGuardarArticulo.Location = new System.Drawing.Point(92, 651);
             this.btnFrmGuardarArticulo.Name = "btnFrmGuardarArticulo";
             this.btnFrmGuardarArticulo.Size = new System.Drawing.Size(133, 32);
             this.btnFrmGuardarArticulo.TabIndex = 7;
@@ -214,7 +211,7 @@
             this.btnFrmCancelarArticulo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFrmCancelarArticulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFrmCancelarArticulo.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnFrmCancelarArticulo.Location = new System.Drawing.Point(261, 625);
+            this.btnFrmCancelarArticulo.Location = new System.Drawing.Point(262, 651);
             this.btnFrmCancelarArticulo.Name = "btnFrmCancelarArticulo";
             this.btnFrmCancelarArticulo.Size = new System.Drawing.Size(133, 32);
             this.btnFrmCancelarArticulo.TabIndex = 8;
@@ -222,25 +219,16 @@
             this.btnFrmCancelarArticulo.UseVisualStyleBackColor = false;
             this.btnFrmCancelarArticulo.Click += new System.EventHandler(this.btnFrmCancelarArticulo_Click);
             // 
-            // pictureBox1
+            // pbxImagen
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(117, 13);
-            this.pictureBox1.MaximumSize = new System.Drawing.Size(153, 125);
-            this.pictureBox1.MinimumSize = new System.Drawing.Size(153, 125);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(153, 125);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
-            // pContenedorImagenes
-            // 
-            this.pContenedorImagenes.AutoScroll = true;
-            this.pContenedorImagenes.Controls.Add(this.pictureBox1);
-            this.pContenedorImagenes.Location = new System.Drawing.Point(39, 449);
-            this.pContenedorImagenes.Name = "pContenedorImagenes";
-            this.pContenedorImagenes.Size = new System.Drawing.Size(403, 153);
-            this.pContenedorImagenes.TabIndex = 9;
+            this.pbxImagen.Location = new System.Drawing.Point(322, 3);
+            this.pbxImagen.MaximumSize = new System.Drawing.Size(153, 125);
+            this.pbxImagen.MinimumSize = new System.Drawing.Size(153, 125);
+            this.pbxImagen.Name = "pbxImagen";
+            this.pbxImagen.Size = new System.Drawing.Size(153, 125);
+            this.pbxImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbxImagen.TabIndex = 0;
+            this.pbxImagen.TabStop = false;
             // 
             // lblExplicativo2
             // 
@@ -262,67 +250,38 @@
             this.lblExplicativo1.TabIndex = 11;
             this.lblExplicativo1.Text = "Para cargar mas de una imagen debe separar las url por coma \",\"";
             // 
-            // lblErrorCodigo
+            // lblErrorCampoUrlImage
             // 
-            this.lblErrorCodigo.AutoSize = true;
-            this.lblErrorCodigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblErrorCodigo.ForeColor = System.Drawing.Color.Red;
-            this.lblErrorCodigo.Location = new System.Drawing.Point(367, 44);
-            this.lblErrorCodigo.Name = "lblErrorCodigo";
-            this.lblErrorCodigo.Size = new System.Drawing.Size(14, 18);
-            this.lblErrorCodigo.TabIndex = 12;
-            this.lblErrorCodigo.Text = "*";
-            this.lblErrorCodigo.Visible = false;
-            this.lblErrorCodigo.Click += new System.EventHandler(this.lblErrorAgregarArticulo_Click);
+            this.lblErrorCampoUrlImage.AutoSize = true;
+            this.lblErrorCampoUrlImage.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblErrorCampoUrlImage.ForeColor = System.Drawing.Color.DarkRed;
+            this.lblErrorCampoUrlImage.Location = new System.Drawing.Point(203, 449);
+            this.lblErrorCampoUrlImage.Name = "lblErrorCampoUrlImage";
+            this.lblErrorCampoUrlImage.Size = new System.Drawing.Size(169, 12);
+            this.lblErrorCampoUrlImage.TabIndex = 12;
+            this.lblErrorCampoUrlImage.Text = "Tiene que ingresar URLS válidas";
+            this.lblErrorCampoUrlImage.Visible = false;
             // 
-            // lblErrorNombre
+            // flpContenedorImagenes
             // 
-            this.lblErrorNombre.AutoSize = true;
-            this.lblErrorNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblErrorNombre.ForeColor = System.Drawing.Color.Red;
-            this.lblErrorNombre.Location = new System.Drawing.Point(367, 83);
-            this.lblErrorNombre.Name = "lblErrorNombre";
-            this.lblErrorNombre.Size = new System.Drawing.Size(14, 18);
-            this.lblErrorNombre.TabIndex = 13;
-            this.lblErrorNombre.Text = "*";
-            this.lblErrorNombre.Visible = false;
-            // 
-            // lblErrorDescripcion
-            // 
-            this.lblErrorDescripcion.AutoSize = true;
-            this.lblErrorDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblErrorDescripcion.ForeColor = System.Drawing.Color.Red;
-            this.lblErrorDescripcion.Location = new System.Drawing.Point(121, 265);
-            this.lblErrorDescripcion.Name = "lblErrorDescripcion";
-            this.lblErrorDescripcion.Size = new System.Drawing.Size(229, 15);
-            this.lblErrorDescripcion.TabIndex = 14;
-            this.lblErrorDescripcion.Text = "¡Este campo solo admite 150 caracteres!";
-            this.lblErrorDescripcion.Visible = false;
-            // 
-            // lblErrorPrecio
-            // 
-            this.lblErrorPrecio.AutoSize = true;
-            this.lblErrorPrecio.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblErrorPrecio.ForeColor = System.Drawing.Color.Red;
-            this.lblErrorPrecio.Location = new System.Drawing.Point(367, 203);
-            this.lblErrorPrecio.Name = "lblErrorPrecio";
-            this.lblErrorPrecio.Size = new System.Drawing.Size(14, 18);
-            this.lblErrorPrecio.TabIndex = 15;
-            this.lblErrorPrecio.Text = "*";
-            this.lblErrorPrecio.Visible = false;
+            this.flpContenedorImagenes.AutoScroll = true;
+            this.flpContenedorImagenes.Controls.Add(this.pbxImagen);
+            this.flpContenedorImagenes.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
+            this.flpContenedorImagenes.Location = new System.Drawing.Point(16, 483);
+            this.flpContenedorImagenes.Name = "flpContenedorImagenes";
+            this.flpContenedorImagenes.Size = new System.Drawing.Size(478, 162);
+            this.flpContenedorImagenes.TabIndex = 13;
+            this.flpContenedorImagenes.WrapContents = false;
             // 
             // frmAgregarArticulo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(514, 697);
-            this.Controls.Add(this.lblErrorPrecio);
-            this.Controls.Add(this.lblErrorDescripcion);
-            this.Controls.Add(this.lblErrorNombre);
-            this.Controls.Add(this.lblErrorCodigo);
+            this.Controls.Add(this.flpContenedorImagenes);
+            this.Controls.Add(this.lblErrorCampoUrlImage);
             this.Controls.Add(this.lblExplicativo1);
             this.Controls.Add(this.lblExplicativo2);
-            this.Controls.Add(this.pContenedorImagenes);
             this.Controls.Add(this.btnFrmCancelarArticulo);
             this.Controls.Add(this.btnFrmGuardarArticulo);
             this.Controls.Add(this.txtFrmUrlImagen);
@@ -347,8 +306,8 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Agregar";
             this.Load += new System.EventHandler(this.frmAgregarArticulo_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.pContenedorImagenes.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pbxImagen)).EndInit();
+            this.flpContenedorImagenes.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -373,13 +332,10 @@
         private System.Windows.Forms.TextBox txtFrmUrlImagen;
         private System.Windows.Forms.Button btnFrmGuardarArticulo;
         private System.Windows.Forms.Button btnFrmCancelarArticulo;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Panel pContenedorImagenes;
+        private System.Windows.Forms.PictureBox pbxImagen;
         private System.Windows.Forms.Label lblExplicativo2;
         private System.Windows.Forms.Label lblExplicativo1;
-        private System.Windows.Forms.Label lblErrorCodigo;
-        private System.Windows.Forms.Label lblErrorNombre;
-        private System.Windows.Forms.Label lblErrorDescripcion;
-        private System.Windows.Forms.Label lblErrorPrecio;
+        private System.Windows.Forms.Label lblErrorCampoUrlImage;
+        private System.Windows.Forms.FlowLayoutPanel flpContenedorImagenes;
     }
 }

@@ -48,7 +48,7 @@ namespace TpWinform
                 listaArticulo = negocio.Listar();
                 dgvArticulos.DataSource = listaArticulo;
                 dgvArticulos.Columns["Id"].Visible = false;
-                dgvArticulos.Columns["Imagen"].Visible = false;
+                //dgvArticulos.Columns["Imagen"].Visible = false;
             }
             catch (Exception ex)
             {
