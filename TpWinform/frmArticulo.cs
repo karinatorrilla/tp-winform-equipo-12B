@@ -223,7 +223,6 @@ namespace TpWinform
             }
 
 
-
             if (opcion != "")
             {
                 if (opcion == "Marca")
@@ -285,6 +284,23 @@ namespace TpWinform
 
 
         }
+
+        private void lblMenuCategorias_Click(object sender, EventArgs e)
+        {
+            frmAdministrar opcCategoria = new frmAdministrar(frmAdministrar.Administrar.Categoria);
+            opcCategoria.ShowDialog();
+
+        }
+
+
+
+        private void lblMenuMarcas_Click_1(object sender, EventArgs e)
+        {
+            frmAdministrar opcMarca = new frmAdministrar(frmAdministrar.Administrar.Marca);
+            opcMarca.ShowDialog();
+            
+        }
+
     }
 }
 

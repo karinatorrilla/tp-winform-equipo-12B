@@ -46,6 +46,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmAdministrar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAdministrar.Designer.cs">
+      <DependentUpon>frmAdministrar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAdminAgreModElim.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAdminAgreModElim.Designer.cs">
+      <DependentUpon>frmAdminAgreModElim.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmArticulo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -60,6 +72,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmAdministrar.resx">
+      <DependentUpon>frmAdministrar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAdminAgreModElim.resx">
+      <DependentUpon>frmAdminAgreModElim.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmArticulo.resx">
       <DependentUpon>frmArticulo.cs</DependentUpon>
     </EmbeddedResource>

@@ -31,6 +31,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblAdministrar = new System.Windows.Forms.Label();
             this.lblMenuMarcas = new System.Windows.Forms.Label();
             this.lblMenuArticulos = new System.Windows.Forms.Label();
             this.lblMenuCategorias = new System.Windows.Forms.Label();
@@ -66,6 +67,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.panel1.Controls.Add(this.lblAdministrar);
             this.panel1.Controls.Add(this.lblMenuMarcas);
             this.panel1.Controls.Add(this.lblMenuArticulos);
             this.panel1.Controls.Add(this.lblMenuCategorias);
@@ -74,15 +76,26 @@
             this.panel1.Size = new System.Drawing.Size(104, 628);
             this.panel1.TabIndex = 1;
             // 
+            // lblAdministrar
+            // 
+            this.lblAdministrar.AutoSize = true;
+            this.lblAdministrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAdministrar.Location = new System.Drawing.Point(10, 229);
+            this.lblAdministrar.Name = "lblAdministrar";
+            this.lblAdministrar.Size = new System.Drawing.Size(85, 16);
+            this.lblAdministrar.TabIndex = 2;
+            this.lblAdministrar.Text = "Administrar";
+            // 
             // lblMenuMarcas
             // 
             this.lblMenuMarcas.AutoSize = true;
             this.lblMenuMarcas.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMenuMarcas.Location = new System.Drawing.Point(3, 183);
+            this.lblMenuMarcas.Location = new System.Drawing.Point(12, 286);
             this.lblMenuMarcas.Name = "lblMenuMarcas";
             this.lblMenuMarcas.Size = new System.Drawing.Size(58, 16);
             this.lblMenuMarcas.TabIndex = 1;
             this.lblMenuMarcas.Text = "Marcas";
+            this.lblMenuMarcas.Click += new System.EventHandler(this.lblMenuMarcas_Click_1);
             // 
             // lblMenuArticulos
             // 
@@ -98,11 +111,12 @@
             // 
             this.lblMenuCategorias.AutoSize = true;
             this.lblMenuCategorias.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMenuCategorias.Location = new System.Drawing.Point(3, 142);
+            this.lblMenuCategorias.Location = new System.Drawing.Point(3, 260);
             this.lblMenuCategorias.Name = "lblMenuCategorias";
             this.lblMenuCategorias.Size = new System.Drawing.Size(83, 16);
             this.lblMenuCategorias.TabIndex = 1;
             this.lblMenuCategorias.Text = "Categorías";
+            this.lblMenuCategorias.Click += new System.EventHandler(this.lblMenuCategorias_Click);
             // 
             // panel2
             // 
@@ -304,7 +318,6 @@
             this.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(894, 666);
-            this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(894, 666);
             this.Name = "frmArticulo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -342,6 +355,7 @@
         private System.Windows.Forms.Button btnDetalleArticulo;
         private System.Windows.Forms.Button btnBuscarFiltro;
         private System.Windows.Forms.Label lblErrorFiltro;
+        private System.Windows.Forms.Label lblAdministrar;
     }
 }
 

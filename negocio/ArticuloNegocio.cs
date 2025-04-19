@@ -117,7 +117,7 @@ namespace negocio
                 datos.cerrarConexion();
             }
         }
- 
+
         //Modificar articulo
         public void Modificar(Articulo mod)
         {
@@ -200,26 +200,6 @@ namespace negocio
                 {
 
                     lista.Add(ArticuloFiltrado(datos));
-
-                    //No borrar esto comentado porfa
-                    //Articulo aux = new Articulo();
-
-                    //aux.Id = (int)datos.Lector["Id"];
-                    //aux.Codigo = (string)datos.Lector["Codigo"];
-                    //aux.Nombre = (string)datos.Lector["Nombre"];
-                    //aux.Descripcion = (string)datos.Lector["Descripcion"];
-
-                    //aux.Marca = new Marca();
-                    //aux.Marca.Id = (int)datos.Lector["IdMarca"];
-                    //aux.Marca.Descripcion = (string)datos.Lector["Marca"];
-
-                    //aux.Categoria = new Categoria();
-                    //aux.Categoria.Id = (int)datos.Lector["IdCategoria"];
-                    //aux.Categoria.Descripcion = (string)datos.Lector["Categoria"];
-
-                    //aux.Precio = (float)(decimal)datos.Lector["Precio"];
-
-                    //lista.Add(aux);
                 }
 
                 return lista;
