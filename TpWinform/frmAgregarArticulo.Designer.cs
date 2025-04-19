@@ -49,6 +49,10 @@
             this.pContenedorImagenes = new System.Windows.Forms.Panel();
             this.lblExplicativo2 = new System.Windows.Forms.Label();
             this.lblExplicativo1 = new System.Windows.Forms.Label();
+            this.lblErrorCodigo = new System.Windows.Forms.Label();
+            this.lblErrorNombre = new System.Windows.Forms.Label();
+            this.lblErrorDescripcion = new System.Windows.Forms.Label();
+            this.lblErrorPrecio = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pContenedorImagenes.SuspendLayout();
             this.SuspendLayout();
@@ -142,7 +146,7 @@
             // 
             // txtFrmNombreArticulo
             // 
-            this.txtFrmNombreArticulo.Location = new System.Drawing.Point(205, 76);
+            this.txtFrmNombreArticulo.Location = new System.Drawing.Point(205, 80);
             this.txtFrmNombreArticulo.Name = "txtFrmNombreArticulo";
             this.txtFrmNombreArticulo.Size = new System.Drawing.Size(156, 20);
             this.txtFrmNombreArticulo.TabIndex = 1;
@@ -171,6 +175,7 @@
             this.txtFrmPrecioArticulo.Name = "txtFrmPrecioArticulo";
             this.txtFrmPrecioArticulo.Size = new System.Drawing.Size(156, 20);
             this.txtFrmPrecioArticulo.TabIndex = 4;
+            this.txtFrmPrecioArticulo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtFrmPrecioArticulo_KeyPress);
             // 
             // txtFrmDescripcionArticulo
             // 
@@ -257,11 +262,64 @@
             this.lblExplicativo1.TabIndex = 11;
             this.lblExplicativo1.Text = "Para cargar mas de una imagen debe separar las url por coma \",\"";
             // 
+            // lblErrorCodigo
+            // 
+            this.lblErrorCodigo.AutoSize = true;
+            this.lblErrorCodigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblErrorCodigo.ForeColor = System.Drawing.Color.Red;
+            this.lblErrorCodigo.Location = new System.Drawing.Point(367, 44);
+            this.lblErrorCodigo.Name = "lblErrorCodigo";
+            this.lblErrorCodigo.Size = new System.Drawing.Size(14, 18);
+            this.lblErrorCodigo.TabIndex = 12;
+            this.lblErrorCodigo.Text = "*";
+            this.lblErrorCodigo.Visible = false;
+            this.lblErrorCodigo.Click += new System.EventHandler(this.lblErrorAgregarArticulo_Click);
+            // 
+            // lblErrorNombre
+            // 
+            this.lblErrorNombre.AutoSize = true;
+            this.lblErrorNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblErrorNombre.ForeColor = System.Drawing.Color.Red;
+            this.lblErrorNombre.Location = new System.Drawing.Point(367, 83);
+            this.lblErrorNombre.Name = "lblErrorNombre";
+            this.lblErrorNombre.Size = new System.Drawing.Size(14, 18);
+            this.lblErrorNombre.TabIndex = 13;
+            this.lblErrorNombre.Text = "*";
+            this.lblErrorNombre.Visible = false;
+            // 
+            // lblErrorDescripcion
+            // 
+            this.lblErrorDescripcion.AutoSize = true;
+            this.lblErrorDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblErrorDescripcion.ForeColor = System.Drawing.Color.Red;
+            this.lblErrorDescripcion.Location = new System.Drawing.Point(121, 265);
+            this.lblErrorDescripcion.Name = "lblErrorDescripcion";
+            this.lblErrorDescripcion.Size = new System.Drawing.Size(229, 15);
+            this.lblErrorDescripcion.TabIndex = 14;
+            this.lblErrorDescripcion.Text = "¡Este campo solo admite 150 caracteres!";
+            this.lblErrorDescripcion.Visible = false;
+            // 
+            // lblErrorPrecio
+            // 
+            this.lblErrorPrecio.AutoSize = true;
+            this.lblErrorPrecio.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblErrorPrecio.ForeColor = System.Drawing.Color.Red;
+            this.lblErrorPrecio.Location = new System.Drawing.Point(367, 203);
+            this.lblErrorPrecio.Name = "lblErrorPrecio";
+            this.lblErrorPrecio.Size = new System.Drawing.Size(14, 18);
+            this.lblErrorPrecio.TabIndex = 15;
+            this.lblErrorPrecio.Text = "*";
+            this.lblErrorPrecio.Visible = false;
+            // 
             // frmAgregarArticulo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(514, 697);
+            this.Controls.Add(this.lblErrorPrecio);
+            this.Controls.Add(this.lblErrorDescripcion);
+            this.Controls.Add(this.lblErrorNombre);
+            this.Controls.Add(this.lblErrorCodigo);
             this.Controls.Add(this.lblExplicativo1);
             this.Controls.Add(this.lblExplicativo2);
             this.Controls.Add(this.pContenedorImagenes);
@@ -319,5 +377,9 @@
         private System.Windows.Forms.Panel pContenedorImagenes;
         private System.Windows.Forms.Label lblExplicativo2;
         private System.Windows.Forms.Label lblExplicativo1;
+        private System.Windows.Forms.Label lblErrorCodigo;
+        private System.Windows.Forms.Label lblErrorNombre;
+        private System.Windows.Forms.Label lblErrorDescripcion;
+        private System.Windows.Forms.Label lblErrorPrecio;
     }
 }

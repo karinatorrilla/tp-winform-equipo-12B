@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Reflection;
 using System.Windows.Forms;
 using dominio;
 using negocio;
@@ -35,7 +36,7 @@ namespace TpWinform
                 btnFrmCancelarArticulo.Text = "Volver";
                 BloquearCampos();
             }
-            
+
 
         }
 
@@ -43,13 +44,13 @@ namespace TpWinform
         {
             MarcaNegocio marca = new MarcaNegocio();
             CategoriaNegocio categoria = new CategoriaNegocio();
-      
+
             try
             {
                 cboFrmMarcaArticulo.DataSource = marca.ListarMarca();
                 cboFrmMarcaArticulo.ValueMember = "Id";
                 cboFrmMarcaArticulo.DisplayMember = "Descripcion";
-                
+
                 cboFrmCategoriaArticulo.DataSource = categoria.ListarCategoria();
                 cboFrmCategoriaArticulo.ValueMember = "Id";
                 cboFrmCategoriaArticulo.DisplayMember = "Descripcion";
@@ -63,7 +64,7 @@ namespace TpWinform
                     cboFrmCategoriaArticulo.SelectedValue = articulo.Categoria.Id;
                     txtFrmPrecioArticulo.Text = articulo.Precio.ToString();
                     txtFrmDescripcionArticulo.Text = articulo.Descripcion;
-                                                        
+
 
                     txtFrmUrlImagen.Text = articulo.Imagen.ToString();
                     cargarImagenFormArticulo(articulo.Imagen.ImagenUrl); //carga imagen
@@ -97,6 +98,73 @@ namespace TpWinform
             txtFrmDescripcionArticulo.Enabled = false;
             txtFrmUrlImagen.Enabled = false;
         }
+
+        private bool SoloNumerosYLetras(string texto)
+        {
+            foreach (char caracter in texto)
+            {
+                if (!(char.IsNumber(caracter)) && !(char.IsLetter(caracter)))
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        private bool ValidarCampos(Articulo articulo)
+        {
+            try
+            {
+                //CODIGO
+                articulo.Codigo = txtFrmCodigoArticulo.Text;
+                if (!(SoloNumerosYLetras(txtFrmCodigoArticulo.Text)))
+                {
+                    MessageBox.Show("Error. El código solo admite números y letras.");                    
+                }
+                if (txtFrmCodigoArticulo.Text.Length > 50 || string.IsNullOrEmpty(txtFrmCodigoArticulo.Text))
+                {
+                    lblErrorCodigo.Visible = true;                    
+                }
+
+                //NOMBRE
+                articulo.Nombre = txtFrmNombreArticulo.Text;
+                if (txtFrmNombreArticulo.Text.Length > 50 || string.IsNullOrEmpty(txtFrmNombreArticulo.Text))
+                {
+                    lblErrorNombre.Visible = true;                   
+                }
+
+                //PRECIO
+                articulo.Precio = float.Parse(txtFrmPrecioArticulo.Text);
+                /*if (string.IsNullOrEmpty(txtFrmPrecioArticulo.Text))
+                {
+                    lblErrorPrecio.Visible = true;                  
+                }
+                float precio;
+                if (!float.TryParse(txtFrmPrecioArticulo.Text, out precio))
+                {
+                    lblErrorPrecio.Visible = true;                    
+                }*/
+
+                //DESCRIPCION                              
+                if (txtFrmDescripcionArticulo.Text.Length > 150)
+                {
+                    lblErrorDescripcion.Visible = true;
+                    return false;
+                }
+                articulo.Descripcion = txtFrmDescripcionArticulo.Text;
+
+                articulo.Marca = (Marca)cboFrmMarcaArticulo.SelectedItem;
+                articulo.Categoria = (Categoria)cboFrmCategoriaArticulo.SelectedItem;
+                articulo.Imagen.ImagenUrl = txtFrmUrlImagen.Text;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("¡Primero complete los campos obligatorios!");
+                return false;
+            }
+            return true;
+        }
+
         private void btnFrmGuardarArticulo_Click(object sender, EventArgs e)
         {
 
@@ -108,14 +176,11 @@ namespace TpWinform
                     articulo = new Articulo();
                 articulo.Imagen = new Imagen();
 
-                articulo.Codigo = txtFrmCodigoArticulo.Text;
-                articulo.Nombre = txtFrmNombreArticulo.Text;
-                articulo.Precio = float.Parse(txtFrmPrecioArticulo.Text);
-                articulo.Descripcion = txtFrmDescripcionArticulo.Text;
-                articulo.Marca=(Marca)cboFrmMarcaArticulo.SelectedItem;
-                articulo.Categoria=(Categoria)cboFrmCategoriaArticulo.SelectedItem;
-                articulo.Imagen.ImagenUrl = txtFrmUrlImagen.Text;
-                
+                if (!(ValidarCampos(articulo)))
+                {
+                    return;
+                }
+
                 //Si el id de artículo es distinto de 0 lo modifica, si no, entiende que no hay artículo
                 //cargado y lo agrega...
                 if (articulo.Id != 0)
@@ -123,6 +188,7 @@ namespace TpWinform
                     negocio.Modificar(articulo);
                     negocio.ActualizarImagen(articulo); //actualiza la imagen del articulo
                     MessageBox.Show("Artículo modificado exitosamente!");
+
                 }
                 else
                 {
@@ -130,18 +196,18 @@ namespace TpWinform
                     //consulta a la db el ultimo ID del articulo creado
                     int ultimoId = negocio.obtenerUltimoArticuloCreado();
                     //Console.WriteLine("ULTIMO ID ARTICULO CREADO" + ultimoId);
-                    if(ultimoId > 0)
+                    if (ultimoId > 0)
                     {
                         negocio.crearImagenes(txtFrmUrlImagen.Text, ultimoId);
                     }
-                    MessageBox.Show("Artículo agregado exitosamente!");
+
+                    MessageBox.Show("¡Artículo agregado exitosamente!");
+
                 }
                 Close();
-
             }
             catch (Exception ex)
             {
-
                 MessageBox.Show(ex.ToString());
             }
 
@@ -152,5 +218,17 @@ namespace TpWinform
             Close();
         }
 
+        private void lblErrorAgregarArticulo_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtFrmPrecioArticulo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar)) //&& e.KeyChar != '.') <--- por si queremos decimales
+            {
+                e.Handled = true; // Cancela la tecla presionada
+            }
+        }
     }
 }
