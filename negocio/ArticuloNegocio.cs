@@ -190,7 +190,7 @@ namespace negocio
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                string consulta = "select A.Codigo,A.Nombre,A.Descripcion,M.Descripcion as 'Marca',C.Descripcion as 'Categoria',A.Precio,I.ImagenUrl as 'ImagenUrl' from ARTICULOS as A ,MARCAS M ,CATEGORIAS C, IMAGENES I where A.Id=I.IdArticulo and A.IdMarca=M.Id and A.IdCategoria=C.Id and ( A.Codigo like '%" + buscar + "%' or A.Nombre like '%" + buscar + "%' or  A.Descripcion like '%" + buscar + "%' or M.Descripcion like '%" + buscar + "%' or C.Descripcion like '%" + buscar + "%' )";
+                string consulta = "select A.Id,A.Codigo,A.Nombre,A.Descripcion,M.Descripcion as 'Marca',C.Descripcion as 'Categoria',A.Precio, A.IdMarca, A.IdCategoria  from ARTICULOS as A ,MARCAS as M ,CATEGORIAS as C where A.IdMarca=M.Id and A.IdCategoria=C.Id and ( A.Codigo like '%" + buscar + "%' or A.Nombre like '%" + buscar + "%' or  A.Descripcion like '%" + buscar + "%' or M.Descripcion like '%" + buscar + "%' or C.Descripcion like '%" + buscar + "%' )";
 
                 datos.setearConsulta(consulta);
 
@@ -199,29 +199,27 @@ namespace negocio
                 while (datos.Lector.Read())
                 {
 
-
                     lista.Add(ArticuloFiltrado(datos));
-                    /*
-                    Articulo aux = new Articulo();
 
-                    aux.Codigo = (string)datos.Lector["Codigo"];
-                    aux.Nombre = (string)datos.Lector["Nombre"];
-                    aux.Descripcion = (string)datos.Lector["Descripcion"];
+                    //No borrar esto comentado porfa
+                    //Articulo aux = new Articulo();
 
-                    aux.Marca = new Marca();
-                    aux.Marca.Descripcion = (string)datos.Lector["Marca"];
+                    //aux.Id = (int)datos.Lector["Id"];
+                    //aux.Codigo = (string)datos.Lector["Codigo"];
+                    //aux.Nombre = (string)datos.Lector["Nombre"];
+                    //aux.Descripcion = (string)datos.Lector["Descripcion"];
 
-                    aux.Categoria = new Categoria();
-                    aux.Categoria.Descripcion = (string)datos.Lector["Categoria"];
+                    //aux.Marca = new Marca();
+                    //aux.Marca.Id = (int)datos.Lector["IdMarca"];
+                    //aux.Marca.Descripcion = (string)datos.Lector["Marca"];
 
-                    aux.Precio = (float)(decimal)datos.Lector["Precio"];
+                    //aux.Categoria = new Categoria();
+                    //aux.Categoria.Id = (int)datos.Lector["IdCategoria"];
+                    //aux.Categoria.Descripcion = (string)datos.Lector["Categoria"];
 
-                    ///Se agrega instancia de imagen para traer de base de datos al utilizar el buscador
-                    aux.Imagen = new Imagen();
-                    aux.Imagen.ImagenUrl = (string)datos.Lector["ImagenUrl"];
-                    ///agregar a una lista de imagen si hay mas de una?
-                    ///
-                    lista.Add(aux);*/
+                    //aux.Precio = (float)(decimal)datos.Lector["Precio"];
+
+                    //lista.Add(aux);
                 }
 
                 return lista;
@@ -243,7 +241,7 @@ namespace negocio
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                string consulta = "select A.Codigo,A.Nombre,A.Descripcion,M.Descripcion as 'Marca',C.Descripcion as 'Categoria',A.Precio,I.ImagenUrl as 'ImagenUrl' from ARTICULOS as A ,MARCAS M ,CATEGORIAS C, IMAGENES I where A.Id=I.IdArticulo and A.IdMarca=M.Id and A.IdCategoria=C.Id and ";
+                string consulta = "select A.Id,A.Codigo,A.Nombre,A.Descripcion,M.Descripcion as 'Marca',C.Descripcion as 'Categoria',A.Precio, A.IdMarca, A.IdCategoria  from ARTICULOS as A ,MARCAS as M ,CATEGORIAS as C where A.IdMarca=M.Id and A.IdCategoria=C.Id and ";
 
                 switch (tabla)
                 {
@@ -285,24 +283,21 @@ namespace negocio
         {
             Articulo aux = new Articulo();
 
+            aux.Id = (int)datos.Lector["Id"];
             aux.Codigo = (string)datos.Lector["Codigo"];
             aux.Nombre = (string)datos.Lector["Nombre"];
             aux.Descripcion = (string)datos.Lector["Descripcion"];
 
             aux.Marca = new Marca();
+            aux.Marca.Id = (int)datos.Lector["IdMarca"];
             aux.Marca.Descripcion = (string)datos.Lector["Marca"];
 
             aux.Categoria = new Categoria();
+            aux.Categoria.Id = (int)datos.Lector["IdCategoria"];
             aux.Categoria.Descripcion = (string)datos.Lector["Categoria"];
 
             aux.Precio = (float)(decimal)datos.Lector["Precio"];
 
-            ///Se agrega instancia de imagen para traer de base de datos al utilizar el buscador
-            //aux.Imagen = new Imagen();
-            //aux.Imagen.ImagenUrl = (string)datos.Lector["ImagenUrl"];
-
-            ///agregar a una lista de imagen si hay mas de una?
-            aux.Imagenes.Add((string)datos.Lector["ImagenUrl"]);
             return aux;
         }
 

@@ -41,9 +41,6 @@ namespace negocio
 
                     aux.Precio = (float)(decimal)datos.Lector["Precio"];
 
-                    //aux.Imagen = new Imagen();
-                    //aux.Imagen.ImagenUrl = (string)datos.Lector["ImagenUrl"];
-                    //aux.Imagenes.Add((string)datos.Lector["ImagenUrl"]);
 
                     lista.Add(aux);
                 }

@@ -155,7 +155,7 @@ namespace TpWinform
                             nuevaPictureBox.Width = 100;
                             nuevaPictureBox.Height = 100;
 
-                            cargarImagenEnPictureBox(nuevaPictureBox, imagenes[i].ImagenUrl);
+                            cargarImagenFormArticulo(nuevaPictureBox, imagenes[i].ImagenUrl);
                             flpContenedorImagenes.Controls.Add(nuevaPictureBox);
 
                         }
@@ -174,22 +174,11 @@ namespace TpWinform
         }
 
 
-        private void cargarImagenEnPictureBox(PictureBox pictureBox, string urlImagen)
+        private void cargarImagenFormArticulo(PictureBox pbxImagen, string urlImagen)
         {
             try
             {
-                pictureBox.Load(urlImagen);
-            }
-            catch (Exception)
-            {
-                pictureBox.Load("https://t4.ftcdn.net/jpg/07/91/22/59/360_F_791225927_caRPPH99D6D1iFonkCRmCGzkJPf36QDw.jpg");
-            }
-        }
-        private void cargarImagenFormArticulo(string imagen)
-        {
-            try
-            {
-                pbxImagen.Load(imagen);
+                pbxImagen.Load(urlImagen);
             }
             catch (Exception)
             {
