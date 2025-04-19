@@ -40,12 +40,12 @@ namespace TpWinform
             InitializeComponent();
             this.categoria = seleccionado;
             this.esModificable = modificar;
-
+            this.tipo = frmAdministrar.Administrar.Categoria;
             if (esModificable)
             {
                 Text = "Modificando";
                 lblAdministrar.Text = "Categoria";
-                            }
+            }
 
         }
 
@@ -54,12 +54,11 @@ namespace TpWinform
             InitializeComponent();
             this.marca = seleccionado;
             this.esModificable = modificar;
-
+            this.tipo = frmAdministrar.Administrar.Marca;
             if (esModificable)
             {
                 Text = "Modificando";
                 lblAdministrar.Text = "Marca";
-
 
             }
 
@@ -87,7 +86,10 @@ namespace TpWinform
 
                     if (marca.Id != 0)
                     {
+
+                        marca.Descripcion = txtAdministrar.Text;
                         marcaNegocio.ModificarMarca(marca);
+                        MessageBox.Show("Marca modificada exitosamente!");
                     }
                     else
                     {
@@ -97,7 +99,8 @@ namespace TpWinform
                     }
                     Close();
                 }
-                else
+
+                if (tipo == frmAdministrar.Administrar.Categoria)
                 {
                     categoriaNegocio = new CategoriaNegocio();
 
@@ -106,7 +109,9 @@ namespace TpWinform
 
                     if (categoria.Id != 0)
                     {
+                        categoria.Descripcion=txtAdministrar.Text;
                         categoriaNegocio.ModificarCategoria(categoria);
+                        MessageBox.Show("Categoria modificada exitosamente!");
                     }
                     else
                     {
@@ -116,6 +121,7 @@ namespace TpWinform
                     }
                     Close();
                 }
+
             }
             catch (Exception ex)
             {
@@ -124,16 +130,21 @@ namespace TpWinform
             }
 
 
-
-
-
-
-
         }
 
         private void frmAdminAgreModElim_Load(object sender, EventArgs e)
         {
-
+            if (esModificable)
+            {
+                if (marca != null)
+                {
+                    txtAdministrar.Text = marca.Descripcion;
+                }
+                else if (categoria != null)
+                {
+                    txtAdministrar.Text = categoria.Descripcion;
+                }
+            }
         }
     }
 }

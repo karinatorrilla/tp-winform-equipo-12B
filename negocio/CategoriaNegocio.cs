@@ -43,7 +43,9 @@ namespace negocio
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                datos.setearConsulta("UPDATE  CATEGORIAS SET Descripcion values('" + mod.Descripcion + "' WHERE id=" + mod.Id + ")");
+                datos.setearConsulta("UPDATE CATEGORIAS SET Descripcion = @descripcion WHERE Id = @id");
+                datos.setearParametro("@descripcion", mod.Descripcion);
+                datos.setearParametro("@id", mod.Id);
                 datos.ejecutarAccion();
             }
             catch (Exception ex)
