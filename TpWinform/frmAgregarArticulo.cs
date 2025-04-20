@@ -300,7 +300,7 @@ namespace TpWinform
                 //NOMBRE
                 if(NombreTieneLetra(txtFrmNombreArticulo.Text) == false)
                 {
-                    MessageBox.Show("Error al agregar. El nombre no puede tener ser solo números.");
+                    MessageBox.Show("Error al agregar. El nombre no puede tener solo números.");
                     lblErrorNombre.Visible = true;
                     lblErrorCodigo.Visible = false;                    
                     lblErrorPrecio.Visible = false;
