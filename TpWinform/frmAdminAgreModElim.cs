@@ -20,19 +20,13 @@ namespace TpWinform
 
         private Categoria categoria = null;
         private CategoriaNegocio categoriaNegocio;
-
-       
+      
         private bool esModificable = false;
         public enum Administrar { Marca, Categoria }
         //Constantes para definir que datasource mostrar si marca o categoria
 
         private frmAdministrar.Administrar tipo;
-
-        //
-        
-
-        //
-
+       
         public frmAdminAgreModElim(frmAdministrar.Administrar tipo)
         {
             InitializeComponent();

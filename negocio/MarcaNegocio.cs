@@ -56,5 +56,28 @@ namespace negocio
                 datos.cerrarConexion();
             }
         }
+
+        public void EliminarMarcaArticuloImagen(int id)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {               
+                datos.setearConsulta("BEGIN TRANSACTION; " +
+                              "DELETE FROM IMAGENES WHERE IdArticulo IN (SELECT Id FROM ARTICULOS WHERE IdMarca = @id); " +
+                              "DELETE FROM ARTICULOS WHERE IdMarca = @id; " +                              
+                              "DELETE FROM MARCAS WHERE Id = @id;" +
+                              "COMMIT TRANSACTION;");
+                datos.setearParametro("@id", id);
+                datos.ejecutarAccion();                                
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
     }
 }

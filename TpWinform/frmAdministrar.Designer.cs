@@ -30,7 +30,7 @@
         {
             this.btnAgregarAdministrar = new System.Windows.Forms.Button();
             this.btnModificarAdministrar = new System.Windows.Forms.Button();
-            this.btnEliminarAdminisitrar = new System.Windows.Forms.Button();
+            this.btnEliminarAdministrar = new System.Windows.Forms.Button();
             this.dgvAdministrar = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAdministrar)).BeginInit();
             this.SuspendLayout();
@@ -57,16 +57,16 @@
             this.btnModificarAdministrar.UseVisualStyleBackColor = false;
             this.btnModificarAdministrar.Click += new System.EventHandler(this.btnModificarAdministrar_Click);
             // 
-            // btnEliminarAdminisitrar
+            // btnEliminarAdministrar
             // 
-            this.btnEliminarAdminisitrar.BackColor = System.Drawing.Color.Red;
-            this.btnEliminarAdminisitrar.Location = new System.Drawing.Point(210, 242);
-            this.btnEliminarAdminisitrar.Name = "btnEliminarAdminisitrar";
-            this.btnEliminarAdminisitrar.Size = new System.Drawing.Size(75, 23);
-            this.btnEliminarAdminisitrar.TabIndex = 2;
-            this.btnEliminarAdminisitrar.Text = "Eliminar";
-            this.btnEliminarAdminisitrar.UseVisualStyleBackColor = false;
-            this.btnEliminarAdminisitrar.Click += new System.EventHandler(this.btnEliminarAdminisitrar_Click);
+            this.btnEliminarAdministrar.BackColor = System.Drawing.Color.Red;
+            this.btnEliminarAdministrar.Location = new System.Drawing.Point(210, 242);
+            this.btnEliminarAdministrar.Name = "btnEliminarAdministrar";
+            this.btnEliminarAdministrar.Size = new System.Drawing.Size(75, 23);
+            this.btnEliminarAdministrar.TabIndex = 2;
+            this.btnEliminarAdministrar.Text = "Eliminar";
+            this.btnEliminarAdministrar.UseVisualStyleBackColor = false;
+            this.btnEliminarAdministrar.Click += new System.EventHandler(this.btnEliminarAdministrar_Click);
             // 
             // dgvAdministrar
             // 
@@ -83,7 +83,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(300, 394);
             this.Controls.Add(this.dgvAdministrar);
-            this.Controls.Add(this.btnEliminarAdminisitrar);
+            this.Controls.Add(this.btnEliminarAdministrar);
             this.Controls.Add(this.btnModificarAdministrar);
             this.Controls.Add(this.btnAgregarAdministrar);
             this.MaximizeBox = false;
@@ -94,7 +94,6 @@
             this.Text = "frmAdministrar";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmAdministrar_FormClosed);
             this.Load += new System.EventHandler(this.frmAdministrar_Load);
-            this.Leave += new System.EventHandler(this.frmAdministrar_Leave);
             ((System.ComponentModel.ISupportInitialize)(this.dgvAdministrar)).EndInit();
             this.ResumeLayout(false);
 
@@ -104,7 +103,7 @@
 
         private System.Windows.Forms.Button btnAgregarAdministrar;
         private System.Windows.Forms.Button btnModificarAdministrar;
-        private System.Windows.Forms.Button btnEliminarAdminisitrar;
+        private System.Windows.Forms.Button btnEliminarAdministrar;
         private System.Windows.Forms.DataGridView dgvAdministrar;
     }
 }

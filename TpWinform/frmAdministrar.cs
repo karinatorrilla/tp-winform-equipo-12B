@@ -61,7 +61,7 @@ namespace TpWinform
             frmAdminAgreModElim agregar = new frmAdminAgreModElim(tipo);
             agregar.ShowDialog();
             cargarInfo(tipo);
-            
+
         }
 
         private void btnModificarAdministrar_Click(object sender, EventArgs e)
@@ -116,22 +116,76 @@ namespace TpWinform
             }
 
 
-          
-        }
 
-        private void btnEliminarAdminisitrar_Click(object sender, EventArgs e)
-        {
-            cargarInfo(tipo);
-        }
-
-        private void frmAdministrar_Leave(object sender, EventArgs e)
-        {
-            //frmArticulo.cargar();
         }
 
         private void frmAdministrar_FormClosed(object sender, FormClosedEventArgs e)
-        {           
+        {
             frmArticulo.cargar();
+        }
+
+        private void btnEliminarAdministrar_Click(object sender, EventArgs e)
+        {
+            //ELIMINAR MARCAS. LAS IMAGENES Y ARTICULOS ASOCIADOS TAMBIÉN SE ELIMINAN...
+            if (tipo == Administrar.Marca)
+            {
+                Marca seleccionado = new Marca();
+                MarcaNegocio negocio = new MarcaNegocio();  
+                try
+                {
+
+                    if (dgvAdministrar.CurrentRow != null)
+                    {
+                        DialogResult respuesta = MessageBox.Show("¿Estás seguro de que querés eliminar esta marca? Los artículos" +
+                        " asociados a la misma se van a eliminar también...", "Eliminar Marca", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                        if (respuesta == DialogResult.Yes)
+                        {
+                            seleccionado = (Marca)dgvAdministrar.CurrentRow.DataBoundItem;
+                            negocio.EliminarMarcaArticuloImagen(seleccionado.Id);
+                            cargarInfo(tipo);
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("¡Debe seleccionar un item de la lista!");
+                    }
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
+            }
+            //ELIMINAR CATEGORIAS. LAS IMAGENES Y ARTICULOS ASOCIADOS TAMBIÉN SE ELIMINAN...
+            else if (tipo == Administrar.Categoria)
+            {
+                Categoria seleccionado = new Categoria();
+                CategoriaNegocio negocio = new CategoriaNegocio();                 
+                try
+                {
+
+                    if (dgvAdministrar.CurrentRow != null)
+                    {
+                        DialogResult respuesta = MessageBox.Show("¿Estás seguro de que querés eliminar esta categoría? Los artículos" +
+                        " asociados a la misma se van a eliminar también...", "Eliminar Categoría", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                        if (respuesta == DialogResult.Yes)
+                        {
+                            seleccionado = (Categoria)dgvAdministrar.CurrentRow.DataBoundItem;
+                            negocio.EliminarCategoriaArticuloImagen(seleccionado.Id);
+                            cargarInfo(tipo);
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("¡Debe seleccionar un item de la lista!");
+                    }
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
+            }
         }
     }
 }

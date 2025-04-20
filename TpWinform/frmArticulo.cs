@@ -18,8 +18,6 @@ namespace TpWinform
         private List<Marca> listaMarca;
         private List<Categoria> listaCategorias;
 
-
-
         public frmArticulo()
         {
             InitializeComponent();
@@ -218,7 +216,6 @@ namespace TpWinform
                 opcion = cboFiltroPrincipal.SelectedItem.ToString();
             }
 
-
             if (opcion != "")
             {
                 if (opcion == "Marca")
@@ -232,7 +229,6 @@ namespace TpWinform
                     cboListaFiltrada.DataSource = listaCategorias;
                 }
             }
-
         }
 
         private void btnBuscarFiltro_Click(object sender, EventArgs e)
@@ -254,31 +250,20 @@ namespace TpWinform
                     lblErrorFiltro.Visible = true;
                     return;
                 }
-
-
             }
             catch (Exception ex)
             {
 
                 throw ex;
             }
-
-
         }
 
         private void btnLimpiarFiltro_Click(object sender, EventArgs e)
         {
-
-
-
             cboFiltroPrincipal.SelectedIndex = -1;/// seleccionamos un item fuera de la lista para que no muestre nada
             cboListaFiltrada.DataSource = null;/// borra la lista de marca/categoria
-
-
             dgvArticulos.DataSource = null; // limpia el dataSource
             cargar();
-
-
         }
 
         private void lblMenuCategorias_Click(object sender, EventArgs e)
@@ -286,8 +271,6 @@ namespace TpWinform
             frmAdministrar opcCategoria = new frmAdministrar(frmAdministrar.Administrar.Categoria, this);
             opcCategoria.ShowDialog();            
         }
-
-
 
         private void lblMenuMarcas_Click_1(object sender, EventArgs e)
         {
