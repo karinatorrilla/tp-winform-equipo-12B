@@ -30,8 +30,6 @@ namespace TpWinform
             this.frmArticulo = frmArticulo;
         }
 
-
-
         private void frmAdministrar_Load(object sender, EventArgs e)
         {
             cargarInfo(tipo);
@@ -54,14 +52,11 @@ namespace TpWinform
             dgvAdministrar.Columns["Id"].Visible = false;
         }
 
-
-
         private void btnAgregarAdministrar_Click(object sender, EventArgs e)
         {
             frmAdminAgreModElim agregar = new frmAdminAgreModElim(tipo);
-            agregar.ShowDialog();
+            agregar.ShowDialog();            
             cargarInfo(tipo);
-
         }
 
         private void btnModificarAdministrar_Click(object sender, EventArgs e)

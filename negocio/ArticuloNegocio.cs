@@ -25,9 +25,13 @@ namespace negocio
             try
             {
 
-                datos.setearConsulta("Insert into ARTICULOS (Codigo, Nombre, Precio, Descripcion, idMarca, idCategoria)values('" + nuevo.Codigo + "', '" + nuevo.Nombre + "'," + nuevo.Precio + ", '" + nuevo.Descripcion + "',@IdMarca,@IdCategoria)");
-                datos.setearParametro("@idMarca", nuevo.Marca.Id);
-                datos.setearParametro("@idCategoria", nuevo.Categoria.Id);
+                datos.setearConsulta("Insert into ARTICULOS (Codigo, Nombre, Precio, Descripcion, IdMarca, IdCategoria)values(@Codigo, @Nombre, @Precio, @Descripcion, @IdMarca, @IdCategoria)");
+                datos.setearParametro("@Codigo", nuevo.Codigo);
+                datos.setearParametro("@Nombre", nuevo.Nombre);
+                datos.setearParametro("@Precio", nuevo.Precio);
+                datos.setearParametro("@Descripcion", nuevo.Descripcion);
+                datos.setearParametro("@IdMarca", nuevo.Marca.Id);
+                datos.setearParametro("@IdCategoria", nuevo.Categoria.Id);
                 datos.ejecutarAccion();
             }
             catch (Exception ex)

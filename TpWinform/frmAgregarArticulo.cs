@@ -6,6 +6,7 @@ using System.Linq;
 using dominio;
 using negocio;
 using System.Drawing;
+using System.Text.RegularExpressions;
 
 namespace TpWinform
 {
@@ -131,11 +132,11 @@ namespace TpWinform
 
             try
             {
-                cboFrmMarcaArticulo.DataSource = marca.ListarMarca();
+                cboFrmMarcaArticulo.DataSource = marca.ListarMarca();                
                 cboFrmMarcaArticulo.ValueMember = "Id";
                 cboFrmMarcaArticulo.DisplayMember = "Descripcion";
                 
-                cboFrmCategoriaArticulo.DataSource = categoria.ListarCategoria();
+                cboFrmCategoriaArticulo.DataSource = categoria.ListarCategoria();                               
                 cboFrmCategoriaArticulo.ValueMember = "Id";
                 cboFrmCategoriaArticulo.DisplayMember = "Descripcion";
 
@@ -173,15 +174,20 @@ namespace TpWinform
                     }
                     else
                     {
-                        txtFrmUrlImagen.Text = "";
+                        txtFrmUrlImagen.Text = "";                       
                     }
-
+                }
+                else
+                {
+                    //INICIALIZAR COMBO BOX VACIOS
+                    cboFrmMarcaArticulo.SelectedItem = null;
+                    cboFrmCategoriaArticulo.SelectedItem = null;
                 }
             }
             catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-            }
+                {
+                    MessageBox.Show(ex.ToString());
+                }
         }
 
 
@@ -207,69 +213,147 @@ namespace TpWinform
             txtFrmDescripcionArticulo.Enabled = false;
             txtFrmUrlImagen.Enabled = false;
         }
-
-
-        private bool SoloNumerosYLetras(string texto)
+        private bool NombreTieneLetra(string texto)
         {
             foreach (char caracter in texto)
             {
-                if (!(char.IsNumber(caracter)) && !(char.IsLetter(caracter)))
+                if (char.IsLetter(caracter))
+                    return true;
+            }
+            return false;
+        }
+        private bool SoloNumerosYLetrasJuntos(string texto)
+        {
+            bool tieneLetra = false;
+            bool tieneNumero = false;
+
+            foreach (char caracter in texto)
+            {               
+                if (char.IsLetter(caracter))
+                {
+                    tieneLetra = true;
+                }
+                else if (char.IsNumber(caracter))
+                {
+                    tieneNumero = true;
+                }
+                else
                 {
                     return false;
                 }
             }
-            return true;
+            return tieneLetra && tieneNumero;
         }
 
         private bool ValidarCampos(Articulo articulo)
         {
+            
             try
-            {
-                //CODIGO
-                articulo.Codigo = txtFrmCodigoArticulo.Text;
-                if (!(SoloNumerosYLetras(txtFrmCodigoArticulo.Text)))
+            {    
+                //CAMPOS OBLIGATORIOS VACIOS
+                if(string.IsNullOrEmpty(txtFrmCodigoArticulo.Text) || 
+                    string.IsNullOrEmpty(txtFrmNombreArticulo.Text) || 
+                    string.IsNullOrEmpty(txtFrmPrecioArticulo.Text) ||
+                    cboFrmCategoriaArticulo == null ||
+                    cboFrmMarcaArticulo == null)
                 {
-                    MessageBox.Show("Error. El código solo admite números y letras.");
-                }
-                if (txtFrmCodigoArticulo.Text.Length > 50 || string.IsNullOrEmpty(txtFrmCodigoArticulo.Text))
-                {
+                    MessageBox.Show("¡Primero complete los campos obligatorios!");
                     lblErrorCodigo.Visible = true;
+                    lblErrorNombre.Visible = true;
+                    lblErrorPrecio.Visible = true;
+                    lblErrorMarca.Visible = true;
+                    lblErrorCategoria.Visible = true;
+                    return false;
+                }
+
+                //DESCRIPCION
+                if(txtFrmDescripcionArticulo.Text.Length > 150)
+                {
+                    lblErrorDescripcion.Visible = true;
+                    lblErrorCodigo.Visible = false;
+                    lblErrorPrecio.Visible = false;
+                    lblErrorCodigo.Visible = false;
+                    return false;
+                }
+
+                //CODIGO
+                if (SoloNumerosYLetrasJuntos(txtFrmCodigoArticulo.Text) == false)
+                {
+                    MessageBox.Show("Error al agregar. El código solo admite números y letras juntos.");
+                    lblErrorCodigo.Visible = true;
+                    lblErrorNombre.Visible = false;
+                    lblErrorPrecio.Visible = false;
+                    lblErrorDescripcion.Visible = false;
+                    return false;
+                }
+
+                if(txtFrmCodigoArticulo.Text.Length > 50)
+                {
+                    MessageBox.Show("Error al agregar. El código no puede superar los 50 caracteres.");
+                    lblErrorCodigo.Visible = true;
+                    lblErrorNombre.Visible = false;
+                    lblErrorPrecio.Visible = false;
+                    lblErrorDescripcion.Visible = false;
+                    return false;
                 }
 
                 //NOMBRE
-                articulo.Nombre = txtFrmNombreArticulo.Text;
-                if (txtFrmNombreArticulo.Text.Length > 50 || string.IsNullOrEmpty(txtFrmNombreArticulo.Text))
+                if(NombreTieneLetra(txtFrmNombreArticulo.Text) == false)
                 {
+                    MessageBox.Show("Error al agregar. El nombre no puede tener ser solo números.");
                     lblErrorNombre.Visible = true;
-                }
-
-                //PRECIO
-                articulo.Precio = float.Parse(txtFrmPrecioArticulo.Text);
-                /*if (string.IsNullOrEmpty(txtFrmPrecioArticulo.Text))
-                {
-                    lblErrorPrecio.Visible = true;                  
-                }
-                float precio;
-                if (!float.TryParse(txtFrmPrecioArticulo.Text, out precio))
-                {
-                    lblErrorPrecio.Visible = true;                    
-                }*/
-
-                //DESCRIPCION                              
-                if (txtFrmDescripcionArticulo.Text.Length > 150)
-                {
-                    lblErrorDescripcion.Visible = true;
+                    lblErrorCodigo.Visible = false;                    
+                    lblErrorPrecio.Visible = false;
+                    lblErrorDescripcion.Visible = false;
                     return false;
                 }
-                articulo.Descripcion = txtFrmDescripcionArticulo.Text;
 
+                if(txtFrmNombreArticulo.Text.Length > 50)
+                {
+                    MessageBox.Show("Error al agregar. El nombre no puede superar los 50 caracteres.");
+                    lblErrorCodigo.Visible = false;
+                    lblErrorNombre.Visible = true;
+                    lblErrorPrecio.Visible = false;
+                    lblErrorDescripcion.Visible = false;
+                    return false;
+                }
+                
+                //CATEGORIA
+                if(cboFrmCategoriaArticulo.SelectedItem == null)
+                {
+                    MessageBox.Show("Error al agregar. Debe seleccionar una categoría primero.");
+                    lblErrorCodigo.Visible = false;
+                    lblErrorNombre.Visible = false;
+                    lblErrorPrecio.Visible = false;
+                    lblErrorDescripcion.Visible = false;
+                    lblErrorMarca.Visible = false;
+                    lblErrorCategoria.Visible = true;
+                    return false;
+                }
+
+                //MARCA
+                if (cboFrmMarcaArticulo.SelectedItem == null)
+                {
+                    MessageBox.Show("Error al agregar. Debe seleccionar una marca primero.");
+                    lblErrorCodigo.Visible = false;
+                    lblErrorNombre.Visible = false;
+                    lblErrorPrecio.Visible = false;
+                    lblErrorDescripcion.Visible = false;
+                    lblErrorCategoria.Visible = false;
+                    lblErrorMarca.Visible = true;
+                    return false;
+                }
+
+                articulo.Codigo = txtFrmCodigoArticulo.Text;                
+                articulo.Nombre = txtFrmNombreArticulo.Text;                                
+                articulo.Precio = float.Parse(txtFrmPrecioArticulo.Text);                                                             
+                articulo.Descripcion = txtFrmDescripcionArticulo.Text;               
                 articulo.Marca = (Marca)cboFrmMarcaArticulo.SelectedItem;
-                articulo.Categoria = (Categoria)cboFrmCategoriaArticulo.SelectedItem;
-                //articulo.Imagen.ImagenUrl = txtFrmUrlImagen.Text;
+                articulo.Categoria = (Categoria)cboFrmCategoriaArticulo.SelectedItem;                                                                                  
             }
             catch (Exception)
-            {
-                MessageBox.Show("¡Primero complete los campos obligatorios!");
+            {               
+                MessageBox.Show("Ocurrió un error inesperado.");                
                 return false;
             }
             return true;
@@ -288,13 +372,7 @@ namespace TpWinform
                     articulo = new Articulo();
                 articulo.Imagenes = new List<string>();
 
-                //articulo.Codigo = txtFrmCodigoArticulo.Text;
-                //articulo.Nombre = txtFrmNombreArticulo.Text;
-                //articulo.Precio = float.Parse(txtFrmPrecioArticulo.Text);
-                //articulo.Descripcion = txtFrmDescripcionArticulo.Text;
-                //articulo.Marca=(Marca)cboFrmMarcaArticulo.SelectedItem;
-                //articulo.Categoria=(Categoria)cboFrmCategoriaArticulo.SelectedItem;
-
+                
                 if (!(ValidarCampos(articulo)))
                 {
                     return;
@@ -346,16 +424,12 @@ namespace TpWinform
             }
 
         }
-
-        private void lblErrorAgregarArticulo_Click(object sender, EventArgs e)
-        {
-
-        }
-
+      
         private void txtFrmPrecioArticulo_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar)) //&& e.KeyChar != '.') <--- por si queremos decimales
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != ',')
             {
+                
                 e.Handled = true; // Cancela la tecla presionada
             }
         }
@@ -364,6 +438,6 @@ namespace TpWinform
         {
             Close();
         }
-
+     
     }
 }

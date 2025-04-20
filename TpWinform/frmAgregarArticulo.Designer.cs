@@ -55,6 +55,8 @@
             this.lblErrorCampoUrlImage = new System.Windows.Forms.Label();
             this.flpContenedorImagenes = new System.Windows.Forms.FlowLayoutPanel();
             this.lblEjemploFormato = new System.Windows.Forms.Label();
+            this.lblErrorCategoria = new System.Windows.Forms.Label();
+            this.lblErrorMarca = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbxImagen)).BeginInit();
             this.flpContenedorImagenes.SuspendLayout();
             this.SuspendLayout();
@@ -261,20 +263,19 @@
             this.lblErrorCodigo.AutoSize = true;
             this.lblErrorCodigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblErrorCodigo.ForeColor = System.Drawing.Color.Red;
-            this.lblErrorCodigo.Location = new System.Drawing.Point(367, 44);
+            this.lblErrorCodigo.Location = new System.Drawing.Point(364, 44);
             this.lblErrorCodigo.Name = "lblErrorCodigo";
             this.lblErrorCodigo.Size = new System.Drawing.Size(14, 18);
             this.lblErrorCodigo.TabIndex = 12;
             this.lblErrorCodigo.Text = "*";
-            this.lblErrorCodigo.Visible = false;
-            this.lblErrorCodigo.Click += new System.EventHandler(this.lblErrorAgregarArticulo_Click);
+            this.lblErrorCodigo.Visible = false;            
             // 
             // lblErrorNombre
             // 
             this.lblErrorNombre.AutoSize = true;
             this.lblErrorNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblErrorNombre.ForeColor = System.Drawing.Color.Red;
-            this.lblErrorNombre.Location = new System.Drawing.Point(367, 83);
+            this.lblErrorNombre.Location = new System.Drawing.Point(364, 78);
             this.lblErrorNombre.Name = "lblErrorNombre";
             this.lblErrorNombre.Size = new System.Drawing.Size(14, 18);
             this.lblErrorNombre.TabIndex = 13;
@@ -298,7 +299,7 @@
             this.lblErrorPrecio.AutoSize = true;
             this.lblErrorPrecio.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblErrorPrecio.ForeColor = System.Drawing.Color.Red;
-            this.lblErrorPrecio.Location = new System.Drawing.Point(367, 203);
+            this.lblErrorPrecio.Location = new System.Drawing.Point(364, 206);
             this.lblErrorPrecio.Name = "lblErrorPrecio";
             this.lblErrorPrecio.Size = new System.Drawing.Size(14, 18);
             this.lblErrorPrecio.TabIndex = 15;
@@ -338,11 +339,37 @@
             this.lblEjemploFormato.TabIndex = 16;
             this.lblEjemploFormato.Text = "Admite estos formatos: \".jpg\", \".jpeg\", \".png\", \".gif\"";
             // 
+            // lblErrorCategoria
+            // 
+            this.lblErrorCategoria.AutoSize = true;
+            this.lblErrorCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblErrorCategoria.ForeColor = System.Drawing.Color.Red;
+            this.lblErrorCategoria.Location = new System.Drawing.Point(364, 167);
+            this.lblErrorCategoria.Name = "lblErrorCategoria";
+            this.lblErrorCategoria.Size = new System.Drawing.Size(14, 18);
+            this.lblErrorCategoria.TabIndex = 17;
+            this.lblErrorCategoria.Text = "*";
+            this.lblErrorCategoria.Visible = false;
+            // 
+            // lblErrorMarca
+            // 
+            this.lblErrorMarca.AutoSize = true;
+            this.lblErrorMarca.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblErrorMarca.ForeColor = System.Drawing.Color.Red;
+            this.lblErrorMarca.Location = new System.Drawing.Point(364, 123);
+            this.lblErrorMarca.Name = "lblErrorMarca";
+            this.lblErrorMarca.Size = new System.Drawing.Size(14, 18);
+            this.lblErrorMarca.TabIndex = 18;
+            this.lblErrorMarca.Text = "*";
+            this.lblErrorMarca.Visible = false;
+            // 
             // frmAgregarArticulo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(514, 697);
+            this.Controls.Add(this.lblErrorMarca);
+            this.Controls.Add(this.lblErrorCategoria);
             this.Controls.Add(this.lblEjemploFormato);
             this.Controls.Add(this.lblErrorPrecio);
             this.Controls.Add(this.lblErrorDescripcion);
@@ -412,5 +439,7 @@
         private System.Windows.Forms.Label lblErrorDescripcion;
         private System.Windows.Forms.Label lblErrorPrecio;
         private System.Windows.Forms.Label lblEjemploFormato;
+        private System.Windows.Forms.Label lblErrorCategoria;
+        private System.Windows.Forms.Label lblErrorMarca;
     }
 }

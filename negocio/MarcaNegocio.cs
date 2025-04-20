@@ -43,8 +43,7 @@ namespace negocio
             {
                 datos.setearConsulta("UPDATE MARCAS SET Descripcion = @descripcion WHERE Id = @id");
                 datos.setearParametro("@descripcion", mod.Descripcion);
-                datos.setearParametro("@id", mod.Id);
-                              
+                datos.setearParametro("@id", mod.Id);                              
                 datos.ejecutarAccion();
             }
             catch (Exception ex)

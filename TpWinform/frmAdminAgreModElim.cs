@@ -31,9 +31,18 @@ namespace TpWinform
         {
             InitializeComponent();
             this.tipo = tipo;
+            if(tipo == frmAdministrar.Administrar.Marca)
+            {
+                Text = "Agregando...";
+                lblAdministrar.Text = "Marca: ";
+            }
+            else if(tipo == frmAdministrar.Administrar.Categoria)
+            {
+                Text = "Agregando...";
+                lblAdministrar.Text = "Categoría: ";
+            }
 
-        }
-
+        }       
         public frmAdminAgreModElim(Categoria seleccionado, bool modificar)
         {
             InitializeComponent();
@@ -42,12 +51,11 @@ namespace TpWinform
             this.tipo = frmAdministrar.Administrar.Categoria;
             if (esModificable)
             {
-                Text = "Modificando";
-                lblAdministrar.Text = "Categoria";
+                Text = "Modificando...";
+                lblAdministrar.Text = "Categoría: ";
             }
-
         }
-
+        
         public frmAdminAgreModElim(Marca seleccionado, bool modificar)
         {
             InitializeComponent();
@@ -56,14 +64,10 @@ namespace TpWinform
             this.tipo = frmAdministrar.Administrar.Marca;
             if (esModificable)
             {
-                Text = "Modificando";
-                lblAdministrar.Text = "Marca";
-
-            }
-
+                Text = "Modificando...";
+                lblAdministrar.Text = "Marca: ";
+            }            
         }
-
-
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
@@ -88,13 +92,13 @@ namespace TpWinform
 
                         marca.Descripcion = txtAdministrar.Text;
                         marcaNegocio.ModificarMarca(marca);
-                        MessageBox.Show("Marca modificada exitosamente!");
+                        MessageBox.Show("¡Marca modificada exitosamente!");
                     }
                     else
                     {
                         marca.Descripcion = txtAdministrar.Text;
                         marcaNegocio.AgregarMarca(marca);
-                        MessageBox.Show("Marca agregada exitosamente!");
+                        MessageBox.Show("¡Marca agregada exitosamente!");
                     }
                     Close();
                 }
@@ -110,13 +114,13 @@ namespace TpWinform
                     {
                         categoria.Descripcion = txtAdministrar.Text;
                         categoriaNegocio.ModificarCategoria(categoria);
-                        MessageBox.Show("Categoria modificada exitosamente!");                       
+                        MessageBox.Show("¡Categoría modificada exitosamente!");                       
                     }
                     else
                     {
                         categoria.Descripcion = txtAdministrar.Text;
                         categoriaNegocio.AgregarCategoria(categoria);
-                        MessageBox.Show("Categoria agregada exitosamente!");
+                        MessageBox.Show("¡Categoría agregada exitosamente!");
                     }
                     Close();
                 }
