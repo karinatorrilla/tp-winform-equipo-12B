@@ -297,20 +297,28 @@ namespace TpWinform
 
         private void btnMaxLetra_Click(object sender, EventArgs e)
         {
-
-            tamLetra += 2;
-            dgvArticulos.DefaultCellStyle.Font = new Font(" ", tamLetra);
-
+            if (tamLetra < 30)
+            {
+                tamLetra += 2;
+                dgvArticulos.DefaultCellStyle.Font = new Font(" ", tamLetra);
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
+            if (tamLetra > 8)
+            {
+
             tamLetra -= 2;
             dgvArticulos.DefaultCellStyle.Font = new Font(" ", tamLetra);
+            }
         }
 
         private void btnLetraInicial_Click(object sender, EventArgs e)
         {
+
+
+
             tamLetra = 8;
             dgvArticulos.DefaultCellStyle.Font = new Font(" ", tamLetra);
         }
