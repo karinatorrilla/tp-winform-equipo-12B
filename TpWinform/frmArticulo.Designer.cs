@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblAdministrar = new System.Windows.Forms.Label();
@@ -80,7 +80,7 @@
             // 
             this.lblAdministrar.AutoSize = true;
             this.lblAdministrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAdministrar.Location = new System.Drawing.Point(10, 229);
+            this.lblAdministrar.Location = new System.Drawing.Point(3, 220);
             this.lblAdministrar.Name = "lblAdministrar";
             this.lblAdministrar.Size = new System.Drawing.Size(85, 16);
             this.lblAdministrar.TabIndex = 2;
@@ -89,10 +89,12 @@
             // lblMenuMarcas
             // 
             this.lblMenuMarcas.AutoSize = true;
-            this.lblMenuMarcas.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMenuMarcas.Location = new System.Drawing.Point(12, 286);
+            this.lblMenuMarcas.BackColor = System.Drawing.Color.Salmon;
+            this.lblMenuMarcas.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblMenuMarcas.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
+            this.lblMenuMarcas.Location = new System.Drawing.Point(12, 278);
             this.lblMenuMarcas.Name = "lblMenuMarcas";
-            this.lblMenuMarcas.Size = new System.Drawing.Size(58, 16);
+            this.lblMenuMarcas.Size = new System.Drawing.Size(56, 17);
             this.lblMenuMarcas.TabIndex = 1;
             this.lblMenuMarcas.Text = "Marcas";
             this.lblMenuMarcas.Click += new System.EventHandler(this.lblMenuMarcas_Click_1);
@@ -101,19 +103,25 @@
             // 
             this.lblMenuArticulos.AutoSize = true;
             this.lblMenuArticulos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMenuArticulos.Location = new System.Drawing.Point(3, 100);
+            this.lblMenuArticulos.Location = new System.Drawing.Point(12, 100);
             this.lblMenuArticulos.Name = "lblMenuArticulos";
             this.lblMenuArticulos.Size = new System.Drawing.Size(67, 16);
             this.lblMenuArticulos.TabIndex = 0;
             this.lblMenuArticulos.Text = "Artículos";
+            this.lblMenuArticulos.Visible = false;
             // 
             // lblMenuCategorias
             // 
             this.lblMenuCategorias.AutoSize = true;
-            this.lblMenuCategorias.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMenuCategorias.Location = new System.Drawing.Point(3, 260);
+            this.lblMenuCategorias.BackColor = System.Drawing.Color.Gold;
+            this.lblMenuCategorias.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblMenuCategorias.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lblMenuCategorias.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMenuCategorias.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.lblMenuCategorias.Location = new System.Drawing.Point(6, 248);
+            this.lblMenuCategorias.Margin = new System.Windows.Forms.Padding(3);
             this.lblMenuCategorias.Name = "lblMenuCategorias";
-            this.lblMenuCategorias.Size = new System.Drawing.Size(83, 16);
+            this.lblMenuCategorias.Size = new System.Drawing.Size(78, 17);
             this.lblMenuCategorias.TabIndex = 1;
             this.lblMenuCategorias.Text = "Categorías";
             this.lblMenuCategorias.Click += new System.EventHandler(this.lblMenuCategorias_Click);
@@ -258,14 +266,14 @@
             // 
             this.dgvArticulos.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
             this.dgvArticulos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.CornflowerBlue;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvArticulos.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.CornflowerBlue;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvArticulos.DefaultCellStyle = dataGridViewCellStyle4;
             this.dgvArticulos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvArticulos.Location = new System.Drawing.Point(101, 80);
             this.dgvArticulos.MaximumSize = new System.Drawing.Size(777, 495);

@@ -21,11 +21,13 @@ namespace TpWinform
 
         private Administrar tipo;
 
-        public frmAdministrar(Administrar tipo)
+        private frmArticulo frmArticulo;
+
+        public frmAdministrar(Administrar tipo, frmArticulo frmArticulo)
         {
             InitializeComponent();
             this.tipo = tipo;
-
+            this.frmArticulo = frmArticulo;
         }
 
 
@@ -59,9 +61,7 @@ namespace TpWinform
             frmAdminAgreModElim agregar = new frmAdminAgreModElim(tipo);
             agregar.ShowDialog();
             cargarInfo(tipo);
-
-
-
+            
         }
 
         private void btnModificarAdministrar_Click(object sender, EventArgs e)
@@ -122,6 +122,16 @@ namespace TpWinform
         private void btnEliminarAdminisitrar_Click(object sender, EventArgs e)
         {
             cargarInfo(tipo);
+        }
+
+        private void frmAdministrar_Leave(object sender, EventArgs e)
+        {
+            //frmArticulo.cargar();
+        }
+
+        private void frmAdministrar_FormClosed(object sender, FormClosedEventArgs e)
+        {           
+            frmArticulo.cargar();
         }
     }
 }

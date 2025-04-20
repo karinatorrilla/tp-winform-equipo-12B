@@ -39,7 +39,7 @@ namespace TpWinform
         }
 
         // Carga el listado de lista Articulos
-        private void cargar()
+        public void cargar()
         {
 
             try
@@ -56,10 +56,6 @@ namespace TpWinform
             }
 
         }
-
-
-
-
 
         private void dgvArticulos_SelectionChanged(object sender, EventArgs e)
         {
@@ -287,18 +283,16 @@ namespace TpWinform
 
         private void lblMenuCategorias_Click(object sender, EventArgs e)
         {
-            frmAdministrar opcCategoria = new frmAdministrar(frmAdministrar.Administrar.Categoria);
-            opcCategoria.ShowDialog();
-
+            frmAdministrar opcCategoria = new frmAdministrar(frmAdministrar.Administrar.Categoria, this);
+            opcCategoria.ShowDialog();            
         }
 
 
 
         private void lblMenuMarcas_Click_1(object sender, EventArgs e)
         {
-            frmAdministrar opcMarca = new frmAdministrar(frmAdministrar.Administrar.Marca);
-            opcMarca.ShowDialog();
-            
+            frmAdministrar opcMarca = new frmAdministrar(frmAdministrar.Administrar.Marca, this);
+            opcMarca.ShowDialog();            
         }
 
     }

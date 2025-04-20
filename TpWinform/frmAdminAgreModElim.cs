@@ -21,12 +21,17 @@ namespace TpWinform
         private Categoria categoria = null;
         private CategoriaNegocio categoriaNegocio;
 
-
+       
         private bool esModificable = false;
         public enum Administrar { Marca, Categoria }
         //Constantes para definir que datasource mostrar si marca o categoria
 
         private frmAdministrar.Administrar tipo;
+
+        //
+        
+
+        //
 
         public frmAdminAgreModElim(frmAdministrar.Administrar tipo)
         {
@@ -109,9 +114,9 @@ namespace TpWinform
 
                     if (categoria.Id != 0)
                     {
-                        categoria.Descripcion=txtAdministrar.Text;
+                        categoria.Descripcion = txtAdministrar.Text;
                         categoriaNegocio.ModificarCategoria(categoria);
-                        MessageBox.Show("Categoria modificada exitosamente!");
+                        MessageBox.Show("Categoria modificada exitosamente!");                       
                     }
                     else
                     {

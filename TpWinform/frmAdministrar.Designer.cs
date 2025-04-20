@@ -49,7 +49,7 @@
             // btnModificarAdministrar
             // 
             this.btnModificarAdministrar.BackColor = System.Drawing.Color.Yellow;
-            this.btnModificarAdministrar.Location = new System.Drawing.Point(210, 169);
+            this.btnModificarAdministrar.Location = new System.Drawing.Point(210, 174);
             this.btnModificarAdministrar.Name = "btnModificarAdministrar";
             this.btnModificarAdministrar.Size = new System.Drawing.Size(75, 23);
             this.btnModificarAdministrar.TabIndex = 1;
@@ -92,7 +92,9 @@
             this.Name = "frmAdministrar";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmAdministrar";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmAdministrar_FormClosed);
             this.Load += new System.EventHandler(this.frmAdministrar_Load);
+            this.Leave += new System.EventHandler(this.frmAdministrar_Leave);
             ((System.ComponentModel.ISupportInitialize)(this.dgvAdministrar)).EndInit();
             this.ResumeLayout(false);
 
