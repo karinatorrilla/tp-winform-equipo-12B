@@ -76,13 +76,13 @@ namespace TpWinform
                     }
                     else
                     {
-                        MessageBox.Show("¡Debe seleccionar un item de la lista!");
+                        MessageBox.Show("¡Debe seleccionar un item de la lista!","Error",MessageBoxButtons.OK,MessageBoxIcon.Warning);
                     }
 
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.ToString());
+                    MessageBox.Show(ex.ToString(),"Error");
                 }
             }
             else if (tipo == Administrar.Categoria)
@@ -100,13 +100,13 @@ namespace TpWinform
                     }
                     else
                     {
-                        MessageBox.Show("¡Debe seleccionar un item de la lista!");
+                        MessageBox.Show("¡Debe seleccionar un item de la lista!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
 
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.ToString());
+                    MessageBox.Show(ex.ToString(),"Error");
                 }
             }
 
@@ -142,13 +142,14 @@ namespace TpWinform
                     }
                     else
                     {
-                        MessageBox.Show("¡Debe seleccionar un item de la lista!");
+                        MessageBox.Show("¡Debe seleccionar un item de la lista!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
                     }
 
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.ToString());
+                    MessageBox.Show(ex.ToString(),"Error");
                 }
             }
             //ELIMINAR CATEGORIAS. LAS IMAGENES Y ARTICULOS ASOCIADOS TAMBIÉN SE ELIMINAN...
@@ -178,7 +179,7 @@ namespace TpWinform
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.ToString());
+                    MessageBox.Show(ex.ToString(),"Error");
                 }
             }
         }

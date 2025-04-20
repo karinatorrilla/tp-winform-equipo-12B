@@ -18,6 +18,8 @@ namespace TpWinform
         {
             InitializeComponent();
             inicializaLabelsErrorOcultos();
+            lblMasImagenes.Visible = true;
+            chkboxMasImagenes.Visible = true;
         }
 
         //Constructor para modificar artículo!!!
@@ -25,13 +27,18 @@ namespace TpWinform
         {
             InitializeComponent();
             inicializaLabelsErrorOcultos();
+            lblMasImagenes.Visible = true;
+            
+            chkboxMasImagenes.Visible = true;
             this.articulo = articulo;
             this.esModificable = modificar;
 
             if (esModificable)
             {
+                
                 Text = "Modificar";
                 lblCrearArticulo.Text = "Modificar Artículo";
+                lblMasImagenes.Text = "¿Modificar mas\r\nde una imagen?";
                 btnFrmGuardarArticulo.Text = "Modificar";
                 if (articulo.Imagenes != null)
                 {
@@ -42,6 +49,8 @@ namespace TpWinform
             {
                 Text = "Detalle";
                 lblCrearArticulo.Text = "Detalle del Artículo";
+                lblMasImagenes.Visible = false;
+                chkboxMasImagenes.Visible = false;
                 btnFrmGuardarArticulo.Visible = false;
                 btnFrmCancelarArticulo.Text = "Volver";
                 if (articulo.Imagenes != null)
@@ -50,7 +59,7 @@ namespace TpWinform
                 }
                 BloquearCampos();
             }
-            
+
 
         }
 
@@ -132,11 +141,11 @@ namespace TpWinform
 
             try
             {
-                cboFrmMarcaArticulo.DataSource = marca.ListarMarca();                
+                cboFrmMarcaArticulo.DataSource = marca.ListarMarca();
                 cboFrmMarcaArticulo.ValueMember = "Id";
                 cboFrmMarcaArticulo.DisplayMember = "Descripcion";
-                
-                cboFrmCategoriaArticulo.DataSource = categoria.ListarCategoria();                               
+
+                cboFrmCategoriaArticulo.DataSource = categoria.ListarCategoria();
                 cboFrmCategoriaArticulo.ValueMember = "Id";
                 cboFrmCategoriaArticulo.DisplayMember = "Descripcion";
 
@@ -174,7 +183,7 @@ namespace TpWinform
                     }
                     else
                     {
-                        txtFrmUrlImagen.Text = "";                       
+                        txtFrmUrlImagen.Text = "";
                     }
                 }
                 else
@@ -185,9 +194,9 @@ namespace TpWinform
                 }
             }
             catch (Exception ex)
-                {
-                    MessageBox.Show(ex.ToString());
-                }
+            {
+                MessageBox.Show(ex.ToString(), "Error");
+            }
         }
 
 
@@ -228,7 +237,7 @@ namespace TpWinform
             bool tieneNumero = false;
 
             foreach (char caracter in texto)
-            {               
+            {
                 if (char.IsLetter(caracter))
                 {
                     tieneLetra = true;
@@ -247,12 +256,12 @@ namespace TpWinform
 
         private bool ValidarCampos(Articulo articulo)
         {
-            
+
             try
-            {    
+            {
                 //CAMPOS OBLIGATORIOS VACIOS
-                if(string.IsNullOrEmpty(txtFrmCodigoArticulo.Text) || 
-                    string.IsNullOrEmpty(txtFrmNombreArticulo.Text) || 
+                if (string.IsNullOrEmpty(txtFrmCodigoArticulo.Text) ||
+                    string.IsNullOrEmpty(txtFrmNombreArticulo.Text) ||
                     string.IsNullOrEmpty(txtFrmPrecioArticulo.Text) ||
                     cboFrmCategoriaArticulo == null ||
                     cboFrmMarcaArticulo == null)
@@ -267,7 +276,7 @@ namespace TpWinform
                 }
 
                 //DESCRIPCION
-                if(txtFrmDescripcionArticulo.Text.Length > 150)
+                if (txtFrmDescripcionArticulo.Text.Length > 150)
                 {
                     lblErrorDescripcion.Visible = true;
                     lblErrorCodigo.Visible = false;
@@ -287,7 +296,7 @@ namespace TpWinform
                     return false;
                 }
 
-                if(txtFrmCodigoArticulo.Text.Length > 50)
+                if (txtFrmCodigoArticulo.Text.Length > 50)
                 {
                     MessageBox.Show("Error al agregar. El código no puede superar los 50 caracteres.");
                     lblErrorCodigo.Visible = true;
@@ -298,17 +307,17 @@ namespace TpWinform
                 }
 
                 //NOMBRE
-                if(NombreTieneLetra(txtFrmNombreArticulo.Text) == false)
+                if (NombreTieneLetra(txtFrmNombreArticulo.Text) == false)
                 {
                     MessageBox.Show("Error al agregar. El nombre no puede tener solo números.");
                     lblErrorNombre.Visible = true;
-                    lblErrorCodigo.Visible = false;                    
+                    lblErrorCodigo.Visible = false;
                     lblErrorPrecio.Visible = false;
                     lblErrorDescripcion.Visible = false;
                     return false;
                 }
 
-                if(txtFrmNombreArticulo.Text.Length > 50)
+                if (txtFrmNombreArticulo.Text.Length > 50)
                 {
                     MessageBox.Show("Error al agregar. El nombre no puede superar los 50 caracteres.");
                     lblErrorCodigo.Visible = false;
@@ -317,9 +326,9 @@ namespace TpWinform
                     lblErrorDescripcion.Visible = false;
                     return false;
                 }
-                
+
                 //CATEGORIA
-                if(cboFrmCategoriaArticulo.SelectedItem == null)
+                if (cboFrmCategoriaArticulo.SelectedItem == null)
                 {
                     MessageBox.Show("Error al agregar. Debe seleccionar una categoría primero.");
                     lblErrorCodigo.Visible = false;
@@ -344,16 +353,16 @@ namespace TpWinform
                     return false;
                 }
 
-                articulo.Codigo = txtFrmCodigoArticulo.Text;                
-                articulo.Nombre = txtFrmNombreArticulo.Text;                                
-                articulo.Precio = float.Parse(txtFrmPrecioArticulo.Text);                                                             
-                articulo.Descripcion = txtFrmDescripcionArticulo.Text;               
+                articulo.Codigo = txtFrmCodigoArticulo.Text;
+                articulo.Nombre = txtFrmNombreArticulo.Text;
+                articulo.Precio = float.Parse(txtFrmPrecioArticulo.Text);
+                articulo.Descripcion = txtFrmDescripcionArticulo.Text;
                 articulo.Marca = (Marca)cboFrmMarcaArticulo.SelectedItem;
-                articulo.Categoria = (Categoria)cboFrmCategoriaArticulo.SelectedItem;                                                                                  
+                articulo.Categoria = (Categoria)cboFrmCategoriaArticulo.SelectedItem;
             }
             catch (Exception)
-            {               
-                MessageBox.Show("Ocurrió un error inesperado.");                
+            {
+                MessageBox.Show("Ocurrió un error inesperado.");
                 return false;
             }
             return true;
@@ -372,7 +381,7 @@ namespace TpWinform
                     articulo = new Articulo();
                 articulo.Imagenes = new List<string>();
 
-                
+
                 if (!(ValidarCampos(articulo)))
                 {
                     return;
@@ -395,7 +404,7 @@ namespace TpWinform
                     {
                         negocio.crearImagenes(urlImagen, articulo.Id);
                     }
-                    MessageBox.Show("Artículo modificado exitosamente!");
+                    MessageBox.Show("Artículo modificado exitosamente!", "Exito");
                 }
                 else
                 {
@@ -403,7 +412,7 @@ namespace TpWinform
                     //consulta a la db el ultimo ID del articulo creado
                     int ultimoId = negocio.obtenerUltimoArticuloCreado();
                     //Console.WriteLine("ULTIMO ID ARTICULO CREADO" + ultimoId);
-                    if(ultimoId > 0)
+                    if (ultimoId > 0)
                     {
                         // Recorro sobre la lista de URLs y por cada una llamo a crearImagenes
                         foreach (string urlImagen in articulo.Imagenes)
@@ -411,8 +420,8 @@ namespace TpWinform
                             negocio.crearImagenes(urlImagen, ultimoId);
                         }
                     }
-                    
-                    MessageBox.Show("Artículo agregado exitosamente!");
+
+                    MessageBox.Show("Artículo agregado exitosamente!", "Exito");
                 }
                 Close();
 
@@ -420,16 +429,16 @@ namespace TpWinform
             catch (Exception ex)
             {
 
-                MessageBox.Show(ex.ToString());
+                MessageBox.Show(ex.ToString(), "Error");
             }
 
         }
-      
+
         private void txtFrmPrecioArticulo_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != ',')
             {
-                
+
                 e.Handled = true; // Cancela la tecla presionada
             }
         }
@@ -438,6 +447,27 @@ namespace TpWinform
         {
             Close();
         }
-     
+
+
+        private void chkboxMasImagenes_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkboxMasImagenes.Checked)
+            {
+                txtFrmUrlImagen.Size = new Size(345, 300);
+               
+               
+            }
+            else
+            {
+                txtFrmUrlImagen.Size = new Size(345, 22);
+         
+            }
+
+        }
+
+        private void lblMasImagenes_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

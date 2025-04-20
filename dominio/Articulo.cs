@@ -24,6 +24,8 @@ namespace dominio
         public Categoria Categoria { get; set; }
 
         public List<string> Imagenes { get; set; } = new List<string>();
+
+       
         public float Precio { get; set; }
 
         //public Imagen Imagen { get; set; } // se usaba para una sola imagen, quedo deshabiltada

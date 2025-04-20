@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAdministrar));
             this.btnAgregarAdministrar = new System.Windows.Forms.Button();
             this.btnModificarAdministrar = new System.Windows.Forms.Button();
             this.btnEliminarAdministrar = new System.Windows.Forms.Button();
@@ -86,6 +87,7 @@
             this.Controls.Add(this.btnEliminarAdministrar);
             this.Controls.Add(this.btnModificarAdministrar);
             this.Controls.Add(this.btnAgregarAdministrar);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(316, 433);
             this.MinimumSize = new System.Drawing.Size(316, 433);

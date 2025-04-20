@@ -17,7 +17,7 @@ namespace TpWinform
         private List<Articulo> listaArticulo;
         private List<Marca> listaMarca;
         private List<Categoria> listaCategorias;
-
+        private int tamLetra = 8;
         public frmArticulo()
         {
             InitializeComponent();
@@ -33,7 +33,7 @@ namespace TpWinform
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            MessageBox.Show("¡Gracias por usar el programa!");
+            MessageBox.Show("¡Gracias por usar el programa!","Equipo 12B");
         }
 
         // Carga el listado de lista Articulos
@@ -46,11 +46,13 @@ namespace TpWinform
                 listaArticulo = negocio.Listar();
                 dgvArticulos.DataSource = listaArticulo;
                 dgvArticulos.Columns["Id"].Visible = false;
-                //dgvArticulos.Columns["Imagen"].Visible = false;
+                dgvArticulos.Columns["Precio"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                //para alionear el precio a la derecha
+
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
+                MessageBox.Show(ex.ToString(),"Error");
             }
 
         }
@@ -68,8 +70,10 @@ namespace TpWinform
 
         private void btnAgregarArticulo_Click(object sender, EventArgs e)
         {
+
             frmAgregarArticulo alta = new frmAgregarArticulo();
             alta.ShowDialog();
+
             cargar();
         }
 
@@ -94,7 +98,7 @@ namespace TpWinform
             catch (Exception ex)
             {
 
-                MessageBox.Show(ex.ToString());
+                MessageBox.Show(ex.ToString(), "Error");
             }
 
         }
@@ -137,13 +141,13 @@ namespace TpWinform
                 }
                 else
                 {
-                    MessageBox.Show("¡Debe seleccionar un artículo de la lista!");
+                    MessageBox.Show("¡Debe seleccionar un artículo de la lista!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
 
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
+                MessageBox.Show(ex.ToString(), "Error");
             }
             txtBuscar.Text = "";
         }
@@ -168,12 +172,12 @@ namespace TpWinform
                 }
                 else
                 {
-                    MessageBox.Show("¡Debe seleccionar un artículo de la lista!");
+                    MessageBox.Show("¡Debe seleccionar un artículo de la lista!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
+                MessageBox.Show(ex.ToString(), "Error");
             }
         }
 
@@ -192,13 +196,13 @@ namespace TpWinform
                 }
                 else
                 {
-                    MessageBox.Show("¡Debe seleccionar un artículo de la lista!");
+                    MessageBox.Show("¡Debe seleccionar un artículo de la lista!","Error",MessageBoxButtons.OK,MessageBoxIcon.Warning);
                 }
 
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
+                MessageBox.Show(ex.ToString(), "Error");
             }
 
             txtBuscar.Text = "";
@@ -246,7 +250,7 @@ namespace TpWinform
                 }
                 else
                 {
-                   // MessageBox.Show("Por favor, seleccioná una opción en ambos filtros.", "Error de filtro", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    // MessageBox.Show("Por favor, seleccioná una opción en ambos filtros.", "Error de filtro", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     lblErrorFiltro.Visible = true;
                     return;
                 }
@@ -269,15 +273,47 @@ namespace TpWinform
         private void lblMenuCategorias_Click(object sender, EventArgs e)
         {
             frmAdministrar opcCategoria = new frmAdministrar(frmAdministrar.Administrar.Categoria, this);
-            opcCategoria.ShowDialog();            
+            opcCategoria.ShowDialog();
         }
 
         private void lblMenuMarcas_Click_1(object sender, EventArgs e)
         {
             frmAdministrar opcMarca = new frmAdministrar(frmAdministrar.Administrar.Marca, this);
-            opcMarca.ShowDialog();            
+            opcMarca.ShowDialog();
         }
 
+
+        private void dgvArticulos_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+
+            ///para formato de precio con $ al principio.
+            if (dgvArticulos.Columns[e.ColumnIndex].Name == "Precio" && e.Value != null)
+            {
+                e.Value = $"$ {e.Value:N2}"; // $ precio.00   
+
+                e.FormattingApplied = true;
+            }
+        }
+
+        private void btnMaxLetra_Click(object sender, EventArgs e)
+        {
+
+            tamLetra += 2;
+            dgvArticulos.DefaultCellStyle.Font = new Font(" ", tamLetra);
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            tamLetra -= 2;
+            dgvArticulos.DefaultCellStyle.Font = new Font(" ", tamLetra);
+        }
+
+        private void btnLetraInicial_Click(object sender, EventArgs e)
+        {
+            tamLetra = 8;
+            dgvArticulos.DefaultCellStyle.Font = new Font(" ", tamLetra);
+        }
     }
 }
 

@@ -79,7 +79,11 @@ namespace TpWinform
 
             try
             {
-
+                if (string.IsNullOrWhiteSpace(txtAdministrar.Text))
+                {
+                    MessageBox.Show("Por favor complete el campo antes de continuar","Error al agregar campo vacio",MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
                 if (tipo == frmAdministrar.Administrar.Marca)
                 {
                     marcaNegocio = new MarcaNegocio();
@@ -92,13 +96,13 @@ namespace TpWinform
 
                         marca.Descripcion = txtAdministrar.Text;
                         marcaNegocio.ModificarMarca(marca);
-                        MessageBox.Show("¡Marca modificada exitosamente!");
+                        MessageBox.Show("¡Marca modificada exitosamente!","Exito");
                     }
                     else
                     {
                         marca.Descripcion = txtAdministrar.Text;
                         marcaNegocio.AgregarMarca(marca);
-                        MessageBox.Show("¡Marca agregada exitosamente!");
+                        MessageBox.Show("¡Marca agregada exitosamente!","Exito");
                     }
                     Close();
                 }
@@ -114,13 +118,13 @@ namespace TpWinform
                     {
                         categoria.Descripcion = txtAdministrar.Text;
                         categoriaNegocio.ModificarCategoria(categoria);
-                        MessageBox.Show("¡Categoría modificada exitosamente!");                       
+                        MessageBox.Show("¡Categoría modificada exitosamente!", "Exito");                       
                     }
                     else
                     {
                         categoria.Descripcion = txtAdministrar.Text;
                         categoriaNegocio.AgregarCategoria(categoria);
-                        MessageBox.Show("¡Categoría agregada exitosamente!");
+                        MessageBox.Show("¡Categoría agregada exitosamente!", "Exito");
                     }
                     Close();
                 }
@@ -129,7 +133,7 @@ namespace TpWinform
             catch (Exception ex)
             {
 
-                MessageBox.Show(ex.ToString());
+                MessageBox.Show(ex.ToString(),"Error");
             }
 
 
